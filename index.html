@@ -160,7 +160,7 @@ header .btn{padding:10px 20px;font-size:.68rem;}
   color:var(--branco);
   padding:80px 0 0;
   overflow:hidden;
-  min-height:92vh;
+  min-height:clamp(560px, 92vh, 820px);
   display:flex;align-items:center;
 }
 .hero-photo{
@@ -217,6 +217,7 @@ header .btn{padding:10px 20px;font-size:.68rem;}
 /* Trust bar */
 .trust-bar{background:var(--marfim);border-bottom:1px solid #DDE1D6;}
 .trust-bar .wrap{display:flex;flex-wrap:wrap;gap:36px;justify-content:center;padding:26px 24px;font-size:.86rem;color:var(--verde-serra);}
+.trust-bar .wrap span{display:inline-flex;align-items:center;}
 .trust-bar strong{font-family:"Fraunces",serif;font-weight:600;color:var(--arenito);}
 
 /* Reveal on scroll */
@@ -250,7 +251,7 @@ header .btn{padding:10px 20px;font-size:.68rem;}
 /* Chalé — cartões compactos (Refúgios/Família) */
 .card-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:56px;}
 @media(min-width:640px){.card-grid{grid-template-columns:1fr 1fr;}}
-.card-grid.single{max-width:554px;margin-left:auto;margin-right:auto;}
+.card-grid.single{max-width:554px;margin-left:auto;margin-right:auto;grid-template-columns:1fr;}
 .chale-card{background:var(--branco);border:1px solid #DDE1D6;display:flex;flex-direction:column;}
 .chale-photo{height:180px;background:linear-gradient(135deg,var(--arenito),var(--verde-serra));display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.75);font-size:.78rem;text-align:center;padding:14px;}
 .chale-body{padding:26px 28px 28px;flex:1;display:flex;flex-direction:column;}
@@ -306,9 +307,16 @@ header .btn{padding:10px 20px;font-size:.68rem;}
 
 /* Prova social */
 .badges{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;margin-bottom:2em;}
-.badge{background:var(--branco);border:1px solid #DDE1D6;border-radius:999px;padding:11px 22px;font-size:.86rem;font-weight:600;color:var(--verde-serra);}
+.badge{background:var(--branco);border:1px solid #DDE1D6;border-radius:999px;padding:11px 22px;font-size:.86rem;font-weight:600;color:var(--verde-serra);display:inline-flex;align-items:center;gap:8px;}
+.platform-icon{width:16px;height:16px;flex-shrink:0;vertical-align:middle;margin-right:6px;position:relative;top:-1px;}
 .badge b{font-family:"Fraunces",serif;color:var(--arenito);}
 .testimonial-placeholder{max-width:540px;margin:0 auto;text-align:center;border:1px dashed #C4C9BA;padding:28px;color:#838A75;font-size:.9rem;font-style:italic;}
+.testimonial-grid{display:grid;grid-template-columns:1fr;gap:22px;max-width:900px;margin:0 auto;text-align:left;}
+@media(min-width:700px){.testimonial-grid{grid-template-columns:1fr 1fr;}}
+.testimonial-card{background:var(--branco);border:1px solid #DDE1D6;padding:28px 26px;}
+.testimonial-card .stars{color:var(--latao);letter-spacing:.1em;margin-bottom:.6em;font-size:.9rem;}
+.testimonial-card p.quote{font-size:.94rem;color:#495337;margin-bottom:1em;font-style:italic;}
+.testimonial-card p.author{font-size:.8rem;color:#838A75;margin:0;font-style:normal;}
 
 /* FAQ */
 details{border-bottom:1px solid #DDE1D6;padding:20px 0;}
@@ -398,15 +406,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="loc">Cânions Malacara, Índios Coroados e Churriado</p>
     </div>
   </div>
-  <svg class="strata-divider" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0,70 L0,30 L120,45 L260,18 L400,40 L560,10 L720,38 L880,15 L1040,42 L1200,20 L1200,70 Z" fill="#F1F3ED"></path>
-  </svg>
 </section>
 
 <div class="trust-bar">
   <div class="wrap">
-    <span><strong>Superhost</strong> Airbnb</span>
-    <span><strong>5,0</strong> no Google</span>
+    <span><svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8 2 5 5.5 5 9.5c0 5 5.5 10.5 6.3 11.3.4.4 1 .4 1.4 0C13.5 20 19 14.5 19 9.5 19 5.5 16 2 12 2zm0 10a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg><strong>Superhost</strong> Airbnb</span>
+    <span><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22 12.2c0-.7-.06-1.4-.18-2H12v3.9h5.6c-.24 1.3-.98 2.4-2.1 3.15v2.6h3.4c2-1.83 3.1-4.53 3.1-7.65z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.6-2.4l-3.4-2.6c-.94.63-2.15 1-3.2 1-2.46 0-4.55-1.66-5.3-3.9H3.2v2.66C4.83 19.6 8.15 22 12 22z"/><path fill="#FBBC05" d="M6.7 14.1c-.2-.6-.3-1.24-.3-1.9s.1-1.3.3-1.9V7.64H3.2A9.98 9.98 0 002 12.2c0 1.6.4 3.13 1.2 4.56z"/><path fill="#EA4335" d="M12 6.4c1.47 0 2.8.5 3.83 1.5l2.87-2.87C16.95 3.36 14.7 2.4 12 2.4c-3.85 0-7.17 2.4-8.8 5.24l3.5 2.56C7.45 8.06 9.54 6.4 12 6.4z"/></svg><strong>5,0</strong> no Google</span>
   </div>
 </div>
 
@@ -491,84 +496,86 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h3>Refúgios Íntimos</h3>
       <p>Refúgio 01 e Refúgio 03 — o mesmo conforto essencial, em formato mais compacto e aconchegante.</p>
     </div>
-    <div class="card-grid reveal">
-      <article class="chale-card">
-        <div class="chale-photo photo-carousel">
-          <div class="carousel-slide active" style="background-image:url('fotos/refugio01-1.webp');"></div>
+
+    <article class="editorial-chale reveal">
+      <div class="ph photo-carousel">
+        <div class="carousel-slide active" style="background-image:url('fotos/refugio01-1.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio01-2.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio01-3.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio01-4.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio01-5.webp');"></div>
+      </div>
+      <div class="ec-body">
+        <p class="cap">Até 3 pessoas</p>
+        <h3>Refúgio 01</h3>
+        <ul>
+          <li>Hidromassagem com vista jardim</li>
+          <li>Lareira a lenha e fogo de chão</li>
+          <li>Café da manhã incluso na reserva direta</li>
+        </ul>
+        <p style="font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#838A75;margin-bottom:.3em;">A partir de</p>
+        <div class="ec-price">
+          <span class="num">R$ 550</span><span class="sep">/</span><span class="fds">semana</span>
+          <span class="sep">·</span><span class="num" style="font-size:1.2rem;">R$ 590</span><span class="fds">fds</span>
         </div>
-        <div class="chale-body">
-          <h3>Refúgio 01</h3>
-          <p class="chale-cap">Até 3 pessoas</p>
-          <ul>
-            <li>Hidromassagem com vista jardim</li>
-            <li>Lareira a lenha e fogo de chão</li>
-            <li>Café da manhã incluso na reserva direta</li>
-          </ul>
-          <div class="price-row">
-            <div class="price"><span style="font-size:.6em;font-weight:400;color:#838A75;display:block;text-transform:uppercase;letter-spacing:.06em;">A partir de</span>R$ 550 <small>/ diária semana</small></div>
-            <p class="pix-note">R$ 590 fim de semana · -7% no PIX</p>
-            <a class="btn" href="#" data-wa data-msg="Olá! Gostaria de saber a disponibilidade do Refúgio 01 (Refúgios Íntimos).">Consultar no WhatsApp</a>
-          </div>
-        </div>
-      </article>
-      <article class="chale-card">
-        <div class="chale-photo photo-carousel">
-          <div class="carousel-slide active" style="background-image:url('fotos/refugio03-1.webp');"></div>
+        <a class="btn" style="align-self:flex-start;" href="#" data-wa data-msg="Olá! Gostaria de saber a disponibilidade do Refúgio 01 (Refúgios Íntimos).">Consultar no WhatsApp</a>
+      </div>
+    </article>
+
+    <article class="editorial-chale flip reveal">
+      <div class="ph photo-carousel">
+        <div class="carousel-slide active" style="background-image:url('fotos/refugio03-1.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio03-2.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio03-3.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio03-4.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio03-5.webp');"></div>
+      </div>
+      <div class="ec-body">
+        <p class="cap">Até 2 pessoas · casais</p>
+        <h3>Refúgio 03</h3>
+        <ul>
+          <li>Formato compacto e romântico</li>
+          <li>Hidromassagem e lareira</li>
+          <li>Café da manhã incluso na reserva direta</li>
+        </ul>
+        <p style="font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#838A75;margin-bottom:.3em;">A partir de</p>
+        <div class="ec-price">
+          <span class="num">R$ 530</span><span class="sep">/</span><span class="fds">semana</span>
+          <span class="sep">·</span><span class="num" style="font-size:1.2rem;">R$ 570</span><span class="fds">fds</span>
         </div>
-        <div class="chale-body">
-          <h3>Refúgio 03</h3>
-          <p class="chale-cap">Até 2 pessoas · casais</p>
-          <ul>
-            <li>Formato compacto e romântico</li>
-            <li>Hidromassagem e lareira</li>
-            <li>Café da manhã incluso na reserva direta</li>
-          </ul>
-          <div class="price-row">
-            <div class="price"><span style="font-size:.6em;font-weight:400;color:#838A75;display:block;text-transform:uppercase;letter-spacing:.06em;">A partir de</span>R$ 530 <small>/ diária semana</small></div>
-            <p class="pix-note">R$ 570 fim de semana · -7% no PIX</p>
-            <a class="btn" href="#" data-wa data-msg="Olá! Gostaria de saber a disponibilidade do Refúgio 03 (Refúgios Íntimos).">Consultar no WhatsApp</a>
-          </div>
-        </div>
-      </article>
-    </div>
+        <a class="btn" style="align-self:flex-start;" href="#" data-wa data-msg="Olá! Gostaria de saber a disponibilidade do Refúgio 03 (Refúgios Íntimos).">Consultar no WhatsApp</a>
+      </div>
+    </article>
 
     <div class="center reveal">
       <h2>Famílias</h2>
     </div>
     <div class="group-intro reveal"><p>Refúgio 02 — dois andares, cozinha completa e espaço para todos.</p></div>
-    <div class="card-grid single reveal">
-      <article class="chale-card">
-        <div class="chale-photo photo-carousel">
-          <div class="carousel-slide active" style="background-image:url('fotos/refugio02-1.webp');"></div>
+
+    <article class="editorial-chale reveal">
+      <div class="ph photo-carousel">
+        <div class="carousel-slide active" style="background-image:url('fotos/refugio02-1.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio02-2.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio02-3.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio02-4.webp');"></div>
         <div class="carousel-slide" style="background-image:url('fotos/refugio02-5.webp');"></div>
+      </div>
+      <div class="ec-body">
+        <p class="cap">Até 5 pessoas · família</p>
+        <h3>Refúgio 02</h3>
+        <ul>
+          <li>Dois andares, cozinha completa</li>
+          <li>Hidromassagem e brinquedos</li>
+          <li>Café da manhã incluso na reserva direta</li>
+        </ul>
+        <p style="font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#838A75;margin-bottom:.3em;">A partir de</p>
+        <div class="ec-price">
+          <span class="num">R$ 520</span><span class="sep">/</span><span class="fds">semana</span>
+          <span class="sep">·</span><span class="num" style="font-size:1.2rem;">R$ 570</span><span class="fds">fds</span>
         </div>
-        <div class="chale-body">
-          <h3>Refúgio 02</h3>
-          <p class="chale-cap">Até 5 pessoas · família</p>
-          <ul>
-            <li>Dois andares, cozinha completa</li>
-            <li>Hidromassagem e brinquedos</li>
-            <li>Café da manhã incluso na reserva direta</li>
-          </ul>
-          <div class="price-row">
-            <div class="price"><span style="font-size:.6em;font-weight:400;color:#838A75;display:block;text-transform:uppercase;letter-spacing:.06em;">A partir de</span>R$ 520 <small>/ diária semana</small></div>
-            <p class="pix-note">R$ 570 fim de semana · -7% no PIX</p>
-            <a class="btn" href="#" data-wa data-msg="Olá! Gostaria de saber a disponibilidade do Refúgio 02 (Família).">Consultar no WhatsApp</a>
-          </div>
-        </div>
-      </article>
-    </div>
+        <a class="btn" style="align-self:flex-start;" href="#" data-wa data-msg="Olá! Gostaria de saber a disponibilidade do Refúgio 02 (Família).">Consultar no WhatsApp</a>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -696,10 +703,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="strata-mark" style="margin-left:auto;margin-right:auto;"><span></span><span></span><span></span><span></span><span></span></div>
     <p class="kicker">Reconhecimento</p>
     <div class="badges">
-      <span class="badge"><b>Superhost</b> Airbnb</span>
-      <span class="badge"><b>5,0</b> Google</span>
+      <span class="badge"><svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8 2 5 5.5 5 9.5c0 5 5.5 10.5 6.3 11.3.4.4 1 .4 1.4 0C13.5 20 19 14.5 19 9.5 19 5.5 16 2 12 2zm0 10a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg><b>Superhost</b> Airbnb</span>
+      <span class="badge"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22 12.2c0-.7-.06-1.4-.18-2H12v3.9h5.6c-.24 1.3-.98 2.4-2.1 3.15v2.6h3.4c2-1.83 3.1-4.53 3.1-7.65z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.6-2.4l-3.4-2.6c-.94.63-2.15 1-3.2 1-2.46 0-4.55-1.66-5.3-3.9H3.2v2.66C4.83 19.6 8.15 22 12 22z"/><path fill="#FBBC05" d="M6.7 14.1c-.2-.6-.3-1.24-.3-1.9s.1-1.3.3-1.9V7.64H3.2A9.98 9.98 0 002 12.2c0 1.6.4 3.13 1.2 4.56z"/><path fill="#EA4335" d="M12 6.4c1.47 0 2.8.5 3.83 1.5l2.87-2.87C16.95 3.36 14.7 2.4 12 2.4c-3.85 0-7.17 2.4-8.8 5.24l3.5 2.56C7.45 8.06 9.54 6.4 12 6.4z"/></svg><b>5,0</b> Google</span>
     </div>
-    <div class="testimonial-placeholder">Depoimentos reais de hóspedes em breve — reservado para as avaliações do Google e Airbnb.</div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"É a segunda vez que optamos por um descanso em lugar de paz, acolhedor e totalmente equipado para nós atender em todas as nossas necessidades. Os donos do local são especiais demais. Ficamos o feriado de Carnaval e só tenho elogios e certamente já temos data para retornar."</p>
+        <p class="author">Ihuana B. — Google · Fevereiro 2026</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Local maravilhoso para passar dias de descanso! Muito organizado, ambiente agradável, limpeza impecável e um contato com a natureza sem igual. Café da manhã vem quentinho, tudo fresquinho, muito delicioso! Super recomendo!!!"</p>
+        <p class="author">Samara S. — Google · Janeiro 2026</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"A cabana é linda, confortável e estava extremamente limpa. Está construída numa propriedade de fácil acesso e a vista é incrível. Gostamos muito de tudo, inclusive da proatividade da Jacke quando precisamos."</p>
+        <p class="author">Michelly — Airbnb · Chalé Gunnera · Junho 2026</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"A vontade era cancelar os outros compromissos pra ficar lá. A experiência já começou logo quando abrimos a porta, luz ambiente e música de fundo. A Jackeline foi receptiva em todos os momentos. Recomendo demais e com certeza voltarei."</p>
+        <p class="author">Daniela — Airbnb · Refúgio 01 · Junho 2026</p>
+      </div>
+    </div>
   </div>
 </section>
 
