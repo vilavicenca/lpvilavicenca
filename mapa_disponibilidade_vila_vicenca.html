@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa de Disponibilidade — Vila Vicença</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --verde: #1A4731;
+    --verde-m: #2D6A4F;
+    --verde-cl: #D8F3DC;
+    --vermelho: #C0392B;
+    --vermelho-cl: #FADBD8;
+    --amarelo: #F39C12;
+    --amarelo-cl: #FEF9E7;
+    --azul: #2980B9;
+    --cinza: #F4F6F7;
+    --cinza-b: #D5D8DC;
+    --branco: #fff;
+    --texto: #1C2833;
+    --texto-s: #5D6D7E;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #F0F4F3; color: var(--texto); min-height: 100vh; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #1A4731 0%, #2D6A4F 60%, #52A67E 100%);
+    padding: 24px 32px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(26,71,49,0.3);
+  }
+  .header-left { display: flex; align-items: center; gap: 14px; }
+  .logo { width: 48px; height: 48px; background: rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+  .header-title { color: #fff; font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+  .header-sub { color: rgba(255,255,255,0.65); font-size: 12px; margin-top: 2px; font-weight: 400; }
+  .header-stats { display: flex; gap: 20px; }
+  .stat { text-align: center; }
+  .stat-n { font-size: 22px; font-weight: 700; color: #fff; line-height: 1; }
+  .stat-l { font-size: 10px; color: rgba(255,255,255,0.6); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* CONTROLS */
+  .controls {
+    background: #fff;
+    padding: 16px 32px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    border-bottom: 1px solid var(--cinza-b);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .ctrl-label { font-size: 12px; font-weight: 600; color: var(--texto-s); text-transform: uppercase; letter-spacing: 0.5px; }
+  .ctrl-date { display: flex; align-items: center; gap: 8px; }
+  input[type=date] { padding: 7px 12px; border: 1.5px solid var(--cinza-b); border-radius: 8px; font-size: 13px; font-family: 'Inter', sans-serif; color: var(--texto); cursor: pointer; }
+  input[type=date]:focus { outline: none; border-color: var(--verde); }
+  .btn { padding: 7px 14px; border-radius: 8px; border: none; font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.15s; }
+  .btn-nav { background: var(--cinza); color: var(--texto); }
+  .btn-nav:hover { background: var(--cinza-b); }
+  .btn-hoje { background: var(--verde); color: #fff; }
+  .btn-hoje:hover { background: var(--verde-m); }
+  .ctrl-view { display: flex; gap: 4px; }
+  .btn-view { background: var(--cinza); color: var(--texto-s); }
+  .btn-view.active { background: var(--verde); color: #fff; }
+
+  /* LEGENDA */
+  .legenda { display: flex; align-items: center; gap: 16px; margin-left: auto; flex-wrap: wrap; }
+  .leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500; color: var(--texto-s); }
+  .leg-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+
+  /* MAPA */
+  .mapa-wrap { padding: 24px 32px; overflow-x: auto; }
+  .mapa { min-width: 900px; }
+
+  /* CABEÇALHO DIAS */
+  .dias-header { display: grid; gap: 2px; margin-bottom: 2px; }
+  .dia-cell {
+    background: var(--verde); color: #fff; text-align: center;
+    font-size: 10px; font-weight: 600; padding: 6px 2px; border-radius: 4px;
+    line-height: 1.2;
+  }
+  .dia-cell.weekend { background: var(--verde-m); }
+  .dia-cell.hoje-col { background: var(--amarelo); color: #fff; }
+  .dia-cell .dia-num { font-size: 13px; font-weight: 700; }
+  .dia-cell .dia-sem { font-size: 9px; opacity: 0.75; }
+
+  /* LINHAS DE CHALÉS */
+  .chale-row { display: grid; gap: 2px; margin-bottom: 3px; align-items: center; }
+  .chale-nome {
+    background: var(--verde); color: #fff;
+    padding: 10px 12px; border-radius: 8px;
+    font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .chale-nome .chale-emoji { font-size: 16px; }
+
+  /* CÉLULAS DO CALENDÁRIO */
+  .cal-cell {
+    height: 52px; border-radius: 4px; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 600; transition: all 0.12s;
+    position: relative; text-align: center; padding: 2px;
+    border: 1.5px solid transparent;
+  }
+  .cal-cell:hover { transform: scale(1.05); z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .cal-cell.livre { background: var(--verde-cl); color: #1A4731; }
+  .cal-cell.ocupado { background: var(--vermelho-cl); color: var(--vermelho); }
+  .cal-cell.checkin { background: #D5F5E3; color: #1A5276; border-color: #2ECC71; }
+  .cal-cell.checkout { background: #FCF3CF; color: #7D6608; border-color: var(--amarelo); }
+  .cal-cell.hoje-borda { border-color: var(--amarelo) !important; border-width: 2px !important; }
+  .cal-cell .hospede-nome { font-size: 8px; font-weight: 500; opacity: 0.8; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding: 0 2px; }
+  .cal-cell .status-icon { font-size: 12px; }
+
+  /* MODAL */
+  .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; display: none; align-items: center; justify-content: center; }
+  .overlay.show { display: flex; }
+  .modal { background: #fff; border-radius: 16px; padding: 28px; max-width: 420px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; }
+  .modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 20px; cursor: pointer; color: var(--texto-s); }
+  .modal-header { margin-bottom: 18px; }
+  .modal-chale { font-size: 11px; font-weight: 600; color: var(--verde); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .modal-nome { font-size: 18px; font-weight: 700; color: var(--texto); }
+  .modal-cad { font-size: 12px; color: var(--texto-s); margin-top: 2px; }
+  .modal-datas { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; background: var(--cinza); border-radius: 10px; padding: 14px; margin-bottom: 16px; }
+  .modal-data-item { text-align: center; }
+  .modal-data-label { font-size: 10px; color: var(--texto-s); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .modal-data-val { font-size: 16px; font-weight: 700; color: var(--verde); }
+  .modal-data-sub { font-size: 10px; color: var(--texto-s); }
+  .modal-info { display: flex; flex-direction: column; gap: 8px; }
+  .modal-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 6px 0; border-bottom: 1px solid var(--cinza); }
+  .modal-row:last-child { border-bottom: none; }
+  .modal-row-label { color: var(--texto-s); }
+  .modal-row-val { font-weight: 600; color: var(--texto); }
+  .badge { padding: 3px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .badge-ok { background: var(--verde-cl); color: var(--verde); }
+  .badge-pend { background: var(--amarelo-cl); color: #7D6608; }
+
+  /* PERIODO INFO */
+  .periodo-info { background: #fff; border-radius: 10px; padding: 12px 20px; margin: 0 32px 16px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+  .periodo-label { font-size: 12px; font-weight: 600; color: var(--texto-s); }
+  .periodo-val { font-size: 14px; font-weight: 700; color: var(--verde); }
+  .sep { color: var(--cinza-b); }
+
+  .empty-msg { text-align: center; padding: 32px; color: var(--texto-s); font-size: 14px; background: #fff; border-radius: 10px; }
+
+  @media (max-width: 600px) {
+    .header { padding: 16px; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .header-stats { gap: 12px; }
+    .controls { padding: 12px 16px; }
+    .mapa-wrap { padding: 12px 8px; }
+    .legenda { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo">🏡</div>
+    <div>
+      <div class="header-title">Mapa de Disponibilidade</div>
+      <div class="header-sub">Vila Vicença Natural Refuge</div>
+    </div>
+  </div>
+  <div class="header-stats">
+    <div class="stat"><div class="stat-n" id="stat-total">0</div><div class="stat-l">Reservas</div></div>
+    <div class="stat"><div class="stat-n" id="stat-ocupados">0</div><div class="stat-l">Ocupados hoje</div></div>
+    <div class="stat"><div class="stat-n" id="stat-livres">0</div><div class="stat-l">Disponíveis hoje</div></div>
+  </div>
+</div>
+
+<div class="controls">
+  <span class="ctrl-label">Período</span>
+  <div class="ctrl-date">
+    <button class="btn btn-nav" onclick="navDias(-7)">← 7d</button>
+    <input type="date" id="data-inicio" onchange="renderMapa()">
+    <button class="btn btn-nav" onclick="navDias(7)">7d →</button>
+  </div>
+  <div class="ctrl-view">
+    <button class="btn btn-view active" id="btn-14" onclick="setDias(14)">14 dias</button>
+    <button class="btn btn-view" id="btn-21" onclick="setDias(21)">21 dias</button>
+    <button class="btn btn-view" id="btn-30" onclick="setDias(30)">30 dias</button>
+  </div>
+  <button class="btn btn-hoje" onclick="irHoje()">Hoje</button>
+  <div class="legenda">
+    <div class="leg-item"><div class="leg-dot" style="background:#D8F3DC;border:1px solid #2D6A4F"></div>Disponível</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#FADBD8;border:1px solid #C0392B"></div>Ocupado</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#D5F5E3;border:1.5px solid #2ECC71"></div>Check-in</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#FCF3CF;border:1.5px solid #F39C12"></div>Check-out</div>
+  </div>
+</div>
+
+
+<div style="background:#EAF7F0;border-bottom:1px solid #ABEBC6;padding:8px 32px;font-size:12px;font-weight:600;color:#1A4731;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+  <span>🏠 Airbnb + Booking:</span>
+  <span id="airbnb-status">⏳ Aguardando sincronização...</span>
+  <button onclick="carregarAirbnb()" style="margin-left:auto;background:#1A4731;color:#fff;border:none;padding:4px 12px;border-radius:6px;cursor:pointer;font-size:11px;font-weight:600;">↺ Sincronizar</button>
+</div>
+
+<div class="periodo-info">
+  <span class="periodo-label">Exibindo:</span>
+  <span class="periodo-val" id="periodo-txt">—</span>
+  <span class="sep">|</span>
+  <span class="periodo-label">Chalés:</span>
+  <span class="periodo-val">5 unidades</span>
+</div>
+
+<div class="mapa-wrap">
+  <div class="mapa" id="mapa"></div>
+</div>
+
+<!-- Modal -->
+<div class="overlay" id="overlay" onclick="fecharModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="fecharModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-chale" id="m-chale"></div>
+      <div class="modal-nome" id="m-nome"></div>
+      <div class="modal-cad" id="m-cad"></div>
+    </div>
+    <div class="modal-datas">
+      <div class="modal-data-item">
+        <div class="modal-data-label">Check-in</div>
+        <div class="modal-data-val" id="m-ci"></div>
+        <div class="modal-data-sub">a partir das 14h</div>
+      </div>
+      <div class="modal-data-item">
+        <div class="modal-data-label">Check-out</div>
+        <div class="modal-data-val" id="m-co"></div>
+        <div class="modal-data-sub">até às 11h</div>
+      </div>
+    </div>
+    <div class="modal-info">
+      <div class="modal-row"><span class="modal-row-label">Valor</span><span class="modal-row-val" id="m-valor"></span></div>
+      <div class="modal-row"><span class="modal-row-label">Status</span><span id="m-status"></span></div>
+      <div class="modal-row"><span class="modal-row-label">Telefone</span><span class="modal-row-val" id="m-tel"></span></div>
+      <div class="modal-row"><span class="modal-row-label">E-mail</span><span class="modal-row-val" id="m-email" style="font-size:11px"></span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const RESERVAS = [{"cad": 229, "nome": "Édio de Bem Figueira", "chale": "Refúgio 03", "ci": "08/08/2026", "co": "09/08/2026", "valor": 570.0, "liq": 0, "status": "✅ Entrada paga", "tel": "(48) 99122-9523", "email": "ediodebem@gmail.com"}, {"cad": 225, "nome": "Letícia Maia Tomaz", "chale": "Refúgio 01", "ci": "19/06/2026", "co": "21/06/2026", "valor": 1590.0, "liq": 0, "status": "⏳ Parcelado em andamento", "tel": "(48) 99814-6967", "email": "maialeticia810@gmail.com"}, {"cad": 209, "nome": "Lígia Mara Costa", "chale": "Chalé Gunnera", "ci": "01/05/2026", "co": "03/05/2026", "valor": 1780.0, "liq": 1780.0, "status": "✅ Quitado", "tel": "(47) 99142-4099", "email": "ligiablumenau@gmail.com"}, {"cad": 230, "nome": "Otto Moraes Carvalho", "chale": "Refúgio 03", "ci": "02/04/2026", "co": "05/04/2026", "valor": 1770.0, "liq": 1770.0, "status": "✅ Quitado", "tel": "(55) 98414-8118", "email": "A confirmar"}, {"cad": 231, "nome": "Alice Balestro Floriano", "chale": "Chalé Gunnera", "ci": "02/04/2026", "co": "05/04/2026", "valor": 3030.0, "liq": 3030.0, "status": "✅ Quitado", "tel": "(51) 98038-3905", "email": "aliceflor@gmail.com"}, {"cad": 232, "nome": "Darlan Traugott", "chale": "Chalé Manicata", "ci": "19/04/2026", "co": "22/04/2026", "valor": 2566.8, "liq": 2566.8, "status": "✅ Quitado", "tel": "(51) 99675-4695", "email": "darlan_traugott@hotmail.com"}, {"cad": 236, "nome": "Taynara Martins Bugança", "chale": "Refúgio 03", "ci": "01/05/2026", "co": "03/05/2026", "valor": 1100.01, "liq": 1100.01, "status": "✅ Quitado", "tel": "(49) 99133-8281", "email": "taynaramartinsbuganca@gmail.com"}, {"cad": 235, "nome": "Moniqueli Pereira Martins", "chale": "Chalé Manicata", "ci": "17/04/2026", "co": "19/04/2026", "valor": 1662.0, "liq": 1662.0, "status": "✅ Quitado", "tel": "(51) 99567-9910", "email": "arquiteturammartins@gmail.com"}, {"cad": 234, "nome": "Luiza Fava", "chale": "Refúgio 01", "ci": "03/04/2026", "co": "05/04/2026", "valor": 112.31, "liq": 112.31, "status": "✅ Quitado", "tel": "(12) 98687-1002", "email": "luizafava@hotmail.com"}, {"cad": 211, "nome": "Carla Fernanda Feiten Klein", "chale": "Chalé Manicata", "ci": "11/04/2026", "co": "12/04/2026", "valor": 920.0, "liq": 920.0, "status": "✅ Quitado", "tel": "(51) 99192-5275", "email": "tencarla@gmail.com"}, {"cad": 237, "nome": "Karin Janner", "chale": "Chalé Gunnera", "ci": "08/04/2026", "co": "10/04/2026", "valor": 1908.0, "liq": 1908.0, "status": "✅ Quitado", "tel": "(51) 98482-7070", "email": "kjjanner@hotmail.com"}, {"cad": 240, "nome": "Dian Carla Pires Cardoso", "chale": "Chalé Manicata", "ci": "01/05/2026", "co": "03/05/2026", "valor": 1748.0, "liq": 1748.0, "status": "✅ Quitado", "tel": "(48) 99865-6115", "email": "hb07junior@gmail.com"}, {"cad": 238, "nome": "Priscila Freitas Beina", "chale": "Chalé Manicata", "ci": "12/06/2026", "co": "14/06/2026", "valor": 2625.0, "liq": 100.0, "status": "⏳ Parcelado", "tel": "(55) 51994-4052", "email": "priscila.beina@icloud.com"}, {"cad": 239, "nome": "Luiz Fellipe Alves Pereira", "chale": "Chalé Gunnera", "ci": "18/04/2026", "co": "21/04/2026", "valor": 1992.33, "liq": 0, "status": "⏳ Saldo no check-in", "tel": "(41) 99136-1748", "email": "luizf.pereira005@gmail.com"}, {"cad": 242, "nome": "Monica", "chale": "Chalé Manicata", "ci": "30/04/2026", "co": "01/05/2026", "valor": 786.0, "liq": 786.0, "status": "✅ Quitado", "tel": "A confirmar", "email": "A confirmar"}, {"cad": 241, "nome": "Karina Barbosa Borges", "chale": "Refúgio 02", "ci": "01/05/2026", "co": "02/05/2026", "valor": 850.0, "liq": 850.0, "status": "✅ Quitado", "tel": "(51) 98231-9202", "email": "kari_borges@yahoo.com.br"}, {"cad": 228, "nome": "Paula Fregnani", "chale": "Chalé Manicata", "ci": "21/03/2026", "co": "22/03/2026", "valor": 906.0, "liq": 906.0, "status": "✅ Quitado", "tel": "A confirmar", "email": "A confirmar"}, {"cad": 228, "nome": "Luís Lauter", "chale": "Chalé Gunnera", "ci": "29/03/2026", "co": "30/03/2026", "valor": 786.0, "liq": 786.0, "status": "✅ Quitado", "tel": "A confirmar", "email": "A confirmar"}, {"cad": 208, "nome": "Cristiano dos Santos Garcia", "chale": "Chalé Manicata", "ci": "09/05/2026", "co": "11/05/2026", "valor": 1850.0, "liq": 185.0, "status": "⏳ Parcelado", "tel": "A confirmar", "email": "A confirmar"}, {"cad": 244, "nome": "Daniela Ghiggi", "chale": "Refúgio 03", "ci": "30/04/2026", "co": "01/05/2026", "valor": 546.06, "liq": 546.06, "status": "✅ Quitado", "tel": "(54) 99600-6603", "email": "danighiggi@gmail.com"}, {"cad": 245, "nome": "Natalia Gonçalves Nunes", "chale": "Refúgio 01", "ci": "13/06/2026", "co": "14/06/2026", "valor": 560.56, "liq": 560.56, "status": "✅ Quitado", "tel": "(48) 99828-2148", "email": "natigoncalves1405@gmail.com"}, {"cad": 246, "nome": "Lutiele Melani Bello da Rosa", "chale": "Refúgio 03", "ci": "13/06/2026", "co": "14/06/2026", "valor": 0, "liq": 0, "status": "✅ Quitado", "tel": "(48) 89126-4166", "email": "lutielembello9@gmail.com"}, {"cad": 250, "nome": "Celso Estaxaco", "chale": "Chalé Manicata", "ci": "15/05/2026", "co": "17/05/2026", "valor": 1656.0, "liq": 1656.0, "status": "✅ Quitado", "tel": "(41) 99154-9116", "email": "icochurrasco-eventos1@hotmail.com"}, {"cad": 249, "nome": "Karoline Lemos", "chale": "Chalé Gunnera", "ci": "12/06/2026", "co": "14/06/2026", "valor": 1748.0, "liq": 1748.0, "status": "✅ Quitado", "tel": "(48) 99953-9744", "email": "klsradiologia@gmail.com"}, {"cad": 251, "nome": "Rodrigo", "chale": "Refúgio 03", "ci": "15/05/2026", "co": "16/05/2026", "valor": 540.0, "liq": 540.0, "status": "✅ Quitado", "tel": "(48) 99969-9485", "email": "rodrigokarvalho_8@hotmail.com"}, {"cad": 254, "nome": "Hellen Vanin", "chale": "Chalé Manicata", "ci": "04/06/2026", "co": "07/06/2026", "valor": 2964.0, "liq": 2964.0, "status": "✅ Quitado", "tel": "(51) 99742-1991", "email": "hellencristinetv@gmail.com"}, {"cad": 256, "nome": "Rodrigo Barreto", "chale": "Chalé Manicata", "ci": "22/05/2026", "co": "24/05/2026", "valor": 1364.57, "liq": 0, "status": "⏳ A receber", "tel": "(51) 98188-8830", "email": "rodrig.bsilva@gmail.com"}, {"cad": 255, "nome": "Daniela Anselmo Nascimento", "chale": "Refúgio 01", "ci": "12/06/2026", "co": "13/06/2026", "valor": 564.34, "liq": 0, "status": "⏳ A receber", "tel": "(48) 99906-4615", "email": "daninascimento_tb@hotmail.com"}, {"cad": 257, "nome": "Jelyel Ramos", "chale": "Chalé Manicata", "ci": "29/05/2026", "co": "31/05/2026", "valor": 1840.0, "liq": 1840.0, "status": "✅ Quitado", "tel": "(48) 99831-8129", "email": "jelyelramos@hotmail.com"}, {"cad": 258, "nome": "Deiviti Barbosa de Borba", "chale": "Refúgio 02", "ci": "30/05/2026", "co": "31/05/2026", "valor": 518.5, "liq": 451.09, "status": "⏳ Booking 01/07", "tel": "(51) 99767-6857", "email": "deiviti.pinguinho@hotmail.com"}, {"cad": 259, "nome": "Graziela Kellermann Bahr", "chale": "Refúgio 02", "ci": "12/06/2026", "co": "13/06/2026", "valor": 466.65, "liq": 405.99, "status": "⏳ Booking 01/07", "tel": "(51) 99550-5214", "email": "grazielabahr13@gmail.com"}, {"cad": 260, "nome": "Luciana D Mariano", "chale": "Chalé Gunnera", "ci": "29/05/2026", "co": "31/05/2026", "valor": 1654.0, "liq": 1654.0, "status": "✅ Quitado", "tel": "(51) 99850-5154", "email": "lucianademito_med@hotmail.com"}, {"cad": 261, "nome": "Francieli Scheffer", "chale": "Refúgio 03", "ci": "12/06/2026", "co": "13/06/2026", "valor": 660.0, "liq": 633.66, "status": "✅ Quitado", "tel": "(51) 99370-9673", "email": "schefferfrancieli@yahoo.com"}, {"cad": 262, "nome": "Eduardo Pereira de Carvalho", "chale": "Refúgio 03", "ci": "30/05/2026", "co": "31/05/2026", "valor": 420.0, "liq": 420.0, "status": "⏳ Booking 01/06", "tel": "(48) 99681-9818", "email": "edugrb94_@hotmail.com"}, {"cad": 263, "nome": "Felipe Fagundes", "chale": "Chalé Manicata", "ci": "12/06/2026", "co": "14/06/2026", "valor": 1524.51, "liq": 1353.08, "status": "⏳ A receber", "tel": "(51) 98357-2727", "email": "lipersom2@gmail.com"}, {"cad": 264, "nome": "José Eduardo Bresolin", "chale": "Refúgio 01", "ci": "04/06/2026", "co": "07/06/2026", "valor": 1353.08, "liq": 1353.08, "status": "⏳ Booking 01/07", "tel": "(99) 99981-6995", "email": "joseedu1996@gmail.com"}, {"cad": 265, "nome": "Ellen", "chale": "Chalé Gunnera", "ci": "02/06/2026", "co": "03/06/2026", "valor": 350.0, "liq": 350.0, "status": "✅ Quitado", "tel": "(48) 98842-1183", "email": "ellen_elias01@hotmail.com"}, {"cad": 266, "nome": "Rodrigo Pedroso", "chale": "Chalé Manicata", "ci": "19/06/2026", "co": "21/06/2026", "valor": 1840.0, "liq": 1678.08, "status": "✅ Quitado", "tel": "(51) 98607-7550", "email": "rodrigopedroso28@gmail.com"}, {"cad": 267, "nome": "Ademar Arns Back", "chale": "Chalé Manicata", "ci": "03/07/2026", "co": "05/07/2026", "valor": 1362.57, "liq": 1362.57, "status": "✅ Quitado", "tel": "(48) 99917-8331", "email": "eng.ademarback@hotmail.com"}, {"cad": 268, "nome": "Michelly Bortolotti", "chale": "Chalé Gunnera", "ci": "19/06/2026", "co": "21/06/2026", "valor": 1435.99, "liq": 1435.99, "status": "✅ Quitado", "tel": "(48) 99204-3384", "email": "michelly.bortolotti@gmail.com"}, {"cad": 269, "nome": "Niraila Lummertz Rodrigues", "chale": "Refúgio 03", "ci": "20/06/2026", "co": "21/06/2026", "valor": 421.54, "liq": 421.54, "status": "⏳ Booking 10/07", "tel": "(48) 99843-4518", "email": "niraila.lummertz@gmail.com"}, {"cad": 270, "nome": "Renato Silvestre Euzebio", "chale": "Chalé Manicata", "ci": "23/07/2026", "co": "26/07/2026", "valor": 2021.17, "liq": 2021.17, "status": "✅ Quitado", "tel": "(66) 99981-0101", "email": "carolkososki@gmail.com"}, {"cad": 271, "nome": "Rafaela Balod Neves", "chale": "Chalé Gunnera", "ci": "24/07/2026", "co": "26/07/2026", "valor": 2020.0, "liq": 1842.0, "status": "✅ Quitado", "tel": "(48) 99125-8880", "email": "arq.rafaelaneves@gmail.com"}, {"cad": 272, "nome": "Leandro Magnus Bedinot", "chale": "Refúgio 01", "ci": "04/07/2026", "co": "05/07/2026", "valor": 570.0, "liq": 570.0, "status": "⏳ A receber check-in", "tel": "(48) 99123-9059", "email": "mbedinot973@gmail.com"}, {"cad": 273, "nome": "Renato Boeira Rodrigues", "chale": "Chalé Gunnera", "ci": "30/06/2026", "co": "03/07/2026", "valor": 2358.1, "liq": 2358.1, "status": "⏳ Saldo no check-in", "tel": "(51) 99301-1717", "email": "renatoboeira.r@gmail.com"}, {"cad": 274, "nome": "Luciana D Mariano", "chale": "Chalé Gunnera", "ci": "27/06/2026", "co": "28/06/2026", "valor": 920.0, "liq": 920.0, "status": "✅ Quitado", "tel": "(51) 99850-5154", "email": "lucianademito_med@hotmail.com"}, {"cad": 275, "nome": "Jan Pierre Peres Jacques", "chale": "Chalé Gunnera", "ci": "03/07/2026", "co": "05/07/2026", "valor": 3540.0, "liq": 3228.48, "status": "✅ Quitado", "tel": "(51) 99671-1342", "email": "janpierreperes757@gmail.com"}, {"cad": 276, "nome": "Fabrício de Souza Claudino", "chale": "Refúgio 01", "ci": "11/07/2026", "co": "12/07/2026", "valor": 560.5, "liq": 0, "status": "⏳ Aguardando pagamento", "tel": "(48) 99107-6500", "email": "simonesouza34@live.com"}];
+
+const CHALES = ["Chalé Gunnera","Chalé Manicata","Refúgio 01","Refúgio 02","Refúgio 03"];
+const EMOJIS = {"Chalé Gunnera":"🌿","Chalé Manicata":"🌺","Refúgio 01":"🛖","Refúgio 02":"🛖","Refúgio 03":"🛖"};
+const DIAS_SEM = ["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+let numDias = 14;
+
+function parsePtDate(s) {
+  const [d,m,y] = s.split('/').map(Number);
+  return new Date(y, m-1, d);
+}
+function fmtDate(d) {
+  return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});
+}
+function addDays(d, n) {
+  const r = new Date(d); r.setDate(r.getDate()+n); return r;
+}
+function sameDay(a,b) {
+  return a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate();
+}
+function today() {
+  const t = new Date(); t.setHours(0,0,0,0); return t;
+}
+
+function getReservaParaDia(chale, dia) {
+  // 1. Checar reservas diretas
+  for (const r of RESERVAS) {
+    if (r.chale !== chale) continue;
+    const ci = parsePtDate(r.ci);
+    const co = parsePtDate(r.co);
+    ci.setHours(0,0,0,0); co.setHours(0,0,0,0);
+    if (dia >= ci && dia < co) return { res: r, tipo: sameDay(dia,ci)?'checkin': sameDay(addDays(dia,1),co)?'checkout':'ocupado' };
+    if (sameDay(dia,co)) return { res: r, tipo: 'checkout' };
+  }
+  // 2. Checar bloqueios do Airbnb
+  return getAirbnbParaDia ? getAirbnbParaDia(chale, dia) : null;
+}
+
+function renderMapa() {
+  const input = document.getElementById('data-inicio');
+  const inicio = input.value ? new Date(input.value+'T00:00:00') : today();
+  const t = today();
+
+  // Periodo info
+  const fim = addDays(inicio, numDias-1);
+  document.getElementById('periodo-txt').textContent =
+    fmtDate(inicio) + ' → ' + fmtDate(fim);
+
+  // Stats
+  let ocupadosHoje = 0;
+  for (const chale of CHALES) {
+    if (getReservaParaDia(chale, t)) ocupadosHoje++;
+  }
+  document.getElementById('stat-total').textContent = RESERVAS.length;
+  document.getElementById('stat-ocupados').textContent = ocupadosHoje;
+  document.getElementById('stat-livres').textContent = CHALES.length - ocupadosHoje;
+
+  const mapa = document.getElementById('mapa');
+  mapa.innerHTML = '';
+
+  const cols = `160px repeat(${numDias}, 1fr)`;
+
+  // Cabeçalho de dias
+  const header = document.createElement('div');
+  header.className = 'dias-header';
+  header.style.gridTemplateColumns = cols;
+
+  const labelCell = document.createElement('div');
+  labelCell.style.cssText = 'background:transparent';
+  header.appendChild(labelCell);
+
+  for (let i = 0; i < numDias; i++) {
+    const d = addDays(inicio, i);
+    const isHoje = sameDay(d, t);
+    const isWeekend = d.getDay()===0||d.getDay()===6;
+    const cell = document.createElement('div');
+    cell.className = 'dia-cell' + (isHoje?' hoje-col':isWeekend?' weekend':'');
+    cell.innerHTML = `<div class="dia-num">${d.getDate()}</div><div class="dia-sem">${DIAS_SEM[d.getDay()]}</div>`;
+    header.appendChild(cell);
+  }
+  mapa.appendChild(header);
+
+  // Linhas por chalé
+  for (const chale of CHALES) {
+    const row = document.createElement('div');
+    row.className = 'chale-row';
+    row.style.gridTemplateColumns = cols;
+
+    const nome = document.createElement('div');
+    nome.className = 'chale-nome';
+    nome.innerHTML = `<span class="chale-emoji">${EMOJIS[chale]}</span>${chale}`;
+    row.appendChild(nome);
+
+    for (let i = 0; i < numDias; i++) {
+      const d = addDays(inicio, i); d.setHours(0,0,0,0);
+      const isHoje = sameDay(d, t);
+      const info = getReservaParaDia(chale, d);
+
+      const cell = document.createElement('div');
+      cell.className = 'cal-cell';
+      if (isHoje) cell.classList.add('hoje-borda');
+
+      if (!info) {
+        cell.classList.add('livre');
+        cell.innerHTML = '<span class="status-icon">✓</span>';
+      } else {
+        const {res, tipo} = info;
+        cell.classList.add(tipo);
+        const icons = {checkin:'▶',checkout:'◀',ocupado:'●'};
+        const nomeAbrev = res.nome.split(' ')[0];
+        cell.innerHTML = `<span class="status-icon">${icons[tipo]}</span><span class="hospede-nome">${nomeAbrev}</span>`;
+        cell.title = `${res.nome} | ${res.ci} → ${res.co}`;
+        cell.onclick = () => abrirModal(res);
+      }
+      row.appendChild(cell);
+    }
+    mapa.appendChild(row);
+  }
+}
+
+function abrirModal(r) {
+  document.getElementById('m-chale').textContent = r.chale;
+  document.getElementById('m-nome').textContent = r.nome;
+  document.getElementById('m-cad').textContent = 'Cadastro #' + r.cad;
+  document.getElementById('m-ci').textContent = r.ci;
+  document.getElementById('m-co').textContent = r.co;
+  document.getElementById('m-valor').textContent = r.valor > 0 ? 'R$ ' + r.valor.toLocaleString('pt-BR',{minimumFractionDigits:2}) : '—';
+  const isQuit = r.status.includes('✅');
+  document.getElementById('m-status').innerHTML = `<span class="badge ${isQuit?'badge-ok':'badge-pend'}">${r.status}</span>`;
+  document.getElementById('m-tel').textContent = r.tel || '—';
+  document.getElementById('m-email').textContent = r.email || '—';
+  document.getElementById('overlay').classList.add('show');
+}
+
+function fecharModal(e) {
+  if (!e || e.target===document.getElementById('overlay')) {
+    document.getElementById('overlay').classList.remove('show');
+  }
+}
+
+function navDias(n) {
+  const input = document.getElementById('data-inicio');
+  const d = input.value ? new Date(input.value+'T00:00:00') : today();
+  d.setDate(d.getDate()+n);
+  input.value = d.toISOString().split('T')[0];
+  renderMapa();
+}
+
+function irHoje() {
+  document.getElementById('data-inicio').value = today().toISOString().split('T')[0];
+  renderMapa();
+}
+
+function setDias(n) {
+  numDias = n;
+  document.querySelectorAll('.btn-view').forEach(b => b.classList.remove('active'));
+  document.getElementById('btn-'+n).classList.add('active');
+  renderMapa();
+}
+
+
+// ─── INTEGRAÇÃO iCAL AIRBNB ─────────────────────────────────────────────────
+// iCal Airbnb por chalé
+const ICAL_FEEDS = {
+  "Chalé Gunnera":  "https://www.airbnb.com.br/calendar/ical/1166038485848460917.ics?t=5f6f9590996a4963b95a102da0105759",
+  "Chalé Manicata": "https://www.airbnb.com.br/calendar/ical/1195821970727361791.ics?t=d0cb036899c640e8a12714973919f3bf",
+  "Refúgio 01":     "https://www.airbnb.com.br/calendar/ical/1301538602450259396.ics?t=4839ca3ed4e44d70a0402ccd637e948c",
+  "Refúgio 02":     "https://www.airbnb.com.br/calendar/ical/1301586514147330408.ics?t=b3efeaf4c4334b4cb741a377a083fadc",
+  "Refúgio 03":     "https://www.airbnb.com.br/calendar/ical/1301568543774058331.ics?t=c30f66d21e30449db5f511eaf1e53a8d"
+};
+
+// iCal Booking por chalé
+const BOOKING_FEEDS = {
+  "Refúgio 01": "https://ical.booking.com/v1/export?t=1322c36f-18d5-44b1-b47c-72f25088cac8",
+  "Refúgio 02": "https://ical.booking.com/v1/export?t=d86682b3-3596-4c9c-be4e-242a70ddc0d2",
+  "Refúgio 03": "https://ical.booking.com/v1/export?t=0cc2a3f6-531a-4e95-948f-b05a8b3909e9"
+};
+
+// Reservas vindas do Airbnb (carregadas dinamicamente)
+let AIRBNB_BLOQUEIOS = []; // [{chale, ci, co, summary}]
+
+function parseIcalDate(s) {
+  // YYYYMMDD ou YYYYMMDDTHHMMSSZ
+  if (!s) return null;
+  s = s.replace(/T.*/, '');
+  const y = parseInt(s.substr(0,4));
+  const m = parseInt(s.substr(4,2)) - 1;
+  const d = parseInt(s.substr(6,2));
+  return new Date(y, m, d);
+}
+
+function parseIcal(text, chale) {
+  const eventos = [];
+  const lines = text.replace(/\r/g,'').split('\n');
+  let evt = null;
+  for (const line of lines) {
+    if (line.startsWith('BEGIN:VEVENT')) { evt = {}; }
+    else if (line.startsWith('END:VEVENT') && evt) {
+      if (evt.dtstart && evt.dtend) {
+        eventos.push({ chale, ci: evt.dtstart, co: evt.dtend, summary: evt.summary || 'Airbnb' });
+      }
+      evt = null;
+    } else if (evt) {
+      if (line.startsWith('DTSTART')) evt.dtstart = parseIcalDate(line.split(':')[1]?.split(';').pop());
+      else if (line.startsWith('DTEND'))   evt.dtend   = parseIcalDate(line.split(':')[1]?.split(';').pop());
+      else if (line.startsWith('SUMMARY')) evt.summary = line.split(':').slice(1).join(':').trim();
+    }
+  }
+  return eventos;
+}
+
+async function fetchIcal(chale, url) {
+  const proxy = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+  try {
+    const resp = await fetch(proxy, { signal: AbortSignal.timeout(8000) });
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const text = await resp.text();
+    return parseIcal(text, chale);
+  } catch(e) {
+    console.warn('iCal erro para ' + chale + ':', e.message);
+    return [];
+  }
+}
+
+async function carregarAirbnb() {
+  const statusEl = document.getElementById('airbnb-status');
+  if (statusEl) statusEl.textContent = '🔄 Sincronizando Airbnb + Booking...';
+  
+  // Carregar Airbnb
+  const airbnbPromises = Object.entries(ICAL_FEEDS).map(([chale, url]) => fetchIcal(chale, url));
+  // Carregar Booking
+  const bookingPromises = Object.entries(BOOKING_FEEDS).map(([chale, url]) => fetchIcal(chale, url));
+  
+  const results = await Promise.allSettled([...airbnbPromises, ...bookingPromises]);
+  
+  AIRBNB_BLOQUEIOS = [];
+  let total = 0;
+  results.forEach(r => {
+    if (r.status === 'fulfilled') {
+      AIRBNB_BLOQUEIOS.push(...r.value);
+      total += r.value.length;
+    }
+  });
+  
+  if (statusEl) statusEl.textContent = total > 0 
+    ? '✅ Airbnb + Booking sincronizados — ' + total + ' bloqueios carregados'
+    : '⚠️ Plataformas — não foi possível carregar (verifique conexão)';
+  
+  renderMapa();
+}
+
+// Verificar bloqueios do Airbnb (função separada para evitar recursão)
+function getAirbnbParaDia(chale, dia) {
+  for (const b of AIRBNB_BLOQUEIOS) {
+    if (b.chale !== chale) continue;
+    const ci = new Date(b.ci); ci.setHours(0,0,0,0);
+    const co = new Date(b.co); co.setHours(0,0,0,0);
+    if (dia >= ci && dia < co) {
+      const tipo = sameDay(dia, ci) ? 'checkin' : sameDay(addDays(dia,1), co) ? 'checkout' : 'ocupado';
+      return { res: { nome: b.summary || 'Airbnb', cad: '—', chale, ci: ci.toLocaleDateString('pt-BR'), co: co.toLocaleDateString('pt-BR'), valor: 0, status: '🏠 Airbnb', tel: '—', email: '—' }, tipo };
+    }
+    if (sameDay(dia, co)) {
+      return { res: { nome: b.summary || 'Airbnb', cad: '—', chale, ci: ci.toLocaleDateString('pt-BR'), co: co.toLocaleDateString('pt-BR'), valor: 0, status: '🏠 Airbnb', tel: '—', email: '—' }, tipo: 'checkout' };
+    }
+  }
+  return null;
+}
+
+// Carrega ao iniciar
+carregarAirbnb();
+
+// Init
+document.getElementById('data-inicio').value = today().toISOString().split('T')[0];
+renderMapa();
+</script>
+</body>
+</html>
