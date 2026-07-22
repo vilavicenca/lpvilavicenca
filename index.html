@@ -47,6 +47,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --marfim:#F1F3ED;
   --carvao:#202419;
   --branco:#FFFFFF;
+  --terracota:#B5793A;
   --maxw:1180px;
 }
 *{box-sizing:border-box;}
@@ -142,6 +143,31 @@ section{padding:100px 0;position:relative;}
 }
 .section-dark .btn-text{color:var(--branco);border-color:var(--latao);}
 
+/* Seção 2 anos — fundo branco, acento dourado/terracota, numeral e rótulo lado a lado */
+#dois-anos{background:var(--branco);border-top:1px solid #DDE1D6;border-bottom:1px solid #DDE1D6;}
+#dois-anos h2{color:var(--verde-serra);}
+#dois-anos .lede{color:#495337;}
+.aniversario-inline{
+  display:flex;align-items:flex-end;justify-content:center;gap:20px;
+  margin-bottom:.5em;flex-wrap:wrap;
+}
+.aniversario-num{
+  font-family:"Fraunces",serif;font-weight:400;
+  font-size:clamp(3.6rem,8.5vw,5.8rem);line-height:.8;
+  letter-spacing:-.02em;color:var(--terracota);
+}
+.aniversario-label{
+  font-family:"Fraunces",serif;font-style:italic;font-weight:400;
+  font-size:clamp(1.1rem,2.2vw,1.4rem);line-height:1.25;
+  color:var(--terracota);text-align:left;padding-bottom:.3em;
+}
+.aniversario-divider{width:56px;height:1px;background:var(--terracota);margin:0 auto 1.5em;opacity:.6;}
+#dois-anos .btn{border-color:var(--terracota);color:var(--terracota);}
+#dois-anos .btn::before{background:var(--terracota);}
+#dois-anos .btn:hover,#dois-anos .btn:focus-visible{color:var(--branco);}
+#dois-anos .btn:focus-visible{outline-color:var(--terracota);}
+#dois-anos .btn-text{color:var(--terracota);border-color:var(--terracota);}
+
 /* Header */
 header{
   position:sticky;top:0;z-index:40;
@@ -152,6 +178,14 @@ header{
 header .wrap{display:flex;align-items:center;justify-content:flex-end;padding:16px 24px;}
 .logo{display:block;height:46px;width:auto;}
 header .btn{padding:10px 20px;font-size:.68rem;}
+.header-loc{
+  font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--verde-serra);font-weight:600;white-space:nowrap;
+}
+@media(max-width:560px){
+  .header-loc{font-size:.66rem;letter-spacing:.03em;}
+  .header-loc-extra{display:none;}
+}
 
 /* Hero */
 .hero{
@@ -163,24 +197,10 @@ header .btn{padding:10px 20px;font-size:.68rem;}
   min-height:clamp(560px, 92vh, 820px);
   display:flex;align-items:center;
 }
-.hero-photo{
-  position:absolute;inset:0;z-index:0;
-}
-.hero-photo-slide{
-  position:absolute;inset:0;
-  background-size:cover;background-position:center;
-  opacity:0;transition:opacity 1.4s ease;
-}
-.hero-photo-slide.active{opacity:1;}
-
 .photo-carousel{position:relative;overflow:hidden;}
 .carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.3s ease;background-size:cover;background-position:center;}
 .carousel-slide.active{opacity:1;}
 
-.hero-photo::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(160deg, rgba(30,44,2,.90) 0%, rgba(30,44,2,.6) 60%, rgba(30,44,2,.75) 100%);
-}
 .photo-tag{
   position:absolute;top:14px;right:14px;z-index:5;
   background:rgba(255,255,255,.9);color:var(--rocha);
@@ -208,6 +228,7 @@ header .btn{padding:10px 20px;font-size:.68rem;}
 .hero .loc{margin-top:1.8em;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);}
 .hero h1{color:var(--marfim);}
 .hero .lede{color:rgba(255,255,255,.82);}
+.hero .kicker{font-size:clamp(1.15rem,2.6vw,1.45rem);font-weight:500;}
 
 /* Divisor de estrato — o único "corte" dramático de rocha, na base do hero */
 .strata-divider{display:block;width:100%;height:auto;position:relative;z-index:2;margin-top:-2px;}
@@ -273,14 +294,16 @@ header .btn{padding:10px 20px;font-size:.68rem;}
 /* Experiências */
 .pill-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:680px;margin:0 auto;}
 .pill{background:var(--branco);color:var(--verde-serra);border:1px solid #D8DCD0;border-radius:999px;padding:10px 20px;font-size:.85rem;font-weight:600;}
-.meal-highlight{
+.meal-highlight,.chalet-extras{
   max-width:480px;margin:0 auto 2.2em;
   background:var(--branco);border:1px solid var(--arenito);
   padding:30px 34px;text-align:center;
 }
-.meal-highlight h3{font-size:1.15rem;margin-bottom:.3em;}
-.meal-highlight p{font-size:.92rem;color:#495337;margin-bottom:.8em;}
-.meal-highlight .btn-text{border-color:var(--arenito);}
+.meal-highlight h3,.chalet-extras h3{font-size:1.15rem;margin-bottom:.3em;}
+.meal-highlight p,.chalet-extras p{font-size:.92rem;color:#495337;margin-bottom:.8em;}
+.meal-highlight .btn-text,.chalet-extras .btn-text{border-color:var(--arenito);}
+.chalet-extras .pill-grid{margin-bottom:1em;}
+.chalet-extras .pill{font-size:.8rem;padding:8px 16px;}
 
 /* Pacotes românticos — pesos iguais, sem selo */
 .pack-grid{display:grid;grid-template-columns:1fr;gap:1px;background:#DDE1D6;border:1px solid #DDE1D6;}
@@ -370,8 +393,8 @@ footer a:hover{color:var(--latao);}
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <header>
-  <div class="wrap">
-
+  <div class="wrap" style="justify-content:space-between;">
+    <span class="header-loc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-1px;margin-right:4px;" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 7 11.5 7.3 11.8.2.2.5.2.7 0C12.3 21.5 20 15.4 20 10c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>Praia Grande, SC<span class="header-loc-extra"> · Canyons da Serra Geral</span></span>
     <a class="btn" href="#" data-wa data-msg="Olá! Gostaria de saber mais sobre a Vila Vicença.">WhatsApp</a>
   </div>
 </header>
@@ -390,13 +413,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-photo">
-    <div class="hero-photo-slide active" style="background-image:url('fotos/capa-1.webp');background-size:cover;background-position:center;"></div>
-  </div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
 
-      <p class="kicker">— Praia Grande, SC, aos pés da Serra Geral —</p>
+      <p class="kicker"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px;margin-right:6px;" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 7 11.5 7.3 11.8.2.2.5.2.7 0C12.3 21.5 20 15.4 20 10c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>Praia Grande, SC, aos pés da Serra Geral</p>
       <h1>Cinco refúgios.<br>O resto do mundo,<br>do lado de fora.</h1>
       <p class="lede">Banheira com vista, fogo de chão e o silêncio que só existe depois que a estrada acaba.</p>
       <div class="cta-row">
@@ -414,6 +434,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22 12.2c0-.7-.06-1.4-.18-2H12v3.9h5.6c-.24 1.3-.98 2.4-2.1 3.15v2.6h3.4c2-1.83 3.1-4.53 3.1-7.65z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.6-2.4l-3.4-2.6c-.94.63-2.15 1-3.2 1-2.46 0-4.55-1.66-5.3-3.9H3.2v2.66C4.83 19.6 8.15 22 12 22z"/><path fill="#FBBC05" d="M6.7 14.1c-.2-.6-.3-1.24-.3-1.9s.1-1.3.3-1.9V7.64H3.2A9.98 9.98 0 002 12.2c0 1.6.4 3.13 1.2 4.56z"/><path fill="#EA4335" d="M12 6.4c1.47 0 2.8.5 3.83 1.5l2.87-2.87C16.95 3.36 14.7 2.4 12 2.4c-3.85 0-7.17 2.4-8.8 5.24l3.5 2.56C7.45 8.06 9.54 6.4 12 6.4z"/></svg><strong>5,0</strong> no Google</span>
   </div>
 </div>
+
+<!-- 2 ANOS DE VILA VICENÇA -->
+<section id="dois-anos">
+  <div class="wrap center reveal">
+    <div class="aniversario-inline">
+      <span class="aniversario-num">2</span>
+      <span class="aniversario-label">anos de<br>Vila Vicença</span>
+    </div>
+    <div class="aniversario-divider"></div>
+    <h2>A Serra Geral continua esperando quem ainda não veio.</h2>
+    <p class="lede">Dois anos recebendo gente aos pés da Serra Geral, com a mesma promessa desde o primeiro dia: fogo de chão, lareira acesa e o silêncio que só existe depois que a estrada acaba. Se você ainda não esteve aqui, essa é a hora.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:1.8em;">
+      <a class="btn" href="#chales">Quero conhecer</a>
+      <a class="btn-text" href="#" data-wa data-msg="Olá! Vi a seção de 2 anos da Vila Vicença na página e quero saber mais sobre os chalés.">Falar no WhatsApp</a>
+    </div>
+  </div>
+</section>
 
 <!-- APRESENTAÇÃO -->
 <section class="section-alt">
@@ -452,10 +489,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="cap">Até 3 pessoas · 2 adultos + 1 criança</p>
         <h3>Gunnera</h3>
         <ul>
-          <li>Vista do cânion, claraboia sobre a hidromassagem</li>
+          <li>Vista panorâmica do Cânion Malacara, claraboia sobre a hidromassagem</li>
           <li>Decoração delicada e romântica, em madeira e tijolo aparente</li>
-          <li>Mezanino de pé-direito duplo, lareira e fogo de chão</li>
-          <li>Cama queen com roupas de cama de alto padrão</li>
+          <li>Mezanino de pé-direito duplo, lareira e fogo de chão privativo</li>
+          <li>Chuveiro cascata em ambiente especial, cozinha equipada e 1 cama queen + 1 sofá-cama</li>
+          <li>Ar-condicionado, Smart TV 55" e roupões e pantufas disponíveis no chalé</li>
         </ul>
         <p style="font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#838A75;margin-bottom:.3em;">A partir de</p>
         <div class="ec-price">
@@ -478,10 +516,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="cap">Até 3 pessoas · 2 adultos + 1 criança</p>
         <h3>Manicata</h3>
         <ul>
-          <li>Vista do Cânion Malacara, claraboia sobre a hidromassagem</li>
+          <li>Vista panorâmica do Cânion Malacara, claraboia sobre a hidromassagem</li>
           <li>Decoração industrial e rústica, em madeira e tijolo aparente</li>
           <li>Mezanino, lareira e fogo de chão privativo</li>
-          <li>Cama queen com roupas de cama de alto padrão</li>
+          <li>Chuveiro cascata em ambiente especial, cozinha equipada e 1 cama queen + 1 sofá-cama</li>
+          <li>Ar-condicionado, Smart TV 55" e roupões e pantufas disponíveis no chalé</li>
         </ul>
         <p style="font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#838A75;margin-bottom:.3em;">A partir de</p>
         <div class="ec-price">
@@ -506,12 +545,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="carousel-slide" style="background-image:url('fotos/refugio01-5.webp');"></div>
       </div>
       <div class="ec-body">
-        <p class="cap">Até 3 pessoas</p>
+        <p class="cap">Até 2 pessoas · casais</p>
         <h3>Refúgio 01</h3>
         <ul>
           <li>Hidromassagem com vista jardim</li>
-          <li>Lareira a lenha e fogo de chão</li>
-          <li>Café da manhã incluso na reserva direta</li>
+          <li>Cama de casal, lareira a lenha e fogo de chão privativo</li>
+          <li>Cozinha equipada, ar-condicionado e Smart TV 32"</li>
+          <li>Café da manhã incluso na reserva direta e roupões e pantufas disponíveis no chalé</li>
         </ul>
         <p style="font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#838A75;margin-bottom:.3em;">A partir de</p>
         <div class="ec-price">
@@ -534,9 +574,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="cap">Até 2 pessoas · casais</p>
         <h3>Refúgio 03</h3>
         <ul>
-          <li>Formato compacto e romântico</li>
-          <li>Hidromassagem e lareira</li>
-          <li>Café da manhã incluso na reserva direta</li>
+          <li>Formato compacto e romântico, com cozinha equipada</li>
+          <li>Cama de casal, hidromassagem e lareira</li>
+          <li>Ar-condicionado e Smart TV 32"</li>
+          <li>Café da manhã incluso na reserva direta e roupões e pantufas disponíveis no chalé</li>
         </ul>
         <p style="font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#838A75;margin-bottom:.3em;">A partir de</p>
         <div class="ec-price">
@@ -564,9 +605,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="cap">Até 5 pessoas · família</p>
         <h3>Refúgio 02</h3>
         <ul>
-          <li>Dois andares, cozinha completa</li>
-          <li>Hidromassagem e brinquedos</li>
-          <li>Café da manhã incluso na reserva direta</li>
+          <li>Dois andares, cozinha completa e fogo de chão privativo</li>
+          <li>Duas camas de casal e uma de solteiro</li>
+          <li>Hidromassagem e brinquedos para as crianças</li>
+          <li>Ar-condicionado e Smart TV 32"</li>
+          <li>Café da manhã incluso na reserva direta e roupões e pantufas disponíveis no chalé</li>
         </ul>
         <p style="font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#838A75;margin-bottom:.3em;">A partir de</p>
         <div class="ec-price">
@@ -642,13 +685,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a class="btn-text" href="#" data-wa data-msg="Olá! Gostaria de saber mais sobre meia pensão / pensão completa.">Perguntar no WhatsApp →</a>
     </div>
 
+    <div class="chalet-extras">
+      <h3>Mimos no chalé</h3>
+      <p>Opcionais para deixar a estadia ainda mais especial, entregues direto no chalé, sem você precisar sair.</p>
+      <div class="pill-grid">
+        <span class="pill">Massagem no chalé</span>
+        <span class="pill">Tábua de frios</span>
+        <span class="pill">Fondue a dois</span>
+        <span class="pill">Piquenique na propriedade</span>
+      </div>
+      <a class="btn-text" href="#" data-wa data-msg="Olá! Gostaria de saber mais sobre os opcionais no chalé (massagem, tábua de frios, fondue, piquenique).">Perguntar no WhatsApp →</a>
+    </div>
+
     <div class="pill-grid">
       <span class="pill">Cavalgada nos Cânions</span>
       <span class="pill">Voo de Balão</span>
       <span class="pill">Quadriciclo &amp; UTV</span>
       <span class="pill">Serra Geral Rafting</span>
       <span class="pill">Bóia Cross</span>
-      <span class="pill">Piquenique</span>
     </div>
     <p style="max-width:520px;margin:1.8em auto 0;font-size:.86rem;color:#838A75;">Assim que sua reserva for confirmada, nossa equipe apresenta todas as opções disponíveis para as suas datas.</p>
     <p style="margin-top:1.8em;"><a class="btn" href="#" data-wa data-msg="Olá! Gostaria de saber a disponibilidade dos chalés da Vila Vicença.">Quero reservar minha estadia</a></p>
@@ -671,8 +725,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="why-item">
         <span class="why-num">II</span>
-        <h3>Café da manhã incluso</h3>
-        <p style="font-size:.94rem;">Servido no chalé, das 7h30 às 8h30 — parte da estadia, não um extra.</p>
+        <h3>Café da manhã entregue no chalé</h3>
+        <p style="font-size:.94rem;">Uma cesta chega até você, das 7h30 às 8h30 — sem precisar sair do chalé em nenhum momento.</p>
       </div>
       <div class="why-item">
         <span class="why-num">III</span>
@@ -844,6 +898,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var type = 'geral', name = 'geral';
         var pack = el.closest('.pack-card');
         var meal = el.closest('.meal-highlight');
+        var extras = el.closest('.chalet-extras');
+        var aniversario = el.closest('#dois-anos');
         var chaleBlock = el.closest('.editorial-chale') || el.closest('.chale-card');
         if (pack) {
           type = 'pacote_romantico';
@@ -852,6 +908,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         } else if (meal) {
           type = 'pensao';
           name = 'Meia Pensão / Pensão Completa';
+        } else if (extras) {
+          type = 'mimos_chale';
+          name = 'Mimos no chalé';
+        } else if (aniversario) {
+          type = 'aniversario_2anos';
+          name = '2 anos de Vila Vicença';
         } else if (chaleBlock) {
           type = 'chale';
           var h3 = chaleBlock.querySelector('h3');
