@@ -161,14 +161,13 @@ section{padding:100px 0;position:relative;}
   box-shadow:0 6px 22px rgba(59,87,4,.1);
 }
 .campaign-bar-inner{
-  display:flex;flex-direction:column;align-items:flex-start;gap:18px;text-align:left;
+  display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center;
 }
 @media(min-width:760px){
-  .campaign-bar-inner{flex-direction:row;align-items:center;justify-content:space-between;gap:32px;}
-  .campaign-bar .cb-copy{flex:1;}
+  .campaign-bar-inner{flex-direction:column;align-items:center;justify-content:center;gap:20px;}
 }
 .campaign-bar .cb-eyebrow{
-  display:flex;align-items:center;gap:8px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
   font-family:system-ui,-apple-system,sans-serif;
   font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
   color:var(--arenito);
@@ -185,6 +184,7 @@ section{padding:100px 0;position:relative;}
   font-family:system-ui,-apple-system,sans-serif;
   font-size:.92rem;line-height:1.55;
   color:#495337;max-width:480px;
+  margin-left:auto;margin-right:auto;
 }
 .campaign-bar .cb-cta{
   display:inline-flex;align-items:center;gap:8px;flex-shrink:0;
@@ -428,7 +428,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="campaign-bar-inner">
     <div class="cb-copy">
       <p class="cb-eyebrow"><span class="spark">✦</span> Campanha especial · até 22/09</p>
-      <p class="cb-title">Aproveite os últimos dias do inverno na Vila Vicença</p>
+      <p class="cb-title">Aproveite os últimos dias do inverno<br>na Vila&nbsp;Vicença</p>
       <p class="cb-support">Condições especiais para sua estadia: café da manhã incluso, check-out estendido e pagamento facilitado.</p>
     </div>
     <span class="cb-cta">Conhecer a oferta <span class="arrow">→</span></span>
