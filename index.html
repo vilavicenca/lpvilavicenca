@@ -913,17 +913,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
   (function(){
-    var params = new URLSearchParams(window.location.search);
-    var origem = params.get('utm_source') || params.get('utm_campaign');
-    var links = document.querySelectorAll('[data-wa]');
-    links.forEach(function(el){
+    // Monta a URL do WhatsApp com a mensagem específica de cada botão (data-msg).
+    function computeUrl(el){
+      var params = new URLSearchParams(window.location.search);
+      var origem = params.get('utm_source') || params.get('utm_campaign');
       var msg = el.getAttribute('data-msg') || 'Olá! Gostaria de mais informações.';
       if (origem) { msg += ' (via ' + origem + ')'; }
-      el.setAttribute('href', 'https://wa.me/5548988442348?text=' + encodeURIComponent(msg));
+      return 'https://wa.me/5548988442348?text=' + encodeURIComponent(msg);
+    }
+    var links = document.querySelectorAll('[data-wa]');
+    links.forEach(function(el){
+      var correctUrl = computeUrl(el);
+      el.setAttribute('href', correctUrl);
       el.setAttribute('target', '_blank');
       el.setAttribute('rel', 'noopener');
 
+      // Scripts de terceiros (pixels/tags de anúncio carregados de forma assíncrona)
+      // podem reescrever o href de links wa.me depois que a página carrega. Este
+      // observer garante que a mensagem específica de cada botão sempre prevaleça.
+      var mo = new MutationObserver(function(){
+        if (el.getAttribute('href') !== correctUrl) {
+          el.setAttribute('href', correctUrl);
+        }
+      });
+      mo.observe(el, {attributes:true, attributeFilter:['href']});
+
+      // Reforço no instante do clique — garante a URL certa mesmo em
+      // concorrência com scripts assíncronos que ainda não terminaram de rodar.
       el.addEventListener('click', function(){
+        if (el.getAttribute('href') !== correctUrl) {
+          el.setAttribute('href', correctUrl);
+        }
         var type = 'geral', name = 'geral';
         var pack = el.closest('.pack-card');
         var meal = el.closest('.meal-highlight');
