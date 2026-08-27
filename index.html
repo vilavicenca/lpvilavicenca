@@ -145,39 +145,58 @@ section{padding:100px 0;position:relative;}
 /* Header */
 /* Banner de campanha — espaço fixo, reaproveitável pra qualquer oferta vigente */
 .campaign-bar{
-  background-image:linear-gradient(120deg, rgba(23,38,29,.88) 0%, rgba(34,52,8,.82) 100%), url('fotos/banner-campanha.webp');
-  background-size:cover;background-position:center 30%;
-  color:var(--branco);
-  text-align:center;padding:36px 46px;position:relative;
-  border-bottom:2px solid var(--latao);
+  display:block;
+  text-decoration:none;color:inherit;
+  background:var(--marfim);
+  border:1px solid rgba(59,87,4,.3);
+  border-radius:10px;
+  width:calc(100% - 32px);
+  max-width:calc(var(--maxw) - 40px);
+  margin:20px auto;
+  padding:34px 40px;
+  transition:border-color .25s ease, box-shadow .25s ease;
 }
+.campaign-bar:hover{
+  border-color:var(--verde-serra);
+  box-shadow:0 6px 22px rgba(59,87,4,.1);
+}
+.campaign-bar-inner{
+  display:flex;flex-direction:column;align-items:flex-start;gap:18px;text-align:left;
+}
+@media(min-width:760px){
+  .campaign-bar-inner{flex-direction:row;align-items:center;justify-content:space-between;gap:32px;}
+  .campaign-bar .cb-copy{flex:1;}
+}
+.campaign-bar .cb-eyebrow{
+  display:flex;align-items:center;gap:8px;
+  font-family:system-ui,-apple-system,sans-serif;
+  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--arenito);
+  margin-bottom:.7em;
+}
+.campaign-bar .cb-eyebrow .spark{color:var(--latao);font-size:.85rem;}
 .campaign-bar .cb-title{
   font-family:"Fraunces",serif;font-style:normal;font-weight:600;
-  font-size:clamp(1.3rem,4vw,2rem);line-height:1.15;
-  margin-bottom:.35em;
-  text-shadow:0 2px 12px rgba(0,0,0,.4);
+  font-size:clamp(1.25rem,2.6vw,1.65rem);line-height:1.28;
+  color:var(--verde-serra);
+  margin-bottom:.45em;
 }
 .campaign-bar .cb-support{
   font-family:system-ui,-apple-system,sans-serif;
-  font-size:.92rem;color:var(--latao);
-  letter-spacing:.04em;text-transform:uppercase;font-weight:600;
-  margin-bottom:1em;
+  font-size:.92rem;line-height:1.55;
+  color:#495337;max-width:480px;
 }
-.campaign-bar a{
-  display:inline-flex;align-items:center;gap:6px;
-  background:var(--latao);color:var(--rocha);
-  padding:11px 26px;border-radius:2px;
-  font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;
-  text-decoration:none;
-  transition:transform .2s ease;
+.campaign-bar .cb-cta{
+  display:inline-flex;align-items:center;gap:8px;flex-shrink:0;
+  background:var(--verde-serra);color:var(--marfim);
+  padding:14px 30px;border-radius:2px;
+  font-family:system-ui,-apple-system,sans-serif;
+  font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  transition:background .25s ease;
 }
-.campaign-bar a:hover{transform:translateY(-2px);}
-.campaign-bar .close-bar{
-  position:absolute;right:14px;top:14px;
-  background:none;border:none;color:rgba(255,255,255,.6);
-  font-size:1.2rem;cursor:pointer;padding:6px 10px;line-height:1;
-}
-.campaign-bar .close-bar:hover{color:var(--branco);}
+.campaign-bar:hover .cb-cta{background:var(--rocha);}
+.campaign-bar .cb-cta .arrow{display:inline-block;transition:transform .25s ease;}
+.campaign-bar:hover .cb-cta .arrow{transform:translateX(4px);}
 
 header{
   position:sticky;top:0;z-index:40;
@@ -405,12 +424,16 @@ footer a:hover{color:var(--latao);}
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KV6BH6Z3"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div class="campaign-bar" id="campaignBar">
-  <button class="close-bar" id="closeCampaignBar" aria-label="Fechar aviso de campanha">✕</button>
-  <div class="cb-title">Uma campanha especial está no ar</div>
-  <div class="cb-support">Benefícios exclusivos para sua estadia</div>
-  <a href="#" data-wa data-msg="Olá! Vi que existe uma campanha especial vigente e gostaria de saber os detalhes.">Conhecer a oferta →</a>
-</div>
+<a class="campaign-bar" id="campaignBar" href="fim-de-inverno.html">
+  <div class="campaign-bar-inner">
+    <div class="cb-copy">
+      <p class="cb-eyebrow"><span class="spark">✦</span> Campanha especial · até 22/09</p>
+      <p class="cb-title">Aproveite os últimos dias do inverno na Vila Vicença</p>
+      <p class="cb-support">Condições especiais para sua estadia: café da manhã incluso, check-out estendido e pagamento facilitado.</p>
+    </div>
+    <span class="cb-cta">Conhecer a oferta <span class="arrow">→</span></span>
+  </div>
+</a>
 
 <header>
   <div class="wrap">
@@ -813,7 +836,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </details>
     <details>
       <summary>Quais as formas de pagamento?</summary>
-      <p>A partir de 2 diárias (padrão): PIX com 7% de desconto à vista, ou cartão em até 6x sem juros. Em casos excepcionais com 1 diária: PIX com 3% de desconto à vista, ou cartão em até 3x sem juros. Em ambos os casos, entrada de 30% via PIX, com o saldo pago no check-in.</p>
+      <p>A partir de 2 diárias (padrão): PIX com 5% de desconto à vista, ou cartão em até 5x sem juros. Em casos excepcionais com 1 diária: PIX com 3% de desconto à vista, ou cartão em até 3x sem juros. Em ambos os casos, entrada de 30% via PIX, com o saldo pago no check-in.</p>
     </details>
     <details>
       <summary>Existe estadia mínima?</summary>
@@ -955,29 +978,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       e.preventDefault();
       showBar();
     });
-  })();
-
-  // Banner de campanha — fecha e não reaparece no mesmo dia
-  (function(){
-    function getCookie(name){
-      var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-      return m ? m.pop() : '';
-    }
-    function setCookie(name, value, days){
-      var d = new Date();
-      d.setTime(d.getTime() + days*24*60*60*1000);
-      document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
-    }
-    var bar = document.getElementById('campaignBar');
-    if(!bar) return;
-    if(getCookie('vv_campaign_dismissed')){ bar.style.display = 'none'; }
-    var closeBtn = document.getElementById('closeCampaignBar');
-    if(closeBtn){
-      closeBtn.addEventListener('click', function(){
-        setCookie('vv_campaign_dismissed', '1', 1);
-        bar.style.display = 'none';
-      });
-    }
   })();
 
   // Carrossel de fotos — genérico, roda em qualquer .photo-carousel da página
