@@ -454,6 +454,26 @@ footer a:hover{color:var(--latao);}
   background:linear-gradient(160deg, rgba(30,44,2,.92) 0%, rgba(30,44,2,.75) 55%, rgba(30,44,2,.92) 100%);
 }
 .cta-final .wrap{position:relative;z-index:2;}
+
+/* ===== Continue por aqui — carrossel de outros guias ===== */
+.next-reads{padding:70px 0 90px;background:var(--marfim);}
+.next-reads .head{text-align:center;margin-bottom:36px;}
+.next-reads .head p.sub{font-size:.95rem;color:#6b7458;max-width:480px;margin:0 auto;}
+.next-scroll{display:flex;gap:18px;overflow-x:auto;padding:6px 24px 18px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.next-scroll::-webkit-scrollbar{display:none;}
+.next-scroll::before,.next-scroll::after{content:"";flex:0 0 calc((100% - var(--maxw)) / 2 - 24px);}
+@media(max-width:1228px){.next-scroll::before,.next-scroll::after{flex:0 0 6px;}}
+.next-card{position:relative;flex:0 0 auto;width:250px;height:340px;border-radius:6px;overflow:hidden;scroll-snap-align:start;text-decoration:none;color:#fff;display:block;box-shadow:0 10px 30px rgba(30,44,2,.15);}
+.next-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.8,.25,1);}
+.next-card:hover img{transform:scale(1.08);}
+.next-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(30,44,2,0) 35%, rgba(30,44,2,.85) 100%);}
+.next-card .txt{position:absolute;left:0;right:0;bottom:0;padding:20px 18px;z-index:2;}
+.next-card .eyebrow{font-family:system-ui,-apple-system,sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--latao);margin-bottom:.5em;display:block;}
+.next-card h3{font-family:"Fraunces",serif;font-weight:500;font-size:1.28rem;line-height:1.18;margin:0 0 .5em;color:#fff;}
+.next-card .arrow{display:inline-flex;align-items:center;gap:6px;font-family:system-ui,-apple-system,sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.8);font-weight:600;transition:gap .25s ease;}
+.next-card:hover .arrow{gap:11px;}
+.next-reads .see-all{text-align:center;margin-top:8px;}
+.next-reads .see-all a{font-family:system-ui,-apple-system,sans-serif;font-size:.85rem;color:var(--verde-serra);text-decoration:none;border-bottom:1px solid var(--arenito);padding-bottom:2px;}
 </style>
 </head>
 <body>
@@ -591,6 +611,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </details>
     </div>
   </div>
+</section>
+
+<!-- CONTINUE POR AQUI -->
+<section class="next-reads">
+  <div class="wrap head">
+    <p class="kicker">Continue por aqui</p>
+    <h2>Mais um motivo pra voltar</h2>
+    <p class="sub">Alguns cantos da Vila Vicença que talvez você ainda não tenha explorado.</p>
+  </div>
+  <div class="next-scroll">
+    <a class="next-card" href="chales-praia-grande-sc.html" title="Chalés em Praia Grande SC: guia completo para escolher onde ficar perto dos Canyons">
+      <img src="fotos/refugio01-1.webp" alt="Chalé Refúgio da Vila Vicença com hidromassagem privativa em Praia Grande SC">
+      <div class="txt">
+        <span class="eyebrow">Guia de hospedagem</span>
+        <h3>Luxo ou refúgio: qual chalé é o seu?</h3>
+        <span class="arrow">Ler →</span>
+      </div>
+    </a>
+    <a class="next-card" href="pacote-romantico-serra-catarinense.html" title="Pacote Romântico na Serra Catarinense: Chalé com Hidromassagem em Praia Grande">
+      <img src="fotos/pacote-luxo-1.webp" alt="Chalé de luxo da Vila Vicença com hidromassagem, ideal para casais em Praia Grande SC">
+      <div class="txt">
+        <span class="eyebrow">Guia para casais</span>
+        <h3>3 jeitos de fugir a dois</h3>
+        <span class="arrow">Ler →</span>
+      </div>
+    </a>
+    <a class="next-card" href="hospedagem-perto-canyon-itaimbezinho.html" title="Onde se Hospedar Perto do Canyon Itaimbezinho: Chalés em Praia Grande SC">
+      <img src="fotos/capa-1.webp" alt="Vista da Vila Vicença, base de hospedagem a 31 km do Canyon Itaimbezinho">
+      <div class="txt">
+        <span class="eyebrow">Guia de hospedagem</span>
+        <h3>A 31 km do Itaimbezinho (e do balão ao amanhecer)</h3>
+        <span class="arrow">Ler →</span>
+      </div>
+    </a>
+    <a class="next-card" href="experiencias-exclusivas-casal-praia-grande.html" title="O Que Torna a Vila Vicença um Refúgio a Dois: Experiências Exclusivas na Serra Geral">
+      <img src="fotos/gunnera-2.webp" alt="Interior do Chalé Gunnera com lareira, uma das experiências exclusivas da Vila Vicença">
+      <div class="txt">
+        <span class="eyebrow">Experiências a dois</span>
+        <h3>O pôr do sol que só vocês vão ver</h3>
+        <span class="arrow">Ler →</span>
+      </div>
+    </a>
+  </div>
+  <p class="see-all"><a href="guias.html">Ver todos os guias →</a></p>
 </section>
 
 <!-- CTA FINAL -->
