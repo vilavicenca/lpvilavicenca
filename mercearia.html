@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercearia — Vila Vicença Natural Refuge</title>
+<meta name="description" content="Cardápio da mercearia da Vila Vicença: bebidas, snacks, conservas e vinhos disponíveis para pedir direto no seu chalé, via WhatsApp.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.vilavicenca.com.br/mercearia.html">
+
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied'
+});
+</script>
+<!-- Google Tag Manager: mesmo contêiner oficial usado no site (GTM-KV6BH6Z3) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KV6BH6Z3');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --rocha:#1E2C02;
+  --verde-serra:#3B5704;
+  --arenito:#527808;
+  --latao:#81B622;
+  --marfim:#F1F3ED;
+  --carvao:#202419;
+  --branco:#FFFFFF;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation:none!important;transition:none!important;}
+}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;
+  color:var(--carvao);
+  background:var(--branco);
+  line-height:1.7;
+}
+h1,h2,h3,.display{
+  font-family:"Fraunces",serif;
+  font-weight:500;
+  letter-spacing:-0.01em;
+  color:var(--verde-serra);
+  margin:0 0 .4em;
+}
+h1{font-size:clamp(2.2rem,6vw,3.4rem);font-weight:600;line-height:1.08;}
+h2{font-size:clamp(1.5rem,3.6vw,2rem);line-height:1.15;}
+h3{font-size:1.15rem;font-weight:600;}
+p{margin:0 0 1em;}
+a{color:inherit;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+section{padding:64px 0;position:relative;}
+.section-alt{background:var(--marfim);}
+.kicker{
+  font-family:"Fraunces",serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:1.1rem;
+  color:var(--arenito);
+  margin-bottom:.5em;
+}
+.strata-mark{display:flex;gap:5px;margin:0 auto 22px;width:fit-content;align-items:flex-end;}
+.strata-mark span{display:block;height:4px;border-radius:1px;background:var(--arenito);}
+.strata-mark span:nth-child(1){width:16px;}
+.strata-mark span:nth-child(2){width:30px;}
+.strata-mark span:nth-child(3){width:12px;}
+.strata-mark span:nth-child(4){width:38px;}
+.strata-mark span:nth-child(5){width:20px;}
+.center{text-align:center;}
+.lede{max-width:600px;margin:0 auto 1em;font-size:1.05rem;color:#495337;}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 28px;
+  border:1.5px solid var(--latao);
+  border-radius:2px;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+  text-decoration:none;
+  color:var(--latao);
+  background:none;
+  cursor:pointer;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  transition:color .4s ease;
+}
+.btn::before{
+  content:"";position:absolute;inset:0;
+  background:var(--latao);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .5s cubic-bezier(.65,0,.35,1);
+  z-index:-1;
+}
+.btn:hover::before,.btn:focus-visible::before{transform:scaleX(1);}
+.btn:hover,.btn:focus-visible{color:var(--rocha);}
+.btn:focus-visible{outline:2px solid var(--latao);outline-offset:4px;}
+.btn-text{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.85rem;letter-spacing:.04em;color:var(--verde-serra);
+  text-decoration:none;border-bottom:1px solid var(--arenito);padding-bottom:2px;
+}
+header{
+  position:sticky;top:0;z-index:40;
+  background:rgba(241,243,237,.92);
+  border-bottom:1px solid #DDE1D6;
+  backdrop-filter:blur(8px);
+}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+.back-link{font-size:.8rem;letter-spacing:.04em;color:var(--verde-serra);text-decoration:none;border-bottom:1px solid var(--arenito);padding-bottom:2px;}
+header .btn{padding:10px 20px;font-size:.66rem;}
+/* Hero simplificado */
+.hero-merc{position:relative;color:var(--branco);padding:90px 0 70px;text-align:center;background:var(--rocha);overflow:hidden;}
+.hero-merc-bg{position:absolute;inset:0;background-image:url('fotos/mercearia/cesta-hero.webp');background-size:cover;background-position:center;}
+.hero-merc-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg, rgba(30,44,2,.88) 0%, rgba(30,44,2,.55) 55%, rgba(30,44,2,.82) 100%);}
+.hero-merc .wrap{position:relative;z-index:1;}
+.hero-merc h1{color:var(--marfim);}
+.hero-merc .kicker{color:var(--latao);}
+.hero-merc .lede{color:rgba(255,255,255,.85);}
+.wine-group-photo{width:100%;max-width:640px;display:block;margin:0 auto 32px;border:1px solid #DDE1D6;}
+/* Pagamento PIX */
+.pix-box{max-width:420px;margin:0 auto;background:var(--branco);border:1px solid #DDE1D6;padding:32px 28px;text-align:center;}
+.pix-box img{display:block;margin:0 auto 20px;border:1px solid #DDE1D6;}
+.pix-key{font-family:"Fraunces",serif;font-size:1.15rem;color:var(--verde-serra);font-weight:600;margin:0 0 4px;}
+.pix-owner{font-size:.82rem;color:#838A75;margin:0 0 20px;}
+.pix-actions{display:flex;flex-direction:column;gap:10px;}
+.copy-feedback{font-size:.78rem;color:var(--arenito);height:1.2em;margin-top:10px;}
+/* Categoria */
+.cat-title{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--arenito);margin:0 0 20px;}
+.prod-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:56px;}
+@media(min-width:560px){.prod-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:860px){.prod-grid{grid-template-columns:repeat(3,1fr);}}
+.prod-card{background:var(--branco);border:1px solid #DDE1D6;display:flex;flex-direction:column;overflow:hidden;}
+.prod-photo{height:190px;width:100%;object-fit:cover;display:block;background:var(--marfim);}
+.prod-body{padding:20px 22px 22px;flex:1;display:flex;flex-direction:column;}
+.prod-body h3{margin-bottom:.15em;font-size:1.05rem;}
+.prod-price{font-family:"Fraunces",serif;font-size:1.3rem;color:var(--verde-serra);font-weight:600;margin:.1em 0 1em;}
+.prod-body .btn{margin-top:auto;width:100%;justify-content:center;}
+.prod-card.no-photo .prod-body{padding-top:26px;}
+.prod-note{font-size:.82rem;color:#838A75;margin:-0.4em 0 1em;}
+.wa-float{
+  position:fixed;right:20px;bottom:20px;z-index:50;
+  background:var(--latao);color:var(--rocha);
+  width:58px;height:58px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.3);text-decoration:none;
+}
+.wa-float:focus-visible{outline:2px solid var(--branco);outline-offset:3px;}
+.cookie-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:var(--rocha);color:var(--branco);
+  padding:18px 24px;display:none;align-items:center;gap:18px;flex-wrap:wrap;
+  box-shadow:0 -6px 20px rgba(0,0,0,.25);
+}
+.cookie-bar.show{display:flex;}
+.cookie-bar p{margin:0;font-size:.85rem;flex:1;min-width:220px;}
+.cookie-bar a{text-decoration:underline;color:var(--latao);}
+.cookie-actions{display:flex;gap:10px;}
+.cookie-actions button{border:1.5px solid var(--latao);border-radius:2px;padding:10px 18px;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;cursor:pointer;background:none;color:var(--branco);}
+.cookie-accept{background:var(--latao)!important;color:var(--rocha)!important;}
+footer{background:var(--rocha);color:rgba(255,255,255,.65);font-size:.85rem;}
+footer .wrap{padding:40px 24px 30px;text-align:center;}
+footer a{color:rgba(255,255,255,.65);text-decoration:none;}
+footer a:hover{color:var(--latao);}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KV6BH6Z3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header>
+  <div class="wrap">
+    <a class="back-link" href="index.html">← Vila Vicença</a>
+    <a class="btn" href="#" data-wa data-msg="Olá! Gostaria de pedir alguns itens da mercearia.">WhatsApp</a>
+  </div>
+</header>
+
+<a class="wa-float" href="#" data-wa data-msg="Olá! Gostaria de pedir alguns itens da mercearia." aria-label="Falar no WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+</a>
+
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-live="polite">
+  <p>Usamos cookies para medir audiência e melhorar sua experiência. Veja nossa <a href="index.html#politica">Política de Privacidade</a>.</p>
+  <div class="cookie-actions">
+    <button class="cookie-reject" id="cookieReject">Rejeitar</button>
+    <button class="cookie-accept" id="cookieAccept">Aceitar</button>
+  </div>
+</div>
+
+<section class="hero-merc">
+  <div class="hero-merc-bg"></div>
+  <div class="wrap">
+    <p class="kicker">— Direto no seu chalé —</p>
+    <h1>Mercearia<br>Vila Vicença</h1>
+    <p class="lede">Os itens abaixo já estão no seu chalé, prontos pra você aproveitar. Precisa de pantufas, taça, café extra ou reposição de algo? É só chamar no WhatsApp.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <p class="cat-title">Bebidas</p>
+    <div class="prod-grid">
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Água com ou sem gás</h3>
+          <p class="prod-price">R$ 5,00</p>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Refrigerante lata</h3>
+          <p class="prod-price">R$ 7,00</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="cat-title">Snacks &amp; doces</p>
+    <div class="prod-grid">
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Pringles Original</h3>
+          <p class="prod-price">R$ 18,00</p>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Bis Lacta Original</h3>
+          <p class="prod-price">R$ 12,00</p>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Marshmallow Fini Camping</h3>
+          <p class="prod-price">R$ 12,00</p>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Cookies Nestlé</h3>
+          <p class="prod-price">R$ 7,00</p>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Alpino</h3>
+          <p class="prod-price">R$ 7,00</p>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Bon Goûtter queijo suíço</h3>
+          <p class="prod-price">R$ 7,00</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="cat-title">Conservas</p>
+    <div class="prod-grid">
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Azeitona União 160g</h3>
+          <p class="prod-price">R$ 9,00</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="cat-title">Vinhos</p>
+    <img class="wine-group-photo" src="fotos/mercearia/vinhos-grupo.webp" alt="Vinhos disponíveis na mercearia da Vila Vicença">
+    <div class="prod-grid">
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Casillero del Diablo Cabernet Sauvignon</h3>
+          <p class="prod-price">R$ 72,00</p>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Casillero del Diablo Merlot</h3>
+          <p class="prod-price">R$ 72,00</p>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Casa Valduga Origem Cabernet Sauvignon</h3>
+          <p class="prod-price">R$ 76,00</p>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Casa Valduga Origem Carménère</h3>
+          <p class="prod-price">R$ 76,00</p>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Cordero con Piel de Lobo Malbec 2024</h3>
+          <p class="prod-price">R$ 57,00</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="cat-title">Para o chalé</p>
+    <div class="prod-grid">
+      <div class="prod-card">
+        <img class="prod-photo" src="fotos/mercearia/pantufas.webp" alt="Par de pantufas personalizadas Vila Vicença">
+        <div class="prod-body">
+          <h3>Pantufas personalizadas</h3>
+          <p class="prod-price">R$ 42,00</p>
+          <a class="btn" href="#" data-wa data-msg="Olá! Gostaria de pedir 1 par de pantufas personalizadas Vila Vicença (R$ 42,00).">Pedir no WhatsApp</a>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Pacote de lenha</h3>
+          <p class="prod-price">R$ 35,00</p>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Café da manhã extra — Essencial</h3>
+          <p class="prod-price">R$ 70,00</p>
+          <a class="btn" href="#" data-wa data-msg="Olá! Gostaria de pedir 1 Café da manhã extra Essencial (R$ 70,00).">Pedir no WhatsApp</a>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Café da manhã extra — Completo</h3>
+          <p class="prod-price">R$ 110,00</p>
+          <a class="btn" href="#" data-wa data-msg="Olá! Gostaria de pedir 1 Café da manhã extra Completo (R$ 110,00).">Pedir no WhatsApp</a>
+        </div>
+      </div>
+      <div class="prod-card no-photo">
+        <div class="prod-body">
+          <h3>Taça</h3>
+          <p class="prod-price">R$ 37,00</p>
+          <p class="prod-note">Taxa de reposição cobrada em caso de quebra.</p>
+          <a class="btn" href="#" data-wa data-msg="Olá! Quebrei uma taça e gostaria de repor (R$ 37,00).">Pedir no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="center" style="margin-top:48px;padding-top:36px;border-top:1px solid #DDE1D6;">
+      <p class="lede" style="max-width:480px;">Acabou algum item no chalé, ou precisa de reposição de algo? É só chamar a gente.</p>
+      <a class="btn" href="#" data-wa data-msg="Olá! Preciso de reposição de um item da mercearia no meu chalé.">Pedir reposição no WhatsApp</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section-alt" id="pagamento">
+  <div class="wrap center">
+    <div class="strata-mark" style="margin-left:auto;margin-right:auto;"><span></span><span></span><span></span><span></span><span></span></div>
+    <p class="kicker">Pagamento</p>
+    <h2>Pague direto pelo PIX</h2>
+    <p class="lede">Escaneie o QR code ou copie a chave — digite o valor combinado e envie o comprovante pelo WhatsApp pra confirmarmos.</p>
+
+    <div class="pix-box">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=00020101021126360014br.gov.bcb.pix0114487448950001035204000053039865802BR5912VILA%20VICENCA6012PRAIA%20GRANDE62070503%2A%2A%2A6304A87D" width="220" height="220" alt="QR code PIX Vila Vicença" loading="lazy">
+      <p class="pix-key">48.744.895/0001-03</p>
+      <p class="pix-owner">Chave PIX (CNPJ) · Vila Vicença Hospedaria LTDA</p>
+      <div class="pix-actions">
+        <button class="btn" type="button" id="copyKeyBtn">Copiar chave PIX</button>
+        <a class="btn-text" href="#" id="copyCodeBtn">Copiar código Pix Copia e Cola</a>
+      </div>
+      <p class="copy-feedback" id="copyFeedback"></p>
+    </div>
+  </div>
+</section>
+
+<footer id="politica">
+  <div class="wrap">
+    <p>Vila Vicença Natural Refuge · <a href="https://wa.me/5548988442348" target="_blank" rel="noopener">WhatsApp (48) 98844-2348</a></p>
+    <p style="margin-top:.6em;font-size:.78rem;"><a href="index.html">Voltar ao site</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  function computeUrl(el){
+    var msg = el.getAttribute('data-msg') || 'Olá! Gostaria de mais informações.';
+    return 'https://wa.me/5548988442348?text=' + encodeURIComponent(msg);
+  }
+  var links = document.querySelectorAll('[data-wa]');
+  links.forEach(function(el){
+    var correctUrl = computeUrl(el);
+    el.setAttribute('href', correctUrl);
+    el.setAttribute('target', '_blank');
+    el.setAttribute('rel', 'noopener');
+    var mo = new MutationObserver(function(){
+      if (el.getAttribute('href') !== correctUrl) {
+        el.setAttribute('href', correctUrl);
+      }
+    });
+    mo.observe(el, {attributes:true, attributeFilter:['href']});
+    el.addEventListener('click', function(){
+      if (el.getAttribute('href') !== correctUrl) {
+        el.setAttribute('href', correctUrl);
+      }
+      var card = el.closest('.prod-card');
+      var name = card ? card.querySelector('h3').textContent.trim() : 'mercearia';
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        'event': 'whatsapp_click',
+        'whatsapp_content_type': 'mercearia',
+        'whatsapp_content_name': name
+      });
+    });
+  });
+})();
+
+(function(){
+  var PIX_KEY = "48744895000103";
+  var PIX_CODE = "00020101021126360014br.gov.bcb.pix0114487448950001035204000053039865802BR5912VILA VICENCA6012PRAIA GRANDE62070503***6304A87D";
+  var feedback = document.getElementById('copyFeedback');
+  function showFeedback(msg){
+    feedback.textContent = msg;
+    setTimeout(function(){ feedback.textContent = ''; }, 2500);
+  }
+  function copyText(text, successMsg){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){
+        showFeedback(successMsg);
+      }).catch(function(){
+        showFeedback('Não foi possível copiar automaticamente — copie manualmente.');
+      });
+    } else {
+      showFeedback('Copie manualmente: ' + text);
+    }
+  }
+  var keyBtn = document.getElementById('copyKeyBtn');
+  if (keyBtn) {
+    keyBtn.addEventListener('click', function(){
+      copyText(PIX_KEY, 'Chave PIX copiada!');
+    });
+  }
+  var codeBtn = document.getElementById('copyCodeBtn');
+  if (codeBtn) {
+    codeBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      copyText(PIX_CODE, 'Código Pix Copia e Cola copiado!');
+    });
+  }
+})();
+
+(function(){
+  function getCookie(name){
+    var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return m ? m.pop() : '';
+  }
+  function setCookie(name, value, days){
+    var d = new Date();
+    d.setTime(d.getTime() + days*24*60*60*1000);
+    document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+  }
+  var bar = document.getElementById('cookieBar');
+  var consent = getCookie('vv_consent');
+  function showBar(){ bar.classList.add('show'); }
+  function hideBar(){ bar.classList.remove('show'); }
+  if(!consent){ showBar(); }
+  document.getElementById('cookieAccept').addEventListener('click', function(){
+    setCookie('vv_consent', 'granted', 180);
+    gtag('consent', 'update', {'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});
+    hideBar();
+  });
+  document.getElementById('cookieReject').addEventListener('click', function(){
+    setCookie('vv_consent', 'denied', 180);
+    hideBar();
+  });
+})();
+</script>
+
+</body>
+</html>
