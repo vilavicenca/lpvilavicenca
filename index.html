@@ -352,6 +352,15 @@ header .btn{padding:10px 20px;font-size:.68rem;}
 .pack-card p.desc{font-size:.94rem;color:#495337;flex:1;}
 .pack-card .btn-text{margin-top:1.2em;align-self:flex-start;}
 
+/* Guias e dicas */
+.guide-grid{display:grid;grid-template-columns:1fr;gap:1px;background:#DDE1D6;border:1px solid #DDE1D6;}
+@media(min-width:860px){.guide-grid{grid-template-columns:repeat(3,1fr);}}
+.guide-card{background:var(--branco);padding:32px 28px;display:flex;flex-direction:column;}
+.guide-card .tag{font-family:"Fraunces",serif;font-style:italic;font-size:1.05rem;color:var(--arenito);margin-bottom:.5em;}
+.guide-card h3{font-size:1.08rem;margin-bottom:.5em;}
+.guide-card p.desc{font-size:.9rem;color:#495337;flex:1;}
+.guide-card .btn-text{margin-top:1.2em;align-self:flex-start;}
+
 /* Localização */
 .map-embed{border:1px solid var(--marfim);outline:1px solid #DDE1D6;max-width:900px;margin:0 auto;overflow:hidden;}
 .map-embed iframe{display:block;width:100%;filter:grayscale(.15) contrast(1.05);}
@@ -808,6 +817,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="author">Daniela — Airbnb · Refúgio 01 · Junho 2026</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- GUIAS -->
+<section id="guias" class="section-alt">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="strata-mark" style="margin-left:auto;margin-right:auto;"><span></span><span></span><span></span><span></span><span></span></div>
+      <p class="kicker">Guias e dicas</p>
+      <h2>Planeje sua estadia nos Canyons</h2>
+      <p class="lede">Tudo o que vale saber antes de vir: onde ficar, como chegar e o que aproveitar na Serra Geral.</p>
+    </div>
+    <div class="guide-grid reveal" style="margin-top:2.4em;">
+      <div class="guide-card">
+        <span class="tag">Hospedagem</span>
+        <h3>Chalés em Praia Grande SC</h3>
+        <p class="desc">Diferenças entre chalés de luxo e refúgios, distância dos Canyons e o que considerar antes de reservar.</p>
+        <a class="btn-text" href="chales-praia-grande-sc.html">Ler guia →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">Casais</span>
+        <h3>Pacote romântico na Serra Catarinense</h3>
+        <p class="desc">Como montar uma escapada romântica com hidromassagem privativa e fogo de chão, aos pés da Serra Geral.</p>
+        <a class="btn-text" href="pacote-romantico-serra-catarinense.html">Ler guia →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">Canyons</span>
+        <h3>Hospedagem perto do Canyon Itaimbezinho</h3>
+        <p class="desc">A 31 km do canyon, com voos de balão disponíveis o ano todo — o que considerar antes de escolher onde ficar.</p>
+        <a class="btn-text" href="hospedagem-perto-canyon-itaimbezinho.html">Ler guia →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">Experiências</span>
+        <h3>Um refúgio a dois na Serra Geral</h3>
+        <p class="desc">Spa no chalé, pôr do sol com vista para os cânions e refeições privativas — o que torna a estadia completa.</p>
+        <a class="btn-text" href="experiencias-exclusivas-casal-praia-grande.html">Ler guia →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">Região</span>
+        <h3>A 10 minutos da Serra do Faxinal</h3>
+        <p class="desc">A nova conexão entre Praia Grande (SC) e Cambará do Sul (RS) pela Rota dos Tropeiros — status da obra e horários.</p>
+        <a class="btn-text" href="serra-do-faxinal-praia-grande-sc.html">Ler guia →</a>
+      </div>
+      <div class="guide-card">
+        <span class="tag">Feriados</span>
+        <h3>Feriados prolongados 2026</h3>
+        <p class="desc">Datas de feriadão em Praia Grande SC e o pacote de reserva direta com recepção especial no chalé.</p>
+        <a class="btn-text" href="feriados-prolongados-praia-grande-sc.html">Ler guia →</a>
+      </div>
+    </div>
+    <p class="center" style="margin-top:1.6em;"><a class="btn-text" href="guias.html">Ver todos os guias →</a></p>
   </div>
 </section>
 
