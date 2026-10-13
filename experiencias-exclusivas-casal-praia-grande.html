@@ -744,58 +744,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
   (function(){
-    // Monta a URL do WhatsApp com a mensagem específica de cada botão (data-msg).
-    function computeUrl(el){
-      var params = new URLSearchParams(window.location.search);
-      var origem = params.get('utm_source') || params.get('utm_campaign');
-      var msg = el.getAttribute('data-msg') || 'Olá! Gostaria de mais informações.';
-      if (origem) { msg += ' (via ' + origem + ')'; }
-      return 'https://wa.me/5548988442348?text=' + encodeURIComponent(msg);
-    }
+    var MSG = {
+      FN1: 'Olá! Vi o Pacote de Finados para casal (30/10 a 02/11) e quero consultar disponibilidade do Gunnera ou Manicata. (ref FN1)',
+      FN2: 'Olá! Vi o Pacote de Finados (30/10 a 02/11) e quero saber se ainda tem chalé disponível. (ref FN2)',
+      CN1: 'Olá! Vi o Pacote da Consciência Negra para casal (feriado de 20/11) e quero consultar disponibilidade do Gunnera ou Manicata. (ref CN1)',
+      CN2: 'Olá! Vi o Pacote do feriado de 20/11 e quero saber se ainda tem chalé disponível. (ref CN2)',
+      GG1: 'Olá! Encontrei a Vila Vicença no Google e quero consultar disponibilidade de um chalé de Luxo. (ref GG1)',
+      LP0: 'Olá! Vi a página de feriados no site e quero consultar disponibilidade. (ref LP0)',
+      ST0: 'Olá! Vim pelo site da Vila Vicença e quero consultar disponibilidade. (ref ST0)'
+    };
+    var CONTENT_MAP = {
+      finados_adois: 'FN1', finados_silencio: 'FN2',
+      consciencia_adois: 'CN1', consciencia_silencio: 'CN2'
+    };
+
+    var params = new URLSearchParams(window.location.search);
+    var fromContent = CONTENT_MAP[params.get('utm_content')];
+    var newRef = fromContent || ((params.get('utm_source') === 'google' || params.get('gclid')) ? 'GG1' : null);
+    if (newRef) { try { sessionStorage.setItem('vv_ref', newRef); } catch(e){} }
+
+    var ref;
+    try { ref = sessionStorage.getItem('vv_ref'); } catch(e){ ref = null; }
+    var isFeriadosPage = location.pathname.indexOf('feriados') !== -1;
+    if (!ref || !MSG[ref]) { ref = isFeriadosPage ? 'LP0' : 'ST0'; }
+
+    var finalMsg = MSG[ref];
+    var finalUrl = 'https://wa.me/5548988442348?text=' + encodeURIComponent(finalMsg);
+
     var links = document.querySelectorAll('[data-wa]');
     links.forEach(function(el){
-      var correctUrl = computeUrl(el);
-      el.setAttribute('href', correctUrl);
+      el.setAttribute('href', finalUrl);
       el.setAttribute('target', '_blank');
       el.setAttribute('rel', 'noopener');
 
-      // Scripts de terceiros (pixels/tags de anúncio carregados de forma assíncrona)
-      // podem reescrever o href de links wa.me depois que a página carrega. Este
-      // observer garante que a mensagem específica de cada botão sempre prevaleça.
       var mo = new MutationObserver(function(){
-        if (el.getAttribute('href') !== correctUrl) {
-          el.setAttribute('href', correctUrl);
-        }
+        if (el.getAttribute('href') !== finalUrl) el.setAttribute('href', finalUrl);
       });
       mo.observe(el, {attributes:true, attributeFilter:['href']});
 
-      // Reforço no instante do clique — garante a URL certa mesmo em
-      // concorrência com scripts assíncronos que ainda não terminaram de rodar.
       el.addEventListener('click', function(){
-        if (el.getAttribute('href') !== correctUrl) {
-          el.setAttribute('href', correctUrl);
-        }
-        var type = 'geral', name = 'geral';
-        var pack = el.closest('.pack-card');
-        var meal = el.closest('.meal-highlight');
-        var chaleBlock = el.closest('.editorial-chale') || el.closest('.chale-card');
-        if (pack) {
-          type = 'pacote_romantico';
-          var tagEl = pack.querySelector('.tag');
-          name = tagEl ? tagEl.textContent.trim() : 'pacote';
-        } else if (meal) {
-          type = 'pensao';
-          name = 'Meia Pensão / Pensão Completa';
-        } else if (chaleBlock) {
-          type = 'chale';
-          var h3 = chaleBlock.querySelector('h3');
-          name = h3 ? h3.textContent.trim() : 'chale';
-        }
+        if (el.getAttribute('href') !== finalUrl) el.setAttribute('href', finalUrl);
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
           'event': 'whatsapp_click',
-          'whatsapp_content_type': type,
-          'whatsapp_content_name': name
+          'whatsapp_ref': ref
         });
       });
     });
