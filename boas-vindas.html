@@ -50,7 +50,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--moss);outline-offse
 .brand{font-family:Fraunces,Georgia,serif;font-size:1rem;color:var(--moss);margin:0;letter-spacing:.02em}
 
 /* Capa */
-.cover-art{display:block;width:100%;height:24vh;min-height:120px;max-height:220px}
+.cover-art{display:block;width:100%;height:100%}
+.cover-photo{position:relative;height:40vh;min-height:220px;max-height:360px;overflow:hidden;background:var(--block)}
+.cover-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s ease}
+.cover-photo img.ok{opacity:1}
 .cover-head{padding:1.25rem 0 .25rem}
 .quick{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:1.1rem 0 .4rem}
 .quick div{background:var(--block);border-radius:12px;padding:.75rem .85rem;line-height:1.3}
@@ -160,13 +163,16 @@ footer.foot{padding:2rem 0 2.5rem;color:var(--soft);font-size:.88rem;border-top:
 
 <!-- ============ CAPA ============ -->
 <div class="view" id="capa" data-view="capa">
-  <svg class="cover-art" viewBox="0 0 400 230" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Ilustração das camadas da Serra Geral, com a fenda do Canyon Malacara ao centro">
+  <div class="cover-photo">
+  <svg class="cover-art" viewBox="0 0 400 230" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
     <path fill="var(--ridge1)" d="M0 120 L40 96 L78 108 L120 84 L160 98 L200 70 L238 92 L280 78 L330 100 L370 86 L400 96 V230 H0z"/>
     <path fill="var(--ridge2)" d="M0 140 L30 128 L70 136 L110 112 L150 124 L178 104 L190 104 L194 150 L206 150 L212 102 L230 104 L270 118 L310 106 L350 126 L400 114 V230 H0z"/>
     <path fill="var(--ridge3)" d="M0 166 L50 150 L96 162 L140 146 L200 160 L250 144 L300 158 L350 148 L400 160 V230 H0z"/>
     <path fill="var(--ridge4)" d="M0 192 L60 178 L120 188 L180 176 L240 190 L300 178 L360 188 L400 182 V230 H0z"/>
     <path fill="var(--ridge5)" d="M0 214 L80 204 L160 212 L240 202 L320 212 L400 206 V230 H0z"/>
   </svg>
+  <img id="cover-img" alt="" width="1600" height="1200" decoding="async" fetchpriority="high" onload="this.classList.add('ok')" onerror="this.remove()">
+  </div>
   <div class="wrap">
     <header class="cover-head">
       <p class="brand">Vila Vicença Natural Refuge</p>
@@ -630,9 +636,24 @@ footer.foot{padding:2rem 0 2.5rem;color:var(--soft);font-size:.88rem;border-top:
   };
   var KEY = 'vv-chale', atual = null;
   try { atual = localStorage.getItem(KEY); } catch(e) {}
+  var FOTOS = {
+    '': ['fotos/capa-1.webp', 'Hidromassagem de um dos chalés da Vila Vicença, com vista para a mata'],
+    gunnera: ['fotos/gunnera-1.webp', 'Interior do Chalé Gunnera, com hidromassagem e janela para o jardim'],
+    manicata: ['fotos/manicata-1.webp', 'Interior do Chalé Manicata, com hidromassagem e vista para o jardim'],
+    refugio1: ['fotos/refugio01-1.webp', 'Quarto do Refúgio 01, com lareira'],
+    refugio2: ['fotos/refugio02-1.webp', 'Quarto do Refúgio 02'],
+    refugio3: ['fotos/refugio03-3.webp', 'Fachada do Refúgio 03 em meio à mata nativa']
+  };
+  function capaFoto(k){
+    var img = document.getElementById('cover-img'); if (!img) return;
+    var f = FOTOS[k] || FOTOS[''];
+    if (img.getAttribute('src') === f[0]) return;
+    img.classList.remove('ok'); img.alt = f[1]; img.src = f[0];
+  }
   function aplicarChale(){
     var c = atual && CHALES[atual];
     var line = document.getElementById('chalet-line');
+    capaFoto(c ? atual : '');
     if (!c){ line.hidden = true; return; }
     line.textContent = 'Guia do ' + c.nome;
     line.hidden = false;
@@ -696,6 +717,7 @@ footer.foot{padding:2rem 0 2.5rem;color:var(--soft);font-size:.88rem;border-top:
   function show(){
     var h = (location.hash || '').replace('#','');
     if (h === 'trocar'){ try { localStorage.removeItem(KEY); } catch(e) {} location.replace('#capa'); location.reload(); return; }
+    if (CHALES[h] && atual && atual !== h){ try { localStorage.setItem(KEY, h); } catch(e) {} location.replace('#capa'); location.reload(); return; }
     if (CHALES[h]){ atual = h; try { localStorage.setItem(KEY, h); } catch(e) {} aplicarChale(); h = 'capa'; }
     if (ids.indexOf(h) === -1) h = 'capa';
     views.forEach(function(v){ v.hidden = (v.id !== h); });
