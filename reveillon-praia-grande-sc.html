@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Réveillon em Praia Grande SC nos chalés Gunnera e Manicata | Vila Vicença</title>
+<meta name="description" content="Réveillon nos chalés Gunnera e Manicata, com o cânion na janela, em Praia Grande, SC. R$1.150 por noite, mínimo de 4 noites, café da manhã em cesta no chalé.">
+<link rel="canonical" href="https://www.vilavicenca.com.br/reveillon-praia-grande-sc.html">
+<!-- Página sazonal: fora do índice orgânico. Não afeta Google Ads nem Meta Ads. -->
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#3B5704">
+<meta property="og:type" content="website">
+<meta property="og:title" content="O ano novo começa com o cânion na janela | Vila Vicença">
+<meta property="og:description" content="Réveillon no Gunnera e no Manicata · Praia Grande, SC">
+<meta property="og:url" content="https://www.vilavicenca.com.br/reveillon-praia-grande-sc.html">
+<meta property="og:image" content="https://www.vilavicenca.com.br/fotos/reveillon/og-reveillon.jpg">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Fase da campanha: decide ANTES da pintura se mostra os benefícios
+     (até 15/11/2026, 23h59 de Brasília) ou a versão "últimas datas". -->
+<script>
+  (function(){
+    var FIM_BENEFICIOS = Date.parse('2026-11-16T00:00:00-03:00');
+    var qs = new URLSearchParams(location.search);
+    var forcar = qs.get('fase'); // ?fase=encerrado para testar a versão pós-prazo
+    var encerrado = forcar === 'encerrado' || (forcar !== 'beneficios' && Date.now() >= FIM_BENEFICIOS);
+    document.documentElement.setAttribute('data-fase', encerrado ? 'encerrado' : 'beneficios');
+  })();
+</script>
+
+<!-- Consent Mode: igual ao restante do site (default denied). -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied'
+  });
+</script>
+<!-- Google Tag Manager: contêiner oficial da Vila Vicença (GTM-KV6BH6Z3).
+     GA4 (G-90PF1JGVXE) sai pelo server container em metrics.vilavicenca.com.br,
+     configurado dentro do GTM, como no resto do site. -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KV6BH6Z3');</script>
+
+<link rel="preload" as="image" href="/fotos/reveillon/gun-f39-hero.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* Paleta oficial do logo (doc "Identidade visual – Vila Vicença") */
+  --musgo:#3B5704;      /* Verde Musgo: seções escuras, títulos no claro, botão no claro */
+  --claro:#EDFFCC;      /* Verde Claro: texto sobre o Musgo, botão no escuro, fundo claro suave */
+  --folha:#81B622;      /* Verde Folha: só fios finos de acento */
+  --preto:#000000;
+  --branco:#FFFFFF;
+  --texto-apoio:rgba(0,0,0,.72);
+  /* Títulos e frases de destaque: Cormorant Garamond Light (exceção da linha Luxo).
+     Texto corrido, botões e informações: Roboto. */
+  --display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --texto:"Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --pad:clamp(22px, 6vw, 56px);
+  --maxw:1120px;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;background:var(--branco);color:var(--preto);
+  font-family:var(--texto);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img,video{display:block;max-width:100%;}
+h1,h2,h3,.prazo-data,.ultimas,.fecho p,.final p{text-wrap:balance;}
+h1,h2,h3{font-family:var(--display);font-weight:300;margin:0;line-height:1.04;letter-spacing:0;}
+.prazo-data,.ultimas,.fecho p,.final p,.nota-google,.preco strong{font-weight:300;}
+p{margin:0;}
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--preto);outline-offset:2px;box-shadow:0 0 0 4px var(--claro);}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);}
+
+/* Fases da campanha */
+.pos-prazo{display:none;}
+[data-fase="encerrado"] .pos-prazo{display:block;}
+[data-fase="encerrado"] .ate-prazo{display:none;}
+
+/* Botão de WhatsApp: um só estilo, em todos os pontos da página */
+.btn-wa{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:54px;padding:15px 28px;border-radius:999px;
+  background:var(--claro);color:var(--musgo);
+  font-family:var(--texto);font-weight:500;font-size:1rem;letter-spacing:.01em;
+  text-decoration:none;border:0;cursor:pointer;
+  box-shadow:none;
+  transition:background-color .2s ease, transform .2s ease;
+}
+.btn-wa:hover{background:var(--branco);}
+.btn-wa:active{transform:scale(.98);}
+.btn-wa svg{width:20px;height:20px;flex:none;}
+
+/* HERO */
+.hero{
+  position:relative;min-height:100vh;min-height:100svh;
+  display:flex;align-items:flex-end;color:var(--branco);
+  background:var(--preto);overflow:hidden;
+}
+.hero-media,.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.hero-media img{object-position:62% 50%;}
+.hero-media video{opacity:0;transition:opacity 1.2s ease;}
+.hero-media video.ativo{opacity:1;}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  display:none;
+}
+.marca{
+  position:absolute;z-index:2;top:calc(env(safe-area-inset-top, 0px) + 22px);left:var(--pad);
+  font-family:var(--display);font-size:1.15rem;letter-spacing:.02em;color:rgba(255,255,255,.92);
+}
+.hero-conteudo{
+  position:relative;z-index:2;width:100%;
+  background:rgba(0,0,0,.72);
+  padding:clamp(28px, 6vw, 48px) max(var(--pad), calc((100% - var(--maxw)) / 2 + var(--pad))) calc(env(safe-area-inset-bottom, 0px) + clamp(32px, 6vh, 64px));
+}
+.hero h1{font-size:clamp(2.8rem, 11.6vw, 5.9rem);max-width:13ch;color:var(--branco);}
+.hero .sub{margin:18px 0 30px;font-size:clamp(1rem, 3.9vw, 1.2rem);color:var(--claro);max-width:34ch;}
+
+/* BENEFÍCIOS */
+.beneficios{background:var(--musgo);color:var(--claro);padding:clamp(56px, 12vw, 110px) 0;}
+.convite{
+  border:1px solid var(--folha);border-radius:6px;
+  padding:clamp(30px, 7vw, 60px);
+  display:grid;gap:clamp(26px, 5vw, 56px);
+}
+.prazo-rotulo{font-size:1.02rem;color:var(--claro);}
+.prazo-data{
+  font-family:var(--display);color:var(--claro);
+  font-size:clamp(3.4rem, 16.5vw, 7rem);line-height:.95;margin-top:10px;
+  font-variant-numeric:lining-nums;
+}
+.lista-beneficios{list-style:none;margin:0;padding:0;}
+.lista-beneficios li{
+  padding:18px 0;border-top:1px solid rgba(237,255,204,.28);
+  font-size:1.06rem;line-height:1.5;color:var(--claro);
+}
+.lista-beneficios li:last-child{border-bottom:1px solid rgba(237,255,204,.28);}
+.ultimas{font-family:var(--display);font-size:clamp(2.5rem, 10vw, 4.4rem);color:var(--claro);max-width:14ch;}
+.beneficios .pos-prazo .btn-wa{margin-top:28px;}
+
+/* CHALÉS */
+.chales{padding:clamp(64px, 13vw, 120px) 0 clamp(40px, 8vw, 80px);}
+.chale + .chale{margin-top:clamp(56px, 11vw, 100px);}
+.chale-texto{padding:0 var(--pad);max-width:var(--maxw);margin:0 auto;}
+.chale h2{font-size:clamp(2.7rem, 11vw, 4.6rem);color:var(--musgo);}
+.chale .detalhes{margin-top:10px;font-size:1.06rem;color:var(--texto-apoio);max-width:36ch;}
+.galeria{
+  display:flex;gap:10px;margin-top:24px;
+  overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  padding:0 var(--pad);scroll-padding:0 var(--pad);scrollbar-width:none;
+}
+.galeria::-webkit-scrollbar{display:none;}
+.galeria img{
+  flex:0 0 84%;scroll-snap-align:start;
+  aspect-ratio:4/5;width:84%;height:auto;object-fit:cover;border-radius:4px;background:var(--claro);
+}
+.galeria-dica{padding:10px var(--pad) 0;font-size:.85rem;color:var(--texto-apoio);}
+.fecho{
+  max-width:var(--maxw);margin:clamp(64px, 12vw, 110px) auto 0;padding:0 var(--pad);
+}
+.fecho p{font-family:var(--display);font-size:clamp(2.3rem, 9.4vw, 4rem);line-height:1.06;color:var(--musgo);max-width:15ch;}
+
+/* PROVA SOCIAL */
+.prova{background:var(--claro);margin-top:clamp(64px, 12vw, 110px);padding:clamp(56px, 11vw, 100px) 0;}
+
+.nota-google{font-family:var(--display);font-size:clamp(1.9rem, 7.4vw, 2.8rem);color:var(--musgo);}
+.depoimentos{display:grid;gap:clamp(36px, 7vw, 56px);margin-top:clamp(32px, 6vw, 48px);}
+.depoimentos figure{margin:0;}
+.depoimentos blockquote{
+  margin:0;font-family:var(--texto);color:var(--preto);
+  font-size:1.06rem;line-height:1.65;max-width:56ch;
+}
+.depoimentos figcaption{margin-top:14px;font-size:.92rem;color:var(--texto-apoio);}
+
+/* VALORES */
+.valores{background:var(--branco);}
+.valores-foto img{width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;background:var(--claro);}
+.valores-texto{padding:clamp(40px, 9vw, 80px) var(--pad) clamp(56px, 11vw, 100px);max-width:var(--maxw);margin:0 auto;}
+.valores h2{font-size:clamp(1.9rem, 7.2vw, 2.8rem);color:var(--musgo);max-width:18ch;}
+.preco{margin-top:26px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;}
+.preco strong{font-family:var(--display);font-size:clamp(3.4rem, 15.5vw, 5.6rem);line-height:1;color:var(--musgo);}
+.preco span{font-size:1.05rem;color:var(--texto-apoio);}
+.cafe{margin-top:18px;font-size:1.06rem;max-width:34ch;}
+.nota{margin-top:20px;font-size:.88rem;color:var(--texto-apoio);}
+.valores .btn-wa{margin-top:32px;background:var(--musgo);color:var(--claro);}
+.valores .btn-wa:hover{background:var(--preto);}
+
+/* INFORMAÇÕES */
+.info{background:var(--claro);padding:clamp(56px, 11vw, 100px) 0;}
+.info h2{font-size:clamp(2rem, 7.4vw, 2.9rem);margin-bottom:22px;color:var(--musgo);}
+.info dl{margin:0;}
+.info .linha{padding:18px 0;border-top:1px solid rgba(59,87,4,.25);display:grid;gap:4px;}
+.info .linha:last-child{border-bottom:1px solid rgba(59,87,4,.25);}
+.info dt{font-weight:500;color:var(--preto);}
+.info dd{margin:0;color:var(--texto-apoio);}
+.info dd a{color:var(--musgo);text-underline-offset:3px;}
+
+/* CHAMADA FINAL */
+.final{background:var(--musgo);color:var(--claro);padding:clamp(72px, 15vw, 140px) 0 clamp(80px, 15vw, 140px);}
+.final p{font-family:var(--display);font-size:clamp(2.7rem, 11.6vw, 5.3rem);line-height:1.05;max-width:12ch;margin-bottom:34px;}
+
+/* RODAPÉ */
+footer{background:var(--preto);color:var(--claro);font-size:.84rem;padding:0 0 calc(env(safe-area-inset-bottom, 0px) + 96px);}
+footer .wrap{padding-top:32px;display:grid;gap:8px;}
+footer a{color:var(--claro);}
+
+/* Barra fixa de WhatsApp (mobile), aparece depois do hero */
+.barra-wa{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;
+  padding:12px var(--pad) calc(env(safe-area-inset-bottom, 0px) + 12px);
+  background:var(--musgo);
+  transform:translateY(110%);transition:transform .35s ease;
+}
+.barra-wa.visivel{transform:none;}
+.barra-wa .btn-wa{width:100%;box-shadow:none;}
+body.cookie-aberto .barra-wa{transform:translateY(110%);}
+
+/* Banner de cookies (mesmo comportamento do site) */
+.cookie-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:var(--musgo);color:var(--claro);border-top:1px solid var(--folha);
+  padding:16px var(--pad) calc(env(safe-area-inset-bottom, 0px) + 16px);
+  display:none;align-items:center;gap:14px 18px;flex-wrap:wrap;
+}
+.cookie-bar.show{display:flex;}
+.cookie-bar p{flex:1;min-width:220px;font-size:.86rem;}
+.cookie-bar a{color:var(--claro);}
+.cookie-actions{display:flex;gap:10px;}
+.cookie-actions button{
+  min-height:44px;padding:10px 18px;border-radius:999px;cursor:pointer;
+  border:1.5px solid var(--claro);background:none;color:var(--claro);font:500 .86rem var(--texto);
+}
+.cookie-actions .cookie-accept{background:var(--claro);color:var(--musgo);}
+
+@media (min-width:900px){
+  .convite{grid-template-columns:5fr 6fr;align-items:center;}
+  .galeria{max-width:var(--maxw);margin-left:auto;margin-right:auto;overflow:visible;scroll-snap-type:none;}
+  .galeria img{flex:1 1 0;width:auto;min-width:0;}
+  .galeria-dica{display:none;}
+  .depoimentos{grid-template-columns:1fr 1fr;gap:56px;}
+  .valores{display:grid;grid-template-columns:1fr 1fr;}
+  .valores-foto img{height:100%;aspect-ratio:auto;}
+  .valores-texto{align-self:center;margin:0;}
+  .info dl{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;}
+  .info .linha:nth-last-child(2){border-bottom:1px solid rgba(59,87,4,.25);}
+  .barra-wa{display:none;}
+  footer{padding-bottom:40px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;}
+}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KV6BH6Z3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- 1. HERO -->
+<section class="hero" id="topo">
+  <div class="hero-media">
+    <img src="/fotos/reveillon/gun-f39-hero.webp" alt="Cama do Gunnera com o cânion na janela" width="1440" height="1080" fetchpriority="high" decoding="async">
+    <video id="heroVideo" muted loop playsinline aria-hidden="true" data-src="/videos/reveillon/man-v-tu4.mp4"></video>
+  </div>
+  <div class="hero-conteudo">
+    <h1>O ano novo começa com o cânion na janela.</h1>
+    <p class="sub">Réveillon no Gunnera e no Manicata · Praia Grande, SC</p>
+    <a class="btn-wa" href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="hero">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2zm5.5-5.8c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5.2-.4c.1-.2 0-.4 0-.5L9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
+      Quero reservar o Réveillon
+    </a>
+  </div>
+</section>
+
+<!-- 2. BENEFÍCIOS -->
+<section class="beneficios" aria-label="Benefícios da reserva">
+  <div class="wrap">
+    <!-- Até 15/11/2026 -->
+    <div class="convite ate-prazo">
+      <div>
+        <p class="prazo-rotulo">Para reservas feitas até</p>
+        <p class="prazo-data">15/11/2026</p>
+      </div>
+      <ul class="lista-beneficios">
+        <li>Kit de boas-vindas com espumante para celebrar o ano novo</li>
+        <li>10% de desconto nos passeios com nossos parceiros</li>
+        <li>Late check-out no dia da saída, conforme disponibilidade</li>
+      </ul>
+    </div>
+    <!-- A partir de 16/11/2026 (troca automática) -->
+    <div class="pos-prazo">
+      <p class="ultimas">Últimas datas para o Réveillon.</p>
+      <a class="btn-wa" href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="beneficios">Quero reservar o Réveillon</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. OS DOIS CHALÉS -->
+<section class="chales" aria-label="Os chalés">
+  <article class="chale">
+    <div class="chale-texto">
+      <h2>Gunnera</h2>
+      <p class="detalhes">Banheira oval sob a claraboia, calefator e vista para os cânions.</p>
+    </div>
+    <div class="galeria" tabindex="0" aria-label="Fotos do Gunnera">
+      <img src="/fotos/reveillon/gun-f42.webp" alt="Banheira oval do Gunnera sob a claraboia" width="1080" height="1350" loading="lazy" decoding="async">
+      <img src="/fotos/reveillon/gun-f39.webp" alt="Cama do Gunnera com o cânion na janela" width="1080" height="1350" loading="lazy" decoding="async">
+      <img src="/fotos/reveillon/gun-f24.webp" alt="Interior do Gunnera" width="1080" height="1350" loading="lazy" decoding="async">
+    </div>
+    <p class="galeria-dica">Deslize para ver mais fotos</p>
+  </article>
+
+  <article class="chale">
+    <div class="chale-texto">
+      <h2>Manicata</h2>
+      <p class="detalhes">Hidro embutida sob a claraboia, calefator e vista para os cânions.</p>
+    </div>
+    <div class="galeria" tabindex="0" aria-label="Fotos do Manicata">
+      <img src="/fotos/reveillon/man-f83.webp" alt="Hidro embutida do Manicata sob a claraboia" width="1080" height="1350" loading="lazy" decoding="async">
+      <img src="/fotos/reveillon/man-f09.webp" alt="Chalé Manicata com vista para os cânions" width="1080" height="1350" loading="lazy" decoding="async">
+      <img src="/fotos/reveillon/man-f66.webp" alt="Interior do Manicata" width="1080" height="1350" loading="lazy" decoding="async">
+    </div>
+    <p class="galeria-dica">Deslize para ver mais fotos</p>
+  </article>
+
+  <div class="fecho">
+    <p>Só dois chalés com o cânion na janela.</p>
+  </div>
+</section>
+
+<!-- 3B. PROVA SOCIAL -->
+<section class="prova" aria-label="Avaliações de hóspedes">
+  <div class="wrap">
+    <p class="nota-google">4,9 no Google · 43 avaliações</p>
+    <div class="depoimentos">
+      <figure>
+        <blockquote>“Que lugar incrível. Tivemos uma experiência maravilhosa, tudo muito lindo, organizado, limpo e super aconchegante. Fomos muito bem atendidos, pessoal bem atencioso. Com certeza iremos voltar.”</blockquote>
+        <figcaption>— Laís, hóspede do Gunnera · Google</figcaption>
+      </figure>
+      <figure>
+        <blockquote>“O chalé é incrível e aconchegante, com o climinha de chuva que foi perfeito! (…) Os anfitriões foram muito atenciosos e solícitos!”</blockquote>
+        <figcaption>— William, hóspede do Gunnera · Airbnb</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 4. VALORES -->
+<section class="valores" aria-label="Valores">
+  <div class="valores-foto">
+    <img src="/fotos/reveillon/cafe-f09.webp" alt="Cesta de café da manhã com a serra ao fundo" width="1080" height="1350" loading="lazy" decoding="async">
+  </div>
+  <div class="valores-texto">
+    <h2>Réveillon no Gunnera ou no Manicata</h2>
+    <p class="preco"><strong>R$1.150</strong><span>por noite · mínimo de 4 noites</span></p>
+    <p class="cafe">Café da manhã incluso, entregue em cesta no chalé.</p>
+    <p class="nota ate-prazo">Benefícios exclusivos para reservas até 15/11/2026.</p>
+    <a class="btn-wa" href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="valores">Quero reservar o Réveillon</a>
+  </div>
+</section>
+
+<!-- 5. INFORMAÇÕES -->
+<section class="info" aria-label="Informações">
+  <div class="wrap">
+    <h2>Informações</h2>
+    <dl>
+      <div class="linha">
+        <dt>Check-in e check-out</dt>
+        <dd>Check-in a partir das 14h. Check-out até as 11h. O late check-out é benefício, conforme disponibilidade.</dd>
+      </div>
+      <div class="linha">
+        <dt>Distâncias</dt>
+        <dd>209 km de Porto Alegre. 291 km de Florianópolis.</dd>
+      </div>
+      <div class="linha">
+        <dt>Endereço</dt>
+        <dd>Estrada Geral, Vila Rosa, Praia Grande&nbsp;–&nbsp;SC<br><a href="https://www.google.com/maps/search/?api=1&amp;query=-29.1705,-49.9817" target="_blank" rel="noopener">Abrir no mapa</a></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- 6. CHAMADA FINAL -->
+<section class="final" aria-label="Reservar">
+  <div class="wrap">
+    <p>Poucas datas para o Réveillon.</p>
+    <a class="btn-wa" href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="final">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2zm5.5-5.8c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5.2-.4c.1-.2 0-.4 0-.5L9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
+      Quero reservar o Réveillon
+    </a>
+  </div>
+</section>
+
+<footer id="politica">
+  <div class="wrap">
+    <p>Vila Vicença · Estrada Geral Vila Rosa, 147 · Praia Grande, SC · CEP 88990-000</p>
+    <p><a href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="rodape">WhatsApp (48) 98844-2348</a> · <a href="mailto:vilavicenca@gmail.com">vilavicenca@gmail.com</a></p>
+    <p>VILA VICENCA HOSPEDARIA LTDA · CNPJ 48.744.895/0001-03 · <a href="#" id="reopenCookie">Preferências de cookies</a></p>
+  </div>
+</footer>
+
+<!-- Barra fixa (mobile) -->
+<div class="barra-wa" id="barraWa">
+  <a class="btn-wa" href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="barra">Quero reservar o Réveillon</a>
+</div>
+
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Cookies">
+  <p>Usamos cookies para medir audiência e melhorar sua experiência. Veja nossa <a href="#politica">Política de Privacidade</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-reject" id="cookieReject">Rejeitar</button>
+    <button type="button" class="cookie-accept" id="cookieAccept">Aceitar</button>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Vila Vicença",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Estrada Geral Vila Rosa, 147",
+    "addressLocality": "Praia Grande",
+    "addressRegion": "SC",
+    "postalCode": "88990-000",
+    "addressCountry": "BR"
+  },
+  "geo": {"@type": "GeoCoordinates", "latitude": -29.1705, "longitude": -49.9817},
+  "telephone": "+5548988442348",
+  "url": "https://www.vilavicenca.com.br"
+}
+</script>
+
+<script>
+  /* ===== WhatsApp + rastreamento (Réveillon) =====
+     Código RV1 por padrão; RVG quando a visita vem do Google
+     (utm_source=google ou gclid do auto-tagging do Google Ads). */
+  (function(){
+    var NUMERO = '5548988442348';
+    var PIXEL_ID = '1382908610552711';
+    var params = new URLSearchParams(location.search);
+    var doGoogle = (params.get('utm_source') || '').toLowerCase() === 'google' || !!params.get('gclid');
+    var ref = doGoogle ? 'RVG' : 'RV1';
+    var encerrado = document.documentElement.getAttribute('data-fase') === 'encerrado';
+
+    var msg = encerrado
+      ? 'Olá! Quero saber das últimas datas para o Réveillon (' + ref + ')'
+      : 'Olá! Quero saber do Réveillon com os benefícios até 15/11 (' + ref + ')';
+    var url = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(msg);
+
+    document.querySelectorAll('[data-wa]').forEach(function(el){
+      el.setAttribute('href', url);
+      el.setAttribute('target', '_blank');
+      el.setAttribute('rel', 'noopener');
+
+      // Protege o link caso algum script reescreva o href (mesmo padrão do site)
+      new MutationObserver(function(){
+        if (el.getAttribute('href') !== url) el.setAttribute('href', url);
+      }).observe(el, {attributes:true, attributeFilter:['href']});
+
+      el.addEventListener('click', function(){
+        if (el.getAttribute('href') !== url) el.setAttribute('href', url);
+
+        // GA4 (via GTM → metrics.vilavicenca.com.br)
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'whatsapp_click',
+          'whatsapp_ref': ref,
+          'whatsapp_content_type': el.getAttribute('data-content-type') || 'reveillon',
+          'whatsapp_posicao': el.getAttribute('data-posicao') || ''
+        });
+
+        // Meta Pixel: Lead. Só dispara se o pixel já estiver carregado
+        // (o GTM só o carrega com consentimento).
+        // ATENÇÃO: se já existir no GTM uma tag "Lead" acionada por whatsapp_click,
+        // troque DISPARAR_LEAD_AQUI para false para não contar em dobro.
+        var DISPARAR_LEAD_AQUI = false;
+        if (DISPARAR_LEAD_AQUI && typeof window.fbq === 'function') {
+          window.fbq('trackSingle', PIXEL_ID, 'Lead', {
+            content_category: 'reveillon',
+            content_name: 'whatsapp_' + ref
+          });
+        }
+      });
+    });
+  })();
+
+  /* ===== Vídeo do hero: carrega só depois da página, e não carrega
+     em economia de dados ou com movimento reduzido ===== */
+  (function(){
+    var v = document.getElementById('heroVideo');
+    if (!v) return;
+    var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var c = navigator.connection || {};
+    var economia = c.saveData || /(^|-)2g$/.test(c.effectiveType || '');
+    // Vídeo vertical: só em telas em pé (celular). No computador fica a foto.
+    var emPe = window.matchMedia('(max-aspect-ratio: 1/1)').matches;
+    if (reduz || economia || !emPe) return;
+    function iniciar(){
+      var s = document.createElement('source');
+      s.src = v.getAttribute('data-src');
+      s.type = 'video/mp4';
+      v.appendChild(s);
+      v.muted = true;
+      v.addEventListener('playing', function(){ v.classList.add('ativo'); }, {once:true});
+      v.load();
+      var p = v.play();
+      if (p && p.catch) p.catch(function(){ /* autoplay bloqueado: fica a foto */ });
+    }
+    if (document.readyState === 'complete') iniciar();
+    else window.addEventListener('load', iniciar);
+  })();
+
+  /* ===== Barra fixa de WhatsApp: aparece quando o hero sai da tela ===== */
+  (function(){
+    var barra = document.getElementById('barraWa');
+    var hero = document.getElementById('topo');
+    if (!barra || !hero || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function(es){
+      barra.classList.toggle('visivel', !es[0].isIntersecting);
+    }, {threshold:0}).observe(hero);
+  })();
+
+  /* ===== Cookies: mesmo cookie vv_consent do resto do site ===== */
+  (function(){
+    function getCookie(name){
+      var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return m ? m.pop() : '';
+    }
+    function setCookie(name, value, days){
+      var d = new Date();
+      d.setTime(d.getTime() + days*24*60*60*1000);
+      document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+    }
+    var bar = document.getElementById('cookieBar');
+    function mostrar(){ bar.classList.add('show'); document.body.classList.add('cookie-aberto'); }
+    function esconder(){ bar.classList.remove('show'); document.body.classList.remove('cookie-aberto'); }
+    var consent = getCookie('vv_consent');
+    if (consent === 'granted') {
+      gtag('consent', 'update', {'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});
+    }
+    if (!consent) mostrar();
+    document.getElementById('cookieAccept').addEventListener('click', function(){
+      setCookie('vv_consent', 'granted', 180);
+      gtag('consent', 'update', {'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});
+      esconder();
+    });
+    document.getElementById('cookieReject').addEventListener('click', function(){
+      setCookie('vv_consent', 'denied', 180);
+      esconder();
+    });
+    document.getElementById('reopenCookie').addEventListener('click', function(e){
+      e.preventDefault();
+      mostrar();
+    });
+  })();
+</script>
+</body>
+</html>
