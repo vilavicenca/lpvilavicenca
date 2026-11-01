@@ -3,28 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Réveillon em Praia Grande SC nos chalés Gunnera e Manicata | Vila Vicença</title>
-<meta name="description" content="Réveillon nos chalés Gunnera e Manicata, com o cânion na janela, em Praia Grande, SC. R$1.150 por noite, mínimo de 4 noites, café da manhã em cesta no chalé.">
+<title>Réveillon 2026/27 em Praia Grande – SC · Canyons | Vila Vicença</title>
+<meta name="description" content="Réveillon 2026/27 aos pés dos Canyons de Praia Grande – SC. Chalés Premium e Chalés Refúgio, 4 noites incluindo 31/12, café da manhã em cesta no chalé. Condições para reservas diretas até 15/11.">
 <link rel="canonical" href="https://www.vilavicenca.com.br/reveillon-praia-grande-sc.html">
 <!-- Página sazonal: fora do índice orgânico. Não afeta Google Ads nem Meta Ads. -->
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#3B5704">
 <meta property="og:type" content="website">
-<meta property="og:title" content="O ano novo começa com o cânion na janela | Vila Vicença">
-<meta property="og:description" content="Réveillon no Gunnera e no Manicata · Praia Grande, SC">
+<meta property="og:title" content="Réveillon longe da festa lotada · Praia Grande – SC | Vila Vicença">
+<meta property="og:description" content="Quatro chalés aos pés dos Canyons. Condições para reservas diretas até 15/11.">
 <meta property="og:url" content="https://www.vilavicenca.com.br/reveillon-praia-grande-sc.html">
 <meta property="og:image" content="https://www.vilavicenca.com.br/fotos/reveillon/og-reveillon.jpg">
 <meta property="og:locale" content="pt_BR">
 
-<!-- Fase da campanha: decide ANTES da pintura se mostra os benefícios
-     (até 15/11/2026, 23h59 de Brasília) ou a versão "últimas datas". -->
+<!-- Fase da campanha: decide ANTES da pintura.
+     Até 15/11/2026 23h59 (Brasília): condições. Depois: "consulte disponibilidade".
+     Teste: ?fase=encerrado  |  ?fase=beneficios -->
 <script>
   (function(){
-    var FIM_BENEFICIOS = Date.parse('2026-11-16T00:00:00-03:00');
-    var qs = new URLSearchParams(location.search);
-    var forcar = qs.get('fase'); // ?fase=encerrado para testar a versão pós-prazo
-    var encerrado = forcar === 'encerrado' || (forcar !== 'beneficios' && Date.now() >= FIM_BENEFICIOS);
-    document.documentElement.setAttribute('data-fase', encerrado ? 'encerrado' : 'beneficios');
+    var FIM = Date.parse('2026-11-16T00:00:00-03:00');
+    var f = new URLSearchParams(location.search).get('fase');
+    var enc = f === 'encerrado' || (f !== 'beneficios' && Date.now() >= FIM);
+    document.documentElement.setAttribute('data-fase', enc ? 'encerrado' : 'beneficios');
   })();
 </script>
 
@@ -32,16 +32,9 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'analytics_storage': 'denied'
-  });
+  gtag('consent', 'default', {'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
 </script>
-<!-- Google Tag Manager: contêiner oficial da Vila Vicença (GTM-KV6BH6Z3).
-     GA4 (G-90PF1JGVXE) sai pelo server container em metrics.vilavicenca.com.br,
-     configurado dentro do GTM, como no resto do site. -->
+<!-- Google Tag Manager (GTM-KV6BH6Z3). GA4 sai pelo server container em metrics.vilavicenca.com.br. -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -55,367 +48,625 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <style>
 :root{
-  /* Paleta oficial do logo (doc "Identidade visual – Vila Vicença") */
-  --musgo:#3B5704;      /* Verde Musgo: seções escuras, títulos no claro, botão no claro */
-  --claro:#EDFFCC;      /* Verde Claro: texto sobre o Musgo, botão no escuro, fundo claro suave */
-  --folha:#81B622;      /* Verde Folha: só fios finos de acento */
-  --preto:#000000;
-  --branco:#FFFFFF;
-  --texto-apoio:rgba(0,0,0,.72);
-  /* Títulos e frases de destaque: Cormorant Garamond Light (exceção da linha Luxo).
-     Texto corrido, botões e informações: Roboto. */
+  /* Paleta oficial (doc "Identidade visual – Vila Vicença") */
+  --musgo:#3B5704; --musgo-f:#2F4603;
+  --claro:#EDFFCC; --folha:#81B622;
+  --preto:#000; --branco:#fff;
+  --tinta:rgba(0,0,0,.86); --apoio:rgba(0,0,0,.64);
+  --fio:rgba(59,87,4,.18); --fio-c:rgba(237,255,204,.22);
   --display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
   --texto:"Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --pad:clamp(22px, 6vw, 56px);
-  --maxw:1120px;
+  --pad:clamp(20px, 5vw, 64px);
+  --maxw:1240px;
+  --topo:72px;
 }
-*{box-sizing:border-box;}
-html{-webkit-text-size-adjust:100%;}
-body{
-  margin:0;background:var(--branco);color:var(--preto);
-  font-family:var(--texto);font-size:17px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-img,video{display:block;max-width:100%;}
-h1,h2,h3,.prazo-data,.ultimas,.fecho p,.final p{text-wrap:balance;}
-h1,h2,h3{font-family:var(--display);font-weight:300;margin:0;line-height:1.04;letter-spacing:0;}
-.prazo-data,.ultimas,.fecho p,.final p,.nota-google,.preco strong{font-weight:300;}
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--topo) + 8px);}
+body{margin:0;background:var(--branco);color:var(--tinta);font:400 17px/1.65 var(--texto);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+img,video,iframe{display:block;max-width:100%;}
+h1,h2,h3{font-family:var(--display);font-weight:300;margin:0;line-height:1.02;letter-spacing:-.005em;color:var(--musgo);text-wrap:balance;}
 p{margin:0;}
 a{color:inherit;}
-:focus-visible{outline:2px solid var(--preto);outline-offset:2px;box-shadow:0 0 0 4px var(--claro);}
+button{font:inherit;}
+:focus-visible{outline:2px solid var(--folha);outline-offset:3px;}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);}
+.rotulo{font:500 .72rem/1.2 var(--texto);letter-spacing:.2em;text-transform:uppercase;color:var(--musgo);}
+.num{font-family:var(--display);font-size:1.05rem;color:var(--folha);margin-right:12px;letter-spacing:0;}
 
-/* Fases da campanha */
-.pos-prazo{display:none;}
-[data-fase="encerrado"] .pos-prazo{display:block;}
-[data-fase="encerrado"] .ate-prazo{display:none;}
+/* Fases */
+.pos-prazo{display:none!important;}
+[data-fase="encerrado"] .pos-prazo{display:revert!important;}
+[data-fase="encerrado"] .ate-prazo{display:none!important;}
 
-/* Botão de WhatsApp: um só estilo, em todos os pontos da página */
-.btn-wa{
+/* Botões */
+.btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  min-height:54px;padding:15px 28px;border-radius:999px;
-  background:var(--claro);color:var(--musgo);
-  font-family:var(--texto);font-weight:500;font-size:1rem;letter-spacing:.01em;
-  text-decoration:none;border:0;cursor:pointer;
-  box-shadow:none;
-  transition:background-color .2s ease, transform .2s ease;
+  min-height:54px;padding:14px 30px;border-radius:999px;border:0;cursor:pointer;
+  font:500 .98rem/1 var(--texto);letter-spacing:.02em;text-decoration:none;
+  transition:background-color .25s ease,color .25s ease,transform .2s ease;
 }
-.btn-wa:hover{background:var(--branco);}
-.btn-wa:active{transform:scale(.98);}
-.btn-wa svg{width:20px;height:20px;flex:none;}
+.btn:active{transform:scale(.98);}
+.btn svg{width:19px;height:19px;flex:none;}
+.btn-claro{background:var(--claro);color:var(--musgo);}
+.btn-claro:hover{background:var(--branco);}
+.btn-musgo{background:var(--musgo);color:var(--claro);}
+.btn-musgo:hover{background:var(--preto);}
+.link{color:var(--musgo);font-weight:500;text-decoration:none;border-bottom:1px solid var(--folha);padding-bottom:2px;transition:border-color .2s;}
+.link:hover{border-color:var(--musgo);}
 
-/* HERO */
-.hero{
-  position:relative;min-height:100vh;min-height:100svh;
-  display:flex;align-items:flex-end;color:var(--branco);
-  background:var(--preto);overflow:hidden;
+/* ===== CABEÇALHO ===== */
+.topo{
+  position:fixed;inset:0 0 auto 0;z-index:50;height:var(--topo);
+  padding-top:env(safe-area-inset-top,0px);
+  background:linear-gradient(rgba(0,0,0,.42),rgba(0,0,0,0));
+  transition:background-color .3s ease,box-shadow .3s ease;
 }
-.hero-media,.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.topo .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.marca{font-family:var(--display);font-size:1.4rem;color:var(--branco);text-decoration:none;letter-spacing:.01em;}
+.topo nav{display:none;align-items:center;gap:32px;}
+.topo nav a:not(.btn){color:var(--branco);text-decoration:none;font-size:.9rem;letter-spacing:.02em;opacity:.9;}
+.topo nav a:not(.btn):hover{opacity:1;}
+.topo .btn{min-height:42px;padding:10px 22px;font-size:.88rem;}
+.topo.solido{background:var(--branco);box-shadow:0 1px 0 var(--fio);}
+.topo.solido .marca,.topo.solido nav a:not(.btn){color:var(--musgo);}
+.topo.solido .btn-claro{background:var(--musgo);color:var(--claro);}
+
+/* ===== HERO ===== */
+.hero{display:grid;grid-template-rows:minmax(300px,58svh) auto;background:var(--musgo);color:var(--claro);}
+.hero-media{position:relative;overflow:hidden;background:var(--musgo-f);}
+.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .hero-media img{object-position:62% 50%;}
 .hero-media video{opacity:0;transition:opacity 1.2s ease;}
 .hero-media video.ativo{opacity:1;}
-.hero::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  display:none;
-}
-.marca{
-  position:absolute;z-index:2;top:calc(env(safe-area-inset-top, 0px) + 22px);left:var(--pad);
-  font-family:var(--display);font-size:1.15rem;letter-spacing:.02em;color:rgba(255,255,255,.92);
-}
-.hero-conteudo{
-  position:relative;z-index:2;width:100%;
-  background:rgba(0,0,0,.72);
-  padding:clamp(28px, 6vw, 48px) max(var(--pad), calc((100% - var(--maxw)) / 2 + var(--pad))) calc(env(safe-area-inset-bottom, 0px) + clamp(32px, 6vh, 64px));
-}
-.hero h1{font-size:clamp(2.8rem, 11.6vw, 5.9rem);max-width:13ch;color:var(--branco);}
-.hero .sub{margin:18px 0 30px;font-size:clamp(1rem, 3.9vw, 1.2rem);color:var(--claro);max-width:34ch;}
+.hero-texto{padding:clamp(36px,7vw,64px) var(--pad) clamp(44px,8vw,72px);}
+.hero .rotulo{color:var(--claro);opacity:.85;}
+.hero h1{color:var(--branco);font-size:clamp(3rem,12vw,6.4rem);margin:18px 0 0;max-width:10ch;}
+.hero .sub{margin:22px 0 32px;font-size:clamp(1.02rem,3.6vw,1.16rem);max-width:38ch;color:rgba(237,255,204,.9);}
+.hero-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;}
+.prazo-chip{display:inline-flex;align-items:center;gap:10px;font-size:.92rem;color:var(--claro);}
+.prazo-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--folha);}
 
-/* BENEFÍCIOS */
-.beneficios{background:var(--musgo);color:var(--claro);padding:clamp(56px, 12vw, 110px) 0;}
-.convite{
-  border:1px solid var(--folha);border-radius:6px;
-  padding:clamp(30px, 7vw, 60px);
-  display:grid;gap:clamp(26px, 5vw, 56px);
-}
-.prazo-rotulo{font-size:1.02rem;color:var(--claro);}
-.prazo-data{
-  font-family:var(--display);color:var(--claro);
-  font-size:clamp(3.4rem, 16.5vw, 7rem);line-height:.95;margin-top:10px;
-  font-variant-numeric:lining-nums;
-}
-.lista-beneficios{list-style:none;margin:0;padding:0;}
-.lista-beneficios li{
-  padding:18px 0;border-top:1px solid rgba(237,255,204,.28);
-  font-size:1.06rem;line-height:1.5;color:var(--claro);
-}
-.lista-beneficios li:last-child{border-bottom:1px solid rgba(237,255,204,.28);}
-.ultimas{font-family:var(--display);font-size:clamp(2.5rem, 10vw, 4.4rem);color:var(--claro);max-width:14ch;}
-.beneficios .pos-prazo .btn-wa{margin-top:28px;}
+/* ===== FATOS ===== */
+.fatos{border-bottom:1px solid var(--fio);}
+.fatos ul{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:1fr 1fr;max-width:var(--maxw);}
+.fatos li{padding:22px var(--pad);border-top:1px solid var(--fio);font-size:.95rem;line-height:1.4;color:var(--apoio);}
+.fatos li:nth-child(odd){border-right:1px solid var(--fio);}
+.fatos strong{display:block;font:300 1.65rem/1.1 var(--display);color:var(--musgo);margin-bottom:4px;}
 
-/* CHALÉS */
-.chales{padding:clamp(64px, 13vw, 120px) 0 clamp(40px, 8vw, 80px);}
-.chale + .chale{margin-top:clamp(56px, 11vw, 100px);}
-.chale-texto{padding:0 var(--pad);max-width:var(--maxw);margin:0 auto;}
-.chale h2{font-size:clamp(2.7rem, 11vw, 4.6rem);color:var(--musgo);}
-.chale .detalhes{margin-top:10px;font-size:1.06rem;color:var(--texto-apoio);max-width:36ch;}
-.galeria{
-  display:flex;gap:10px;margin-top:24px;
-  overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
-  padding:0 var(--pad);scroll-padding:0 var(--pad);scrollbar-width:none;
-}
+/* ===== CONDIÇÕES ===== */
+.condicoes{padding:clamp(72px,11vw,140px) 0;}
+.cond-grade{display:grid;gap:44px;}
+.prazo-data{font:300 clamp(4rem,17vw,8.6rem)/.9 var(--display);color:var(--musgo);margin-top:18px;font-variant-numeric:lining-nums;letter-spacing:-.02em;}
+.canal{margin-top:24px;font-size:1.06rem;max-width:36ch;color:var(--apoio);}
+.lista{list-style:none;margin:0;padding:0;counter-reset:i;}
+.lista li{display:grid;grid-template-columns:44px 1fr;align-items:baseline;padding:20px 0;border-top:1px solid var(--fio);font-size:1.08rem;color:var(--tinta);}
+.lista li:last-child{border-bottom:1px solid var(--fio);}
+.lista li::before{counter-increment:i;content:"0" counter(i);font:300 1.1rem var(--display);color:var(--folha);}
+.cond-enc h2{font-size:clamp(2.6rem,9vw,4.6rem);max-width:14ch;margin:16px 0 30px;}
+
+/* ===== ESCOLHA ===== */
+.escolha{padding:0 0 clamp(72px,11vw,140px);}
+.escolha-cab{display:grid;gap:14px;margin-bottom:clamp(32px,5vw,56px);}
+.escolha-cab h2{font-size:clamp(2.4rem,7.4vw,4.4rem);max-width:16ch;}
+.escolha-cab p{color:var(--apoio);max-width:46ch;}
+.cartoes{display:grid;gap:clamp(36px,4vw,40px);}
+.cartao{display:block;text-decoration:none;color:inherit;}
+.cartao figure{margin:0;overflow:hidden;border-radius:2px;background:var(--claro);aspect-ratio:4/3;}
+.cartao img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1);}
+.cartao:hover img{transform:scale(1.035);}
+.cartao-corpo{padding-top:22px;display:grid;gap:8px;}
+.cartao h3{font-size:clamp(2.1rem,5.6vw,2.9rem);}
+.cartao .desc{color:var(--apoio);max-width:40ch;}
+.cartao-rodape{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px;margin-top:10px;padding-top:16px;border-top:1px solid var(--fio);}
+.cartao-preco{font:300 1.7rem var(--display);color:var(--musgo);}
+.cartao-preco small{font:400 .86rem var(--texto);color:var(--apoio);margin-left:6px;}
+.cartao .ir{font-weight:500;color:var(--musgo);font-size:.95rem;}
+.cartao .ir::after{content:" →";transition:margin .25s;}
+.cartao:hover .ir::after{margin-left:4px;}
+
+/* ===== CATEGORIA ===== */
+.categoria{padding:clamp(72px,11vw,140px) 0;border-top:1px solid var(--fio);}
+.categoria.alt{background:rgba(237,255,204,.32);} /* Verde Claro em transparência */
+.cat-cab{display:grid;gap:16px;margin-bottom:clamp(40px,6vw,72px);}
+.cat-cab h2{font-size:clamp(2.8rem,9vw,5.6rem);}
+.cat-cab p{max-width:44ch;color:var(--apoio);font-size:1.08rem;}
+.cat-grade{display:grid;gap:clamp(48px,6vw,64px);}
+.chale + .chale{margin-top:clamp(56px,8vw,96px);}
+.chale-cab{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 20px;}
+.chale h3{font-size:clamp(2.2rem,6.4vw,3.4rem);}
+.cap{font-size:.86rem;letter-spacing:.06em;color:var(--apoio);}
+.chale .desc{margin-top:10px;max-width:46ch;color:var(--apoio);}
+.specs{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;}
+.specs li{font-size:.84rem;padding:6px 14px;border:1px solid var(--fio);border-radius:999px;color:var(--musgo);background:var(--branco);}
+.galeria{display:flex;gap:10px;margin:22px calc(var(--pad) * -1) 0;padding:0 var(--pad);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch;}
 .galeria::-webkit-scrollbar{display:none;}
-.galeria img{
-  flex:0 0 84%;scroll-snap-align:start;
-  aspect-ratio:4/5;width:84%;height:auto;object-fit:cover;border-radius:4px;background:var(--claro);
-}
-.galeria-dica{padding:10px var(--pad) 0;font-size:.85rem;color:var(--texto-apoio);}
-.fecho{
-  max-width:var(--maxw);margin:clamp(64px, 12vw, 110px) auto 0;padding:0 var(--pad);
-}
-.fecho p{font-family:var(--display);font-size:clamp(2.3rem, 9.4vw, 4rem);line-height:1.06;color:var(--musgo);max-width:15ch;}
+.galeria button{flex:0 0 82%;padding:0;border:0;background:var(--claro);cursor:zoom-in;scroll-snap-align:start;overflow:hidden;border-radius:2px;aspect-ratio:4/5;}
+.galeria img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1);}
+.galeria button:hover img{transform:scale(1.03);}
+.galeria-dica{margin-top:10px;font-size:.82rem;color:var(--apoio);}
+.chale-acao{margin-top:20px;}
 
-/* PROVA SOCIAL */
-.prova{background:var(--claro);margin-top:clamp(64px, 12vw, 110px);padding:clamp(56px, 11vw, 100px) 0;}
+/* Cartão de valores (fixo ao lado no computador) */
+.valor{background:var(--musgo);color:var(--claro);border-radius:2px;padding:clamp(30px,5vw,44px);}
+.valor .rotulo{color:var(--claro);opacity:.8;}
+.preco{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin-top:18px;}
+.preco strong{font:300 clamp(3.4rem,12vw,4.6rem)/1 var(--display);color:var(--branco);letter-spacing:-.01em;}
+.preco span{font-size:.95rem;color:rgba(237,255,204,.82);}
+.valor dl{margin:26px 0 0;}
+.valor .linha{padding:15px 0;border-top:1px solid var(--fio-c);}
+.valor dt{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,255,204,.7);}
+.valor dd{margin:4px 0 0;font-size:1rem;color:var(--claro);}
+.valor .btn{width:100%;margin-top:26px;}
+.valor .fino{margin-top:14px;font-size:.82rem;color:rgba(237,255,204,.7);text-align:center;}
+.valor .enc-txt{font:300 clamp(2rem,7vw,2.6rem)/1.08 var(--display);color:var(--branco);margin-top:14px;}
 
-.nota-google{font-family:var(--display);font-size:clamp(1.9rem, 7.4vw, 2.8rem);color:var(--musgo);}
-.depoimentos{display:grid;gap:clamp(36px, 7vw, 56px);margin-top:clamp(32px, 6vw, 48px);}
-.depoimentos figure{margin:0;}
-.depoimentos blockquote{
-  margin:0;font-family:var(--texto);color:var(--preto);
-  font-size:1.06rem;line-height:1.65;max-width:56ch;
-}
-.depoimentos figcaption{margin-top:14px;font-size:.92rem;color:var(--texto-apoio);}
+.area{margin-top:clamp(56px,8vw,88px);padding:28px 0 0;border-top:1px solid var(--fio);display:grid;gap:10px;}
+.area p{max-width:60ch;color:var(--apoio);}
 
-/* VALORES */
-.valores{background:var(--branco);}
-.valores-foto img{width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;background:var(--claro);}
-.valores-texto{padding:clamp(40px, 9vw, 80px) var(--pad) clamp(56px, 11vw, 100px);max-width:var(--maxw);margin:0 auto;}
-.valores h2{font-size:clamp(1.9rem, 7.2vw, 2.8rem);color:var(--musgo);max-width:18ch;}
-.preco{margin-top:26px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;}
-.preco strong{font-family:var(--display);font-size:clamp(3.4rem, 15.5vw, 5.6rem);line-height:1;color:var(--musgo);}
-.preco span{font-size:1.05rem;color:var(--texto-apoio);}
-.cafe{margin-top:18px;font-size:1.06rem;max-width:34ch;}
-.nota{margin-top:20px;font-size:.88rem;color:var(--texto-apoio);}
-.valores .btn-wa{margin-top:32px;background:var(--musgo);color:var(--claro);}
-.valores .btn-wa:hover{background:var(--preto);}
+/* ===== COMO FUNCIONA ===== */
+.regras{background:var(--musgo);color:var(--claro);padding:clamp(72px,11vw,140px) 0;}
+.regras .rotulo{color:var(--claro);opacity:.8;}
+.regras h2{color:var(--branco);font-size:clamp(2.6rem,8vw,4.6rem);margin:16px 0 clamp(40px,6vw,64px);max-width:14ch;}
+.passos{list-style:none;margin:0;padding:0;display:grid;gap:0;}
+.passos li{padding:26px 0;border-top:1px solid var(--fio-c);}
+.passos .n{font:300 2.4rem/1 var(--display);color:var(--folha);}
+.passos h3{color:var(--branco);font-size:1.7rem;margin:14px 0 8px;}
+.passos p{color:rgba(237,255,204,.84);font-size:.98rem;max-width:34ch;}
 
-/* INFORMAÇÕES */
-.info{background:var(--claro);padding:clamp(56px, 11vw, 100px) 0;}
-.info h2{font-size:clamp(2rem, 7.4vw, 2.9rem);margin-bottom:22px;color:var(--musgo);}
-.info dl{margin:0;}
-.info .linha{padding:18px 0;border-top:1px solid rgba(59,87,4,.25);display:grid;gap:4px;}
-.info .linha:last-child{border-bottom:1px solid rgba(59,87,4,.25);}
-.info dt{font-weight:500;color:var(--preto);}
-.info dd{margin:0;color:var(--texto-apoio);}
-.info dd a{color:var(--musgo);text-underline-offset:3px;}
+/* ===== AVALIAÇÕES ===== */
+.prova{padding:clamp(72px,11vw,140px) 0;}
+.nota{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;}
+.nota strong{font:300 clamp(4rem,13vw,6.4rem)/1 var(--display);color:var(--musgo);}
+.nota span{color:var(--apoio);}
+.estrelas{color:var(--folha);letter-spacing:.2em;font-size:1rem;}
+.depo{display:grid;gap:clamp(40px,5vw,64px);margin-top:clamp(40px,6vw,64px);}
+.depo figure{margin:0;padding-top:28px;border-top:1px solid var(--fio);}
+.depo blockquote{margin:0;font:300 clamp(1.35rem,4vw,1.6rem)/1.36 var(--display);color:var(--tinta);}
+.depo .destaque blockquote{font-size:clamp(1.6rem,4.8vw,2.4rem);line-height:1.28;max-width:40ch;}
+.depo figcaption{margin-top:18px;font-size:.88rem;color:var(--apoio);letter-spacing:.02em;}
 
-/* CHAMADA FINAL */
-.final{background:var(--musgo);color:var(--claro);padding:clamp(72px, 15vw, 140px) 0 clamp(80px, 15vw, 140px);}
-.final p{font-family:var(--display);font-size:clamp(2.7rem, 11.6vw, 5.3rem);line-height:1.05;max-width:12ch;margin-bottom:34px;}
+/* ===== COMO CHEGAR ===== */
+.chegar{padding:0 0 clamp(72px,11vw,140px);}
+.chegar h2{font-size:clamp(2.6rem,8vw,4.6rem);margin:16px 0 clamp(32px,5vw,48px);}
+.chegar-grade{display:grid;gap:36px;}
+.mapa{position:relative;aspect-ratio:4/3;border-radius:2px;overflow:hidden;background:var(--claro);display:grid;place-items:center;text-align:center;}
+.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.mapa-capa{display:grid;justify-items:center;gap:16px;padding:24px;}
+.mapa-capa svg{width:44px;height:44px;color:var(--musgo);}
+.mapa-capa p{font:300 1.6rem/1.15 var(--display);color:var(--musgo);max-width:18ch;}
+.infos{margin:0;}
+.infos .linha{padding:20px 0;border-top:1px solid var(--fio);display:grid;gap:4px;}
+.infos .linha:last-child{border-bottom:1px solid var(--fio);}
+.infos dt{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--musgo);}
+.infos dd{margin:0;color:var(--tinta);}
 
-/* RODAPÉ */
-footer{background:var(--preto);color:var(--claro);font-size:.84rem;padding:0 0 calc(env(safe-area-inset-bottom, 0px) + 96px);}
-footer .wrap{padding-top:32px;display:grid;gap:8px;}
+/* ===== FINAL ===== */
+.final{position:relative;color:var(--claro);background:var(--musgo-f);overflow:hidden;}
+.final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32;}
+.final .wrap{position:relative;padding-top:clamp(96px,15vw,180px);padding-bottom:clamp(96px,15vw,180px);}
+.final h2{color:var(--branco);font-size:clamp(3rem,10vw,6rem);max-width:13ch;margin-bottom:36px;}
+
+footer{background:var(--preto);color:rgba(237,255,204,.8);font-size:.84rem;padding:36px 0 calc(env(safe-area-inset-bottom,0px) + 100px);}
+footer .wrap{display:grid;gap:8px;}
 footer a{color:var(--claro);}
 
-/* Barra fixa de WhatsApp (mobile), aparece depois do hero */
-.barra-wa{
-  position:fixed;left:0;right:0;bottom:0;z-index:40;
-  padding:12px var(--pad) calc(env(safe-area-inset-bottom, 0px) + 12px);
-  background:var(--musgo);
-  transform:translateY(110%);transition:transform .35s ease;
-}
-.barra-wa.visivel{transform:none;}
-.barra-wa .btn-wa{width:100%;box-shadow:none;}
-body.cookie-aberto .barra-wa{transform:translateY(110%);}
+/* Barra fixa (celular) */
+.barra{position:fixed;inset:auto 0 0 0;z-index:40;padding:10px var(--pad) calc(env(safe-area-inset-bottom,0px) + 10px);background:rgba(255,255,255,.96);box-shadow:0 -1px 0 var(--fio);transform:translateY(110%);transition:transform .35s ease;display:flex;align-items:center;gap:14px;}
+.barra.visivel{transform:none;}
+.barra .txt{flex:1;font-size:.8rem;line-height:1.3;color:var(--apoio);}
+.barra .txt strong{display:block;font:300 1.2rem var(--display);color:var(--musgo);}
+.barra .btn{min-height:48px;padding:12px 22px;}
+body.cookie-aberto .barra{transform:translateY(110%);}
 
-/* Banner de cookies (mesmo comportamento do site) */
-.cookie-bar{
-  position:fixed;left:0;right:0;bottom:0;z-index:60;
-  background:var(--musgo);color:var(--claro);border-top:1px solid var(--folha);
-  padding:16px var(--pad) calc(env(safe-area-inset-bottom, 0px) + 16px);
-  display:none;align-items:center;gap:14px 18px;flex-wrap:wrap;
-}
+/* Lightbox */
+.lb{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;}
+.lb::backdrop{background:rgba(0,0,0,.92);}
+.lb[open]{display:grid;place-items:center;}
+.lb img{max-width:min(92vw,1400px);max-height:86vh;object-fit:contain;}
+.lb button{position:fixed;background:none;border:0;color:var(--branco);cursor:pointer;font:300 2.6rem/1 var(--display);padding:16px;opacity:.85;}
+.lb button:hover{opacity:1;}
+.lb .fechar{top:12px;right:16px;}
+.lb .ant{left:8px;top:50%;transform:translateY(-50%);}
+.lb .prox{right:8px;top:50%;transform:translateY(-50%);}
+
+/* Cookies */
+.cookie-bar{position:fixed;inset:auto 0 0 0;z-index:60;background:var(--musgo);color:var(--claro);padding:16px var(--pad) calc(env(safe-area-inset-bottom,0px) + 16px);display:none;align-items:center;gap:14px 18px;flex-wrap:wrap;}
 .cookie-bar.show{display:flex;}
 .cookie-bar p{flex:1;min-width:220px;font-size:.86rem;}
 .cookie-bar a{color:var(--claro);}
 .cookie-actions{display:flex;gap:10px;}
-.cookie-actions button{
-  min-height:44px;padding:10px 18px;border-radius:999px;cursor:pointer;
-  border:1.5px solid var(--claro);background:none;color:var(--claro);font:500 .86rem var(--texto);
-}
+.cookie-actions button{min-height:44px;padding:10px 18px;border-radius:999px;cursor:pointer;border:1.5px solid var(--claro);background:none;color:var(--claro);font:500 .86rem var(--texto);}
 .cookie-actions .cookie-accept{background:var(--claro);color:var(--musgo);}
 
-@media (min-width:900px){
-  .convite{grid-template-columns:5fr 6fr;align-items:center;}
-  .galeria{max-width:var(--maxw);margin-left:auto;margin-right:auto;overflow:visible;scroll-snap-type:none;}
-  .galeria img{flex:1 1 0;width:auto;min-width:0;}
+/* Entrada suave dos blocos (só com JS e sem movimento reduzido) */
+.js .revela{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1);}
+.js .revela.visto{opacity:1;transform:none;}
+
+/* ===== TABLET / COMPUTADOR ===== */
+@media (min-width:720px){
+  .fatos ul{grid-template-columns:repeat(4,1fr);}
+  .fatos li{border-right:1px solid var(--fio);}
+  .fatos li:last-child{border-right:0;}
+  .fatos li{border-top:0;}
+  .cartoes{grid-template-columns:1fr 1fr;}
+  .depo{grid-template-columns:1fr 1fr;}
+  .depo .destaque{grid-column:1 / -1;}
+  .passos{grid-template-columns:1fr 1fr;column-gap:48px;}
+}
+@media (min-width:1000px){
+  :root{--topo:84px;}
+  .topo nav{display:flex;}
+  .hero{grid-template-rows:none;grid-template-columns:minmax(540px,6fr) 6fr;min-height:100vh;min-height:100svh;}
+  .hero-media{order:2;}
+  .hero-texto{order:1;display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--topo) + 48px) clamp(40px,4vw,64px) clamp(56px,8vh,96px) max(var(--pad), calc((100vw - var(--maxw)) / 2 + var(--pad)));}
+  .hero h1{font-size:clamp(3.8rem,5vw,6rem);max-width:11ch;}
+  .cond-grade{grid-template-columns:5fr 6fr;gap:clamp(56px,7vw,120px);align-items:center;}
+  .escolha-cab{grid-template-columns:1fr 1fr;align-items:end;gap:48px;}
+  .cat-cab{grid-template-columns:7fr 5fr;align-items:end;gap:48px;}
+  .cat-cab h2{font-size:clamp(3.6rem,5.8vw,5.4rem);}
+  .cat-grade{grid-template-columns:minmax(0,7fr) minmax(320px,4fr);gap:clamp(48px,6vw,96px);align-items:start;}
+  .cat-aside{position:sticky;top:calc(var(--topo) + 28px);}
+  .galeria{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:12px;margin:26px 0 0;padding:0;overflow:visible;height:clamp(420px,38vw,560px);}
+  .galeria button{aspect-ratio:auto;height:100%;}
+  .galeria button:first-child{grid-row:1 / span 2;}
   .galeria-dica{display:none;}
-  .depoimentos{grid-template-columns:1fr 1fr;gap:56px;}
-  .valores{display:grid;grid-template-columns:1fr 1fr;}
-  .valores-foto img{height:100%;aspect-ratio:auto;}
-  .valores-texto{align-self:center;margin:0;}
-  .info dl{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;}
-  .info .linha:nth-last-child(2){border-bottom:1px solid rgba(59,87,4,.25);}
-  .barra-wa{display:none;}
+  .passos{grid-template-columns:repeat(4,1fr);column-gap:40px;}
+  .chegar-grade{grid-template-columns:7fr 5fr;gap:clamp(48px,6vw,96px);align-items:center;}
+  .barra{display:none;}
   footer{padding-bottom:40px;}
+  footer .wrap{grid-template-columns:1fr auto;gap:32px;}
 }
 @media (prefers-reduced-motion:reduce){
-  *{transition:none!important;animation:none!important;}
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{transition:none!important;animation:none!important;}
+  .js .revela{opacity:1;transform:none;}
 }
 </style>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KV6BH6Z3"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KV6BH6Z3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
+<!-- CABEÇALHO -->
+<header class="topo" id="cabecalho">
+  <div class="wrap">
+    <a class="marca" href="#topo">Vila Vicença</a>
+    <nav aria-label="Atalhos da página">
+      <a href="#premium">Chalés Premium</a>
+      <a href="#refugios">Chalés Refúgio</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#como-chegar">Como chegar</a>
+      <a class="btn btn-claro" href="https://wa.me/5548988442348" data-wa data-chale="" data-posicao="cabecalho">Reservar</a>
+    </nav>
+  </div>
+</header>
+
+<main>
 <!-- 1. HERO -->
 <section class="hero" id="topo">
   <div class="hero-media">
-    <img src="/fotos/reveillon/gun-f39-hero.webp" alt="Cama do Gunnera com o cânion na janela" width="1440" height="1080" fetchpriority="high" decoding="async">
+    <img src="/fotos/reveillon/gun-f39-hero.webp" alt="Cama de chalé com o cânion na janela" width="1440" height="1080" fetchpriority="high" decoding="async">
     <video id="heroVideo" muted loop playsinline aria-hidden="true" data-src="/videos/reveillon/man-v-tu4.mp4"></video>
   </div>
-  <div class="hero-conteudo">
-    <h1>O ano novo começa com o cânion na janela.</h1>
-    <p class="sub">Réveillon no Gunnera e no Manicata · Praia Grande, SC</p>
-    <a class="btn-wa" href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="hero">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2zm5.5-5.8c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5.2-.4c.1-.2 0-.4 0-.5L9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
-      Quero reservar o Réveillon
-    </a>
+  <div class="hero-texto">
+    <p class="rotulo">Réveillon 2026/27 · Praia Grande – SC · Canyons</p>
+    <h1>Vire o ano longe da festa lotada.</h1>
+    <p class="sub">Quatro chalés aos pés dos Canyons, café da manhã na cesta e a meia-noite em silêncio, só com quem você escolheu.</p>
+    <div class="hero-acoes">
+      <a class="btn btn-claro" href="https://wa.me/5548988442348" data-wa data-chale="" data-posicao="hero">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2zm5.5-5.8c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5.2-.4c.1-.2 0-.4 0-.5L9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
+        <span class="ate-prazo">Reservar meu Réveillon</span><span class="pos-prazo">Consultar disponibilidade</span>
+      </a>
+      <p class="prazo-chip ate-prazo">Condições até 15/11</p>
+    </div>
   </div>
 </section>
 
-<!-- 2. BENEFÍCIOS -->
-<section class="beneficios" aria-label="Benefícios da reserva">
+<!-- 2. FATOS RÁPIDOS -->
+<section class="fatos" aria-label="Resumo">
+  <ul>
+    <li><strong>4 noites</strong>com a virada de 31/12</li>
+    <li><strong>Café na cesta</strong>todas as manhãs, no chalé</li>
+    <li><strong>Só 4 chalés</strong>dois Premium e dois Refúgio</li>
+    <li><strong>Atendimento direto</strong>pelo WhatsApp, com quem cuida do chalé</li>
+  </ul>
+</section>
+
+<!-- 3. CONDIÇÕES ATÉ 15/11 -->
+<section class="condicoes" aria-labelledby="t-cond">
   <div class="wrap">
-    <!-- Até 15/11/2026 -->
-    <div class="convite ate-prazo">
+    <div class="cond-grade ate-prazo revela">
       <div>
-        <p class="prazo-rotulo">Para reservas feitas até</p>
+        <p class="rotulo" id="t-cond">Condições para reservas feitas até</p>
         <p class="prazo-data">15/11/2026</p>
+        <p class="canal">Só na reserva direta com a gente, pelo WhatsApp, site ou Instagram. Você combina tudo com quem cuida do seu chalé.</p>
       </div>
-      <ul class="lista-beneficios">
-        <li>Kit de boas-vindas com espumante para celebrar o ano novo</li>
-        <li>10% de desconto nos passeios com nossos parceiros</li>
-        <li>Late check-out no dia da saída, conforme disponibilidade</li>
+      <ul class="lista">
+        <li>Café da manhã em cesta no chalé, em todas as manhãs</li>
+        <li>Check-in e check-out flexíveis, conforme disponibilidade</li>
+        <li>Kit de boas-vindas de Ano Novo</li>
+        <li>15% de desconto nos passeios com nossos parceiros</li>
       </ul>
     </div>
-    <!-- A partir de 16/11/2026 (troca automática) -->
-    <div class="pos-prazo">
-      <p class="ultimas">Últimas datas para o Réveillon.</p>
-      <a class="btn-wa" href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="beneficios">Quero reservar o Réveillon</a>
+    <div class="cond-enc pos-prazo">
+      <p class="rotulo">Réveillon 2026/27</p>
+      <h2>Consulte a disponibilidade para a virada.</h2>
+      <a class="btn btn-musgo" href="https://wa.me/5548988442348" data-wa data-chale="" data-posicao="condicoes">Consultar disponibilidade</a>
     </div>
   </div>
 </section>
 
-<!-- 3. OS DOIS CHALÉS -->
-<section class="chales" aria-label="Os chalés">
-  <article class="chale">
-    <div class="chale-texto">
-      <h2>Gunnera</h2>
-      <p class="detalhes">Banheira oval sob a claraboia, calefator e vista para os cânions.</p>
-    </div>
-    <div class="galeria" tabindex="0" aria-label="Fotos do Gunnera">
-      <img src="/fotos/reveillon/gun-f42.webp" alt="Banheira oval do Gunnera sob a claraboia" width="1080" height="1350" loading="lazy" decoding="async">
-      <img src="/fotos/reveillon/gun-f39.webp" alt="Cama do Gunnera com o cânion na janela" width="1080" height="1350" loading="lazy" decoding="async">
-      <img src="/fotos/reveillon/gun-f24.webp" alt="Interior do Gunnera" width="1080" height="1350" loading="lazy" decoding="async">
-    </div>
-    <p class="galeria-dica">Deslize para ver mais fotos</p>
-  </article>
-
-  <article class="chale">
-    <div class="chale-texto">
-      <h2>Manicata</h2>
-      <p class="detalhes">Hidro embutida sob a claraboia, calefator e vista para os cânions.</p>
-    </div>
-    <div class="galeria" tabindex="0" aria-label="Fotos do Manicata">
-      <img src="/fotos/reveillon/man-f83.webp" alt="Hidro embutida do Manicata sob a claraboia" width="1080" height="1350" loading="lazy" decoding="async">
-      <img src="/fotos/reveillon/man-f09.webp" alt="Chalé Manicata com vista para os cânions" width="1080" height="1350" loading="lazy" decoding="async">
-      <img src="/fotos/reveillon/man-f66.webp" alt="Interior do Manicata" width="1080" height="1350" loading="lazy" decoding="async">
-    </div>
-    <p class="galeria-dica">Deslize para ver mais fotos</p>
-  </article>
-
-  <div class="fecho">
-    <p>Só dois chalés com o cânion na janela.</p>
-  </div>
-</section>
-
-<!-- 3B. PROVA SOCIAL -->
-<section class="prova" aria-label="Avaliações de hóspedes">
+<!-- 4. ESCOLHA A CATEGORIA -->
+<section class="escolha" aria-labelledby="t-escolha">
   <div class="wrap">
-    <p class="nota-google">4,9 no Google · 43 avaliações</p>
-    <div class="depoimentos">
-      <figure>
-        <blockquote>“Que lugar incrível. Tivemos uma experiência maravilhosa, tudo muito lindo, organizado, limpo e super aconchegante. Fomos muito bem atendidos, pessoal bem atencioso. Com certeza iremos voltar.”</blockquote>
-        <figcaption>— Laís, hóspede do Gunnera · Google</figcaption>
+    <div class="escolha-cab revela">
+      <h2 id="t-escolha">Duas formas de virar o ano aqui.</h2>
+      <p>O cânion visto da cama, ou madeira, hidro e fogo aceso no meio do verde. Escolha o seu e veja os detalhes.</p>
+    </div>
+    <div class="cartoes">
+      <a class="cartao revela" href="#premium">
+        <figure><img src="/fotos/reveillon/man-f09.webp" alt="Chalé Premium com vista para os cânions" width="1080" height="1350" loading="lazy" decoding="async"></figure>
+        <div class="cartao-corpo">
+          <p class="rotulo">Gunnera · Manicata</p>
+          <h3>Chalés Premium</h3>
+          <p class="desc">Para o casal que quer acordar no primeiro dia do ano com a serra na janela.</p>
+          <div class="cartao-rodape">
+            <p class="cartao-preco ate-prazo">R$ 1.200<small>por noite</small></p>
+            <span class="ir">Ver os chalés</span>
+          </div>
+        </div>
+      </a>
+      <a class="cartao revela" href="#refugios">
+        <figure><img src="/fotos/refugio03-4.webp" alt="Interior de um Chalé Refúgio, em madeira, com cama e hidro" width="1600" height="1200" loading="lazy" decoding="async"></figure>
+        <div class="cartao-corpo">
+          <p class="rotulo">Refúgio 2 · Refúgio 3</p>
+          <h3>Chalés Refúgio</h3>
+          <p class="desc">Para virar o ano a dois ou com a família, com tempo para ficar.</p>
+          <div class="cartao-rodape">
+            <p class="cartao-preco ate-prazo">R$ 670<small>por noite</small></p>
+            <span class="ir">Ver os chalés</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CHALÉS PREMIUM -->
+<section class="categoria" id="premium" aria-labelledby="t-premium">
+  <div class="wrap">
+    <div class="cat-cab revela">
+      <div>
+        <p class="rotulo"><span class="num">01</span>Categoria</p>
+        <h2 id="t-premium">Chalés Premium</h2>
+      </div>
+      <p>O cânion visto da cama e da banheira. Dois chalés para o casal, com calefator e fogo de chão privativo.</p>
+    </div>
+
+    <div class="cat-grade">
+      <div>
+        <article class="chale">
+          <div class="chale-cab"><h3>Gunnera</h3><span class="cap">Até 3 hóspedes</span></div>
+          <p class="desc">Banheira oval sob a claraboia e a vista dos cânions emoldurada pela janela.</p>
+          <ul class="specs"><li>Banheira sob a claraboia</li><li>Calefator</li><li>Fogo de chão privativo</li><li>Vista para os cânions</li></ul>
+          <div class="galeria" data-galeria>
+            <button type="button" aria-label="Ampliar foto: banheira oval do Gunnera"><img src="/fotos/reveillon/gun-f42.webp" alt="Banheira oval do Gunnera sob a claraboia" width="1080" height="1350" loading="lazy" decoding="async"></button>
+            <button type="button" aria-label="Ampliar foto: cama do Gunnera"><img src="/fotos/reveillon/gun-f39.webp" alt="Cama do Gunnera com o cânion na janela" width="1080" height="1350" loading="lazy" decoding="async"></button>
+            <button type="button" aria-label="Ampliar foto: interior do Gunnera"><img src="/fotos/reveillon/gun-f24.webp" alt="Interior do Gunnera" width="1080" height="1350" loading="lazy" decoding="async"></button>
+          </div>
+          <p class="galeria-dica">Deslize para ver mais · toque para ampliar</p>
+          <p class="chale-acao"><a class="link" href="https://wa.me/5548988442348" data-wa data-chale="o Gunnera" data-posicao="gunnera">Quero o Gunnera no Réveillon</a></p>
+        </article>
+
+        <article class="chale">
+          <div class="chale-cab"><h3>Manicata</h3><span class="cap">Até 3 hóspedes</span></div>
+          <p class="desc">Hidro embutida sob a claraboia, com os cânions à frente.</p>
+          <ul class="specs"><li>Hidro sob a claraboia</li><li>Calefator</li><li>Fogo de chão privativo</li><li>Vista para os cânions</li></ul>
+          <div class="galeria" data-galeria>
+            <button type="button" aria-label="Ampliar foto: hidro do Manicata"><img src="/fotos/reveillon/man-f83.webp" alt="Hidro embutida do Manicata sob a claraboia" width="1080" height="1350" loading="lazy" decoding="async"></button>
+            <button type="button" aria-label="Ampliar foto: Manicata com vista"><img src="/fotos/reveillon/man-f09.webp" alt="Chalé Manicata com vista para os cânions" width="1080" height="1350" loading="lazy" decoding="async"></button>
+            <button type="button" aria-label="Ampliar foto: interior do Manicata"><img src="/fotos/reveillon/man-f66.webp" alt="Interior do Manicata" width="1080" height="1350" loading="lazy" decoding="async"></button>
+          </div>
+          <p class="galeria-dica">Deslize para ver mais · toque para ampliar</p>
+          <p class="chale-acao"><a class="link" href="https://wa.me/5548988442348" data-wa data-chale="o Manicata" data-posicao="manicata">Quero o Manicata no Réveillon</a></p>
+        </article>
+      </div>
+
+      <aside class="cat-aside" aria-label="Valores dos Chalés Premium">
+        <div class="valor">
+          <p class="rotulo">Chalés Premium · Réveillon</p>
+          <div class="ate-prazo">
+            <p class="preco"><strong>R$ 1.200</strong><span>por noite · casal, com café</span></p>
+            <dl>
+              <div class="linha"><dt>Pacote de 4 noites</dt><dd>R$ 4.800, com a noite de 31/12</dd></div>
+              <div class="linha"><dt>Pagamento</dt><dd>R$ 2.400 na reserva e R$ 2.400 no check-in, ou até 5x de R$ 960 no cartão</dd></div>
+            </dl>
+            <a class="btn btn-claro" href="https://wa.me/5548988442348" data-wa data-chale="um Chalé Premium" data-posicao="valor-premium">Reservar um Chalé Premium</a>
+            <p class="fino">Condição para reservas diretas até 15/11</p>
+          </div>
+          <div class="pos-prazo">
+            <p class="enc-txt">Consulte as datas dos Chalés Premium.</p>
+            <a class="btn btn-claro" href="https://wa.me/5548988442348" data-wa data-chale="um Chalé Premium" data-posicao="valor-premium">Consultar disponibilidade</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CHALÉS REFÚGIO -->
+<section class="categoria alt" id="refugios" aria-labelledby="t-refugios">
+  <div class="wrap">
+    <div class="cat-cab revela">
+      <div>
+        <p class="rotulo"><span class="num">02</span>Categoria</p>
+        <h2 id="t-refugios">Chalés Refúgio</h2>
+      </div>
+      <p>Madeira, hidro e o fogo aceso no meio do verde. Para virar o ano a dois ou com a família, com tempo para ficar.</p>
+    </div>
+
+    <div class="cat-grade">
+      <div>
+        <article class="chale">
+          <div class="chale-cab"><h3>Refúgio 2</h3><span class="cap">Até 5 hóspedes</span></div>
+          <p class="desc">Dois andares, duas camas de casal e uma de solteiro. Espaço para a família virar o ano junta.</p>
+          <ul class="specs"><li>Dois andares</li><li>Hidro</li><li>Fogo de chão privativo</li><li>Ideal para família</li></ul>
+          <div class="galeria" data-galeria>
+            <button type="button" aria-label="Ampliar foto: hidro do Refúgio 2"><img src="/fotos/refugio02-3.webp" alt="Hidro do Refúgio 2" width="1600" height="1200" loading="lazy" decoding="async"></button>
+            <button type="button" aria-label="Ampliar foto: quarto do Refúgio 2"><img src="/fotos/refugio02-1.webp" alt="Quarto do Refúgio 2 com cama de casal" width="1600" height="1200" loading="lazy" decoding="async"></button>
+            <button type="button" aria-label="Ampliar foto: varanda do Refúgio 2"><img src="/fotos/refugio02-4.webp" alt="Varanda do Refúgio 2 voltada para a mata" width="1600" height="1198" loading="lazy" decoding="async"></button>
+          </div>
+          <p class="galeria-dica">Deslize para ver mais · toque para ampliar</p>
+          <p class="chale-acao"><a class="link" href="https://wa.me/5548988442348" data-wa data-chale="o Refúgio 2" data-posicao="refugio2">Quero o Refúgio 2 no Réveillon</a></p>
+        </article>
+
+        <article class="chale">
+          <div class="chale-cab"><h3>Refúgio 3</h3><span class="cap">Para o casal</span></div>
+          <p class="desc">Compacto e reservado, com hidro e lareira para as noites frescas da serra.</p>
+          <ul class="specs"><li>Hidro</li><li>Lareira</li><li>Para o casal</li></ul>
+          <div class="galeria" data-galeria>
+            <button type="button" aria-label="Ampliar foto: hidro do Refúgio 3"><img src="/fotos/refugio03-2.webp" alt="Hidro do Refúgio 3" width="1201" height="1600" loading="lazy" decoding="async"></button>
+            <button type="button" aria-label="Ampliar foto: interior do Refúgio 3"><img src="/fotos/refugio03-4.webp" alt="Interior do Refúgio 3 com cama e hidro" width="1600" height="1200" loading="lazy" decoding="async"></button>
+            <button type="button" aria-label="Ampliar foto: Refúgio 3 por fora"><img src="/fotos/refugio03-3.webp" alt="Refúgio 3 visto de fora, entre as árvores" width="1200" height="900" loading="lazy" decoding="async"></button>
+          </div>
+          <p class="galeria-dica">Deslize para ver mais · toque para ampliar</p>
+          <p class="chale-acao"><a class="link" href="https://wa.me/5548988442348" data-wa data-chale="o Refúgio 3" data-posicao="refugio3">Quero o Refúgio 3 no Réveillon</a></p>
+        </article>
+      </div>
+
+      <aside class="cat-aside" aria-label="Valores dos Chalés Refúgio">
+        <div class="valor">
+          <p class="rotulo">Chalés Refúgio · Réveillon</p>
+          <div class="ate-prazo">
+            <p class="preco"><strong>R$ 670</strong><span>por noite · casal, com café</span></p>
+            <dl>
+              <div class="linha"><dt>Pacote de 4 noites</dt><dd>R$ 2.680, com a noite de 31/12</dd></div>
+              <div class="linha"><dt>Pagamento</dt><dd>R$ 1.340 na reserva e R$ 1.340 no check-in, ou até 5x de R$ 536 no cartão</dd></div>
+              <div class="linha"><dt>Família no Refúgio 2</dt><dd>R$ 150 por pessoa extra, por noite</dd></div>
+            </dl>
+            <a class="btn btn-claro" href="https://wa.me/5548988442348" data-wa data-chale="um Chalé Refúgio" data-posicao="valor-refugios">Reservar um Chalé Refúgio</a>
+            <p class="fino">Condição para reservas diretas até 15/11</p>
+          </div>
+          <div class="pos-prazo">
+            <p class="enc-txt">Consulte as datas dos Chalés Refúgio.</p>
+            <a class="btn btn-claro" href="https://wa.me/5548988442348" data-wa data-chale="um Chalé Refúgio" data-posicao="valor-refugios">Consultar disponibilidade</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="area revela">
+      <p class="rotulo">Para todos os hóspedes</p>
+      <p>Mirante com vista para o cânion, Balanço do Infinito, fogo de chão e churrasqueira na área comum. Pets são bem-vindos, com taxa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. COMO FUNCIONA -->
+<section class="regras" id="como-funciona" aria-labelledby="t-regras">
+  <div class="wrap">
+    <p class="rotulo">Como funciona</p>
+    <h2 id="t-regras">Tudo combinado antes de você chegar.</h2>
+    <ol class="passos">
+      <li><span class="n">01</span><h3>Quatro noites com a virada</h3><p>A estadia inclui a noite de 31/12. Por exemplo: de 29/12 a 02/01 ou de 30/12 a 03/01.</p></li>
+      <li class="ate-prazo"><span class="n">02</span><h3>Mais noites, mesma diária</h3><p>Cinco noites saem por R$ 6.000 nos Premium e R$ 3.350 nos Refúgio.</p></li>
+      <li><span class="n ate-prazo">03</span><span class="n pos-prazo">02</span><h3>Café na cesta</h3><p>Chega no chalé todas as manhãs, das 7h30 às 9h30.</p></li>
+      <li><span class="n ate-prazo">04</span><span class="n pos-prazo">03</span><h3>Horários flexíveis</h3><p>Check-in e check-out flexíveis, conforme disponibilidade. Você combina com a gente pelo WhatsApp.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8. AVALIAÇÕES -->
+<section class="prova" aria-labelledby="t-prova">
+  <div class="wrap">
+    <p class="rotulo" id="t-prova">O que dizem os hóspedes</p>
+    <div class="nota" style="margin-top:18px">
+      <strong>4,9</strong>
+      <span><span class="estrelas" aria-hidden="true">★★★★★</span><br>43 avaliações no Google</span>
+    </div>
+    <div class="depo">
+      <figure class="destaque revela">
+        <blockquote>“Buscávamos um final de semana para desconectar e relaxar em meio à natureza (…) Fizemos um piquenique à beira do lago, contemplando o pôr do sol e a beleza mágica dos cânions. Chalé lindo, tudo muito limpo, cama confortável, café da manhã delicioso.”</blockquote>
+        <figcaption>Eduarda · hóspede do Gunnera · Google</figcaption>
       </figure>
-      <figure>
-        <blockquote>“O chalé é incrível e aconchegante, com o climinha de chuva que foi perfeito! (…) Os anfitriões foram muito atenciosos e solícitos!”</blockquote>
-        <figcaption>— William, hóspede do Gunnera · Airbnb</figcaption>
+      <figure class="revela">
+        <blockquote>“Maravilhoso em cada detalhe, moderno, aconchegante! (…) Perfeito para quem busca dias de descanso com um toque de romance e muita comodidade. Limpeza impecável e privacidade total.”</blockquote>
+        <figcaption>Karoline · Google</figcaption>
+      </figure>
+      <figure class="revela">
+        <blockquote>“Os espaços externos ao chalé são encantadores, perfeitos para admirar a paisagem exuberante das colinas, curtindo o friozinho da serra ao redor de uma fogueira quentinha.”</blockquote>
+        <figcaption>Eliane · Google</figcaption>
+      </figure>
+      <figure class="revela">
+        <blockquote>“O chalé é aconchegante, com o climinha de chuva que foi perfeito! (…) Os anfitriões foram muito atenciosos e solícitos!”</blockquote>
+        <figcaption>William · hóspede do Gunnera</figcaption>
+      </figure>
+      <figure class="revela">
+        <blockquote>“Tivemos uma experiência maravilhosa, tudo muito lindo, organizado, limpo e super aconchegante. Com certeza iremos voltar.”</blockquote>
+        <figcaption>Laís · hóspede do Gunnera · Google</figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<!-- 4. VALORES -->
-<section class="valores" aria-label="Valores">
-  <div class="valores-foto">
-    <img src="/fotos/reveillon/cafe-f09.webp" alt="Cesta de café da manhã com a serra ao fundo" width="1080" height="1350" loading="lazy" decoding="async">
-  </div>
-  <div class="valores-texto">
-    <h2>Réveillon no Gunnera ou no Manicata</h2>
-    <p class="preco"><strong>R$1.150</strong><span>por noite · mínimo de 4 noites</span></p>
-    <p class="cafe">Café da manhã incluso, entregue em cesta no chalé.</p>
-    <p class="nota ate-prazo">Benefícios exclusivos para reservas até 15/11/2026.</p>
-    <a class="btn-wa" href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="valores">Quero reservar o Réveillon</a>
+<!-- 9. COMO CHEGAR -->
+<section class="chegar" id="como-chegar" aria-labelledby="t-chegar">
+  <div class="wrap">
+    <p class="rotulo">Como chegar</p>
+    <h2 id="t-chegar">Aos pés dos Canyons de Praia Grande – SC.</h2>
+    <div class="chegar-grade">
+      <!-- Mapa sob demanda: o iframe do Google só carrega no clique (página mais leve) -->
+      <div class="mapa" id="mapa">
+        <div class="mapa-capa">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <p>Estrada Geral Vila Rosa, 147</p>
+          <button type="button" class="btn btn-musgo" id="carregarMapa">Ver o mapa</button>
+        </div>
+      </div>
+      <dl class="infos">
+        <div class="linha"><dt>Endereço</dt><dd>Estrada Geral Vila Rosa, 147 · Praia Grande&nbsp;–&nbsp;SC · CEP 88990-000<br><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=-29.1705,-49.9817" target="_blank" rel="noopener">Abrir no Google Maps</a></dd></div>
+        <div class="linha"><dt>Acesso</dt><dd>A 7 minutos do centro de Praia Grande, com asfalto até a porteira.</dd></div>
+        <div class="linha"><dt>Distâncias</dt><dd>209 km de Porto Alegre · 291 km de Florianópolis</dd></div>
+      </dl>
+    </div>
   </div>
 </section>
 
-<!-- 5. INFORMAÇÕES -->
-<section class="info" aria-label="Informações">
+<!-- 10. CHAMADA FINAL -->
+<section class="final" aria-labelledby="t-final">
+  <img src="/fotos/reveillon/gun-f39.webp" alt="" width="1080" height="1350" loading="lazy" decoding="async">
   <div class="wrap">
-    <h2>Informações</h2>
-    <dl>
-      <div class="linha">
-        <dt>Check-in e check-out</dt>
-        <dd>Check-in a partir das 14h. Check-out até as 11h. O late check-out é benefício, conforme disponibilidade.</dd>
-      </div>
-      <div class="linha">
-        <dt>Distâncias</dt>
-        <dd>209 km de Porto Alegre. 291 km de Florianópolis.</dd>
-      </div>
-      <div class="linha">
-        <dt>Endereço</dt>
-        <dd>Estrada Geral, Vila Rosa, Praia Grande&nbsp;–&nbsp;SC<br><a href="https://www.google.com/maps/search/?api=1&amp;query=-29.1705,-49.9817" target="_blank" rel="noopener">Abrir no mapa</a></dd>
-      </div>
-    </dl>
-  </div>
-</section>
-
-<!-- 6. CHAMADA FINAL -->
-<section class="final" aria-label="Reservar">
-  <div class="wrap">
-    <p>Poucas datas para o Réveillon.</p>
-    <a class="btn-wa" href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="final">
+    <h2 id="t-final" class="ate-prazo">Quatro chalés. Uma virada em silêncio.</h2>
+    <h2 class="pos-prazo">Ainda dá para virar o ano aqui.</h2>
+    <a class="btn btn-claro" href="https://wa.me/5548988442348" data-wa data-chale="" data-posicao="final">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5.1-1.3C8.5 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2zm5.5-5.8c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5.2-.4c.1-.2 0-.4 0-.5L9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
-      Quero reservar o Réveillon
+      <span class="ate-prazo">Reservar até 15/11</span><span class="pos-prazo">Consultar disponibilidade</span>
     </a>
   </div>
 </section>
+</main>
 
 <footer id="politica">
   <div class="wrap">
-    <p>Vila Vicença · Estrada Geral Vila Rosa, 147 · Praia Grande, SC · CEP 88990-000</p>
-    <p><a href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="rodape">WhatsApp (48) 98844-2348</a> · <a href="mailto:vilavicenca@gmail.com">vilavicenca@gmail.com</a></p>
+    <p>Vila Vicença · Estrada Geral Vila Rosa, 147 · Praia Grande, SC · <a href="https://wa.me/5548988442348" data-wa data-chale="" data-posicao="rodape">WhatsApp (48) 98844-2348</a> · <a href="mailto:vilavicenca@gmail.com">vilavicenca@gmail.com</a></p>
     <p>VILA VICENCA HOSPEDARIA LTDA · CNPJ 48.744.895/0001-03 · <a href="#" id="reopenCookie">Preferências de cookies</a></p>
   </div>
 </footer>
 
-<!-- Barra fixa (mobile) -->
-<div class="barra-wa" id="barraWa">
-  <a class="btn-wa" href="https://wa.me/5548988442348" data-wa data-content-type="reveillon" data-posicao="barra">Quero reservar o Réveillon</a>
+<!-- Barra fixa (celular) -->
+<div class="barra" id="barra">
+  <p class="txt ate-prazo"><strong>Réveillon 2026/27</strong>Condições até 15/11</p>
+  <p class="txt pos-prazo"><strong>Réveillon 2026/27</strong>Consulte as datas</p>
+  <a class="btn btn-musgo" href="https://wa.me/5548988442348" data-wa data-chale="" data-posicao="barra">Reservar</a>
 </div>
+
+<!-- Ampliação de fotos -->
+<dialog class="lb" id="lb" aria-label="Foto ampliada">
+  <img alt="">
+  <button type="button" class="fechar" aria-label="Fechar">×</button>
+  <button type="button" class="ant" aria-label="Foto anterior">‹</button>
+  <button type="button" class="prox" aria-label="Próxima foto">›</button>
+</dialog>
 
 <div class="cookie-bar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Cookies">
   <p>Usamos cookies para medir audiência e melhorar sua experiência. Veja nossa <a href="/politica-de-privacidade.html">Política de Privacidade</a>.</p>
@@ -426,146 +677,143 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LodgingBusiness",
-  "name": "Vila Vicença",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Estrada Geral Vila Rosa, 147",
-    "addressLocality": "Praia Grande",
-    "addressRegion": "SC",
-    "postalCode": "88990-000",
-    "addressCountry": "BR"
-  },
-  "geo": {"@type": "GeoCoordinates", "latitude": -29.1705, "longitude": -49.9817},
-  "telephone": "+5548988442348",
-  "url": "https://www.vilavicenca.com.br"
-}
+{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Vila Vicença",
+"address":{"@type":"PostalAddress","streetAddress":"Estrada Geral Vila Rosa, 147","addressLocality":"Praia Grande","addressRegion":"SC","postalCode":"88990-000","addressCountry":"BR"},
+"geo":{"@type":"GeoCoordinates","latitude":-29.1705,"longitude":-49.9817},
+"telephone":"+5548988442348","url":"https://www.vilavicenca.com.br"}
 </script>
 
 <script>
-  /* ===== WhatsApp + rastreamento (Réveillon) =====
-     Código RV1 por padrão; RVG quando a visita vem do Google
-     (utm_source=google ou gclid do auto-tagging do Google Ads). */
+  /* ===== WhatsApp + rastreamento (Réveillon 2026/27) =====
+     whatsapp_ref pela URL de chegada (guardado na sessão):
+       RVG Google Ads (utm_source=google ou gclid) · RVM Meta Ads (utm_source=meta|facebook|fb)
+       RVI Instagram orgânico (utm_source=instagram|ig) · RVW Broadcast (utm_source=whatsapp)
+       RV1 qualquer outra entrada */
   (function(){
     var NUMERO = '5548988442348';
-    var PIXEL_ID = '1382908610552711';
-    var params = new URLSearchParams(location.search);
-    var doGoogle = (params.get('utm_source') || '').toLowerCase() === 'google' || !!params.get('gclid');
-    var ref = doGoogle ? 'RVG' : 'RV1';
-    var encerrado = document.documentElement.getAttribute('data-fase') === 'encerrado';
+    var q = new URLSearchParams(location.search);
+    var fonte = (q.get('utm_source') || '').toLowerCase();
+    var ref = null;
+    if (fonte === 'google' || q.get('gclid')) ref = 'RVG';
+    else if (fonte === 'meta' || fonte === 'facebook' || fonte === 'fb') ref = 'RVM';
+    else if (fonte === 'instagram' || fonte === 'ig') ref = 'RVI';
+    else if (fonte === 'whatsapp') ref = 'RVW';
+    try { if (ref) sessionStorage.setItem('vv_ref_reveillon', ref); else ref = sessionStorage.getItem('vv_ref_reveillon'); } catch(e) {}
+    if (!ref) ref = 'RV1';
+    var enc = document.documentElement.getAttribute('data-fase') === 'encerrado';
 
-    var msg = encerrado
-      ? 'Olá! Quero saber das últimas datas para o Réveillon (' + ref + ')'
-      : 'Olá! Quero saber do Réveillon com os benefícios até 15/11 (' + ref + ')';
-    var url = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(msg);
+    function mensagem(chale){
+      if (enc) return 'Olá! Vi a página de Réveillon e quero consultar a disponibilidade' + (chale ? ' para ' + chale : '') + '. (' + ref + ')';
+      return 'Olá! Vi a página de Réveillon e quero reservar' + (chale ? ' ' + chale : '') + '. (' + ref + ')';
+    }
 
     document.querySelectorAll('[data-wa]').forEach(function(el){
+      var chale = el.getAttribute('data-chale') || '';
+      var url = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(mensagem(chale));
       el.setAttribute('href', url);
       el.setAttribute('target', '_blank');
       el.setAttribute('rel', 'noopener');
-
-      // Protege o link caso algum script reescreva o href (mesmo padrão do site)
-      new MutationObserver(function(){
-        if (el.getAttribute('href') !== url) el.setAttribute('href', url);
-      }).observe(el, {attributes:true, attributeFilter:['href']});
-
+      new MutationObserver(function(){ if (el.getAttribute('href') !== url) el.setAttribute('href', url); })
+        .observe(el, {attributes:true, attributeFilter:['href']});
       el.addEventListener('click', function(){
         if (el.getAttribute('href') !== url) el.setAttribute('href', url);
-
-        // GA4 (via GTM → metrics.vilavicenca.com.br)
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           'event': 'whatsapp_click',
           'whatsapp_ref': ref,
-          'whatsapp_content_type': el.getAttribute('data-content-type') || 'reveillon',
+          'whatsapp_content_type': 'reveillon',
+          'whatsapp_chale': chale ? chale.replace(/^(o|um) /, '') : 'geral',
           'whatsapp_posicao': el.getAttribute('data-posicao') || ''
         });
-
-        // Meta Pixel: Lead. Só dispara se o pixel já estiver carregado
-        // (o GTM só o carrega com consentimento).
-        // ATENÇÃO: se já existir no GTM uma tag "Lead" acionada por whatsapp_click,
-        // troque DISPARAR_LEAD_AQUI para false para não contar em dobro.
-        var DISPARAR_LEAD_AQUI = false;
-        if (DISPARAR_LEAD_AQUI && typeof window.fbq === 'function') {
-          window.fbq('trackSingle', PIXEL_ID, 'Lead', {
-            content_category: 'reveillon',
-            content_name: 'whatsapp_' + ref
-          });
-        }
+        /* Lead do Meta Pixel fica a cargo do GTM (tag acionada por whatsapp_click). */
       });
     });
   })();
 
-  /* ===== Vídeo do hero: carrega só depois da página, e não carrega
-     em economia de dados ou com movimento reduzido ===== */
+  /* ===== Cabeçalho sólido e barra fixa depois do hero ===== */
+  (function(){
+    var hero = document.getElementById('topo'), topo = document.getElementById('cabecalho'), barra = document.getElementById('barra');
+    if (!('IntersectionObserver' in window)) { topo.classList.add('solido'); barra.classList.add('visivel'); return; }
+    new IntersectionObserver(function(es){
+      var fora = !es[0].isIntersecting;
+      topo.classList.toggle('solido', fora);
+      barra.classList.toggle('visivel', fora);
+    }, {rootMargin:'-84px 0px 0px 0px'}).observe(hero);
+  })();
+
+  /* ===== Entrada suave dos blocos ===== */
+  (function(){
+    var els = document.querySelectorAll('.revela');
+    if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('visto'); }); return; }
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  })();
+
+  /* ===== Vídeo do hero: só em celular em pé, sem economia de dados ===== */
   (function(){
     var v = document.getElementById('heroVideo');
     if (!v) return;
-    var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var c = navigator.connection || {};
-    var economia = c.saveData || /(^|-)2g$/.test(c.effectiveType || '');
-    // Vídeo vertical: só em telas em pé (celular). No computador fica a foto.
-    var emPe = window.matchMedia('(max-aspect-ratio: 1/1)').matches;
-    if (reduz || economia || !emPe) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || c.saveData || /(^|-)2g$/.test(c.effectiveType || '') || !matchMedia('(max-aspect-ratio: 1/1)').matches) return;
     function iniciar(){
       var s = document.createElement('source');
-      s.src = v.getAttribute('data-src');
-      s.type = 'video/mp4';
-      v.appendChild(s);
-      v.muted = true;
+      s.src = v.getAttribute('data-src'); s.type = 'video/mp4';
+      v.appendChild(s); v.muted = true;
       v.addEventListener('playing', function(){ v.classList.add('ativo'); }, {once:true});
       v.load();
-      var p = v.play();
-      if (p && p.catch) p.catch(function(){ /* autoplay bloqueado: fica a foto */ });
+      var p = v.play(); if (p && p.catch) p.catch(function(){});
     }
-    if (document.readyState === 'complete') iniciar();
-    else window.addEventListener('load', iniciar);
+    if (document.readyState === 'complete') iniciar(); else addEventListener('load', iniciar);
   })();
 
-  /* ===== Barra fixa de WhatsApp: aparece quando o hero sai da tela ===== */
+  /* ===== Ampliação de fotos ===== */
   (function(){
-    var barra = document.getElementById('barraWa');
-    var hero = document.getElementById('topo');
-    if (!barra || !hero || !('IntersectionObserver' in window)) return;
-    new IntersectionObserver(function(es){
-      barra.classList.toggle('visivel', !es[0].isIntersecting);
-    }, {threshold:0}).observe(hero);
+    var lb = document.getElementById('lb');
+    if (!lb || typeof lb.showModal !== 'function') return;
+    var img = lb.querySelector('img'), lista = [], i = 0;
+    function mostrar(n){ i = (n + lista.length) % lista.length; img.src = lista[i].src; img.alt = lista[i].alt; }
+    document.querySelectorAll('[data-galeria]').forEach(function(g){
+      var fotos = [].slice.call(g.querySelectorAll('img'));
+      g.querySelectorAll('button').forEach(function(b, n){
+        b.addEventListener('click', function(){ lista = fotos; mostrar(n); lb.showModal(); });
+      });
+    });
+    lb.querySelector('.fechar').addEventListener('click', function(){ lb.close(); });
+    lb.querySelector('.ant').addEventListener('click', function(){ mostrar(i - 1); });
+    lb.querySelector('.prox').addEventListener('click', function(){ mostrar(i + 1); });
+    lb.addEventListener('click', function(e){ if (e.target === lb) lb.close(); });
+    lb.addEventListener('keydown', function(e){ if (e.key === 'ArrowLeft') mostrar(i - 1); if (e.key === 'ArrowRight') mostrar(i + 1); });
+  })();
+
+  /* ===== Mapa sob demanda ===== */
+  (function(){
+    var b = document.getElementById('carregarMapa');
+    if (!b) return;
+    b.addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.title = 'Mapa da Vila Vicença em Praia Grande – SC';
+      f.src = 'https://maps.google.com/maps?q=-29.1705,-49.9817&z=12&output=embed';
+      f.referrerPolicy = 'no-referrer-when-downgrade';
+      document.getElementById('mapa').appendChild(f);
+    });
   })();
 
   /* ===== Cookies: mesmo cookie vv_consent do resto do site ===== */
   (function(){
-    function getCookie(name){
-      var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-      return m ? m.pop() : '';
-    }
-    function setCookie(name, value, days){
-      var d = new Date();
-      d.setTime(d.getTime() + days*24*60*60*1000);
-      document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
-    }
+    function getCookie(n){ var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)'); return m ? m.pop() : ''; }
+    function setCookie(n, v, d){ var t = new Date(); t.setTime(t.getTime() + d*864e5); document.cookie = n + '=' + v + ';expires=' + t.toUTCString() + ';path=/;SameSite=Lax'; }
     var bar = document.getElementById('cookieBar');
+    var tudo = {'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'};
     function mostrar(){ bar.classList.add('show'); document.body.classList.add('cookie-aberto'); }
     function esconder(){ bar.classList.remove('show'); document.body.classList.remove('cookie-aberto'); }
-    var consent = getCookie('vv_consent');
-    if (consent === 'granted') {
-      gtag('consent', 'update', {'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});
-    }
-    if (!consent) mostrar();
-    document.getElementById('cookieAccept').addEventListener('click', function(){
-      setCookie('vv_consent', 'granted', 180);
-      gtag('consent', 'update', {'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});
-      esconder();
-    });
-    document.getElementById('cookieReject').addEventListener('click', function(){
-      setCookie('vv_consent', 'denied', 180);
-      esconder();
-    });
-    document.getElementById('reopenCookie').addEventListener('click', function(e){
-      e.preventDefault();
-      mostrar();
-    });
+    var c = getCookie('vv_consent');
+    if (c === 'granted') gtag('consent', 'update', tudo);
+    if (!c) mostrar();
+    document.getElementById('cookieAccept').addEventListener('click', function(){ setCookie('vv_consent','granted',180); gtag('consent','update',tudo); esconder(); });
+    document.getElementById('cookieReject').addEventListener('click', function(){ setCookie('vv_consent','denied',180); esconder(); });
+    document.getElementById('reopenCookie').addEventListener('click', function(e){ e.preventDefault(); mostrar(); });
   })();
 </script>
 </body>
